@@ -3,4 +3,22 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :crawls
+  has_many :drinks
+
+  # validates :name,
+  #   presence: true,
+  #   length: { in: 4..40 }
+
+  # validates :nickname,
+  #   presence: true,
+  #   uniqueness: true,
+  #   length: { in: 3..20 }
+
+  # validates :email,
+  #   presence: true,
+  #   uniqueness: true,
+  #   format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+
 end
