@@ -14,7 +14,7 @@ var Crawls = React.createClass({
         <div className="row">
           <div className="col-md-8">
             <h1>Crawls</h1>
-            <table className="table table-hover">
+            <table className="table table-responsive">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -25,7 +25,7 @@ var Crawls = React.createClass({
               <tbody>
                 { this.props.crawls.map(function(crawl) {
                   return (
-                    <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars }/>
+                    <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } />
                   )
                 })}
               </tbody>
