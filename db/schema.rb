@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221004420) do
+
+ActiveRecord::Schema.define(version: 20160221200451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,20 +22,13 @@ ActiveRecord::Schema.define(version: 20160221004420) do
     t.string   "address"
     t.string   "city"
     t.string   "province"
-    t.string   "lat"
-    t.string   "lng"
     t.string   "website"
     t.string   "phone_number"
     t.integer  "price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "bars_tags", force: :cascade do |t|
-    t.integer  "bar_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.decimal  "lat",          precision: 9,  scale: 7
+    t.decimal  "lng",          precision: 10, scale: 7
   end
 
   create_table "crawls", force: :cascade do |t|
@@ -46,6 +40,11 @@ ActiveRecord::Schema.define(version: 20160221004420) do
   end
 
   add_index "crawls", ["user_id"], name: "index_crawls_on_user_id", using: :btree
+
+  create_table "crawls_tags", force: :cascade do |t|
+    t.integer "crawl_id"
+    t.integer "tag_id"
+  end
 
   create_table "drinks", force: :cascade do |t|
     t.integer  "bar_id"

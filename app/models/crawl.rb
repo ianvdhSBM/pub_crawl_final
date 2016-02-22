@@ -1,7 +1,8 @@
 class Crawl < ActiveRecord::Base
 
   belongs_to :user
-  has_and_belongs_to_many :bars
+  has_many :hops
+  has_many :bars, through: :hops
   has_many :reviews
   has_many :invitees
 
