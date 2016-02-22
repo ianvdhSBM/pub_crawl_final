@@ -26,6 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'react-rails', '~> 1.6.0'
+
+# Bootstrap for Rails
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# Bootstrap dependency
+gem 'sprockets-rails', '>= 2.1.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
