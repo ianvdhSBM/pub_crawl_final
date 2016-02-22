@@ -12,22 +12,22 @@ var Crawl = React.createClass({
   },
 
   render: function() {
-    return (
+    var crawl = this.state.crawl
+
+    return ( 
       <section>
         <tr onClick={this.expandCrawl}>
-          <td>{this.props.crawl.name}</td>
-          <td>{this.props.crawl.start_address}</td>
-          <td>{this.props.crawl.description}</td>
+          <td>{crawl.name}</td>
+          <td>{crawl.start_address}</td>
+          <td>{crawl.description}</td>
         </tr>
         <tr>
-          {this.state.details ? "<CrawlDetails />" : null}
+          {this.state.details ? <CrawlDetails key={ crawl.id } hops={ crawl.hops } /> : null}
         </tr>
       </section>  
     )
   }
 });
-
-
 
 // <tr>
 //   <td>{this.props.crawl.name}</td>
