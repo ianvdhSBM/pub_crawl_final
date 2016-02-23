@@ -1,16 +1,15 @@
-var CrawlDetails = React.createClass({
-
-getInitialState: function() {
-  return {
-    hops: this.props.hops
-  }
+class CrawlDetails extends React.Component {
   
-},
+  constructor(props) {
+    super();
+    this.state = {
+      hops: props.hops
+    }
+  }
 
-render: function() {
-  var hops = this.state.hops
-  return (
-    
+  render () {
+    var hops = this.state.hops
+    return (
       <ol>
         { hops.map(function(hop) {
           return (
@@ -19,8 +18,7 @@ render: function() {
           }) 
         }  
       </ol>
-    
-  )
+    )
+  }
 }
 
-});

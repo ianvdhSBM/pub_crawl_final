@@ -1,19 +1,21 @@
-var Crawls = React.createClass({
-  getInitialState: function() {
-    return {
-      crawls: this.props.crawls,
-      // bars: this.props.bars
-    }
-  },
+class CrawlsList extends React.Component {
 
-  render: function() {
+  constructor(props) {
+    super();
+    // debugger
+    this.state = {
+      crawls: props.crawls
+    }
+  }
+
+  render () {
     var self = this;
-    var bars = this.props.bars;
     return (
       <div className="container">
         <div className="row">
           <div className="col-md-8">
-            <h1>Crawls</h1>
+            <h1>Hops</h1>
+            <Filters />
             <table className="table table-responsive">
               <thead>
                 <tr>
@@ -33,6 +35,7 @@ var Crawls = React.createClass({
           </div>
         </div>
       </div>
-    );
+    )
   }
-});
+}
+
