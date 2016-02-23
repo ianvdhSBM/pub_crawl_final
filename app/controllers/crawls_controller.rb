@@ -1,7 +1,9 @@
 class CrawlsController < ApplicationController
 
   def index
-    @crawls = Crawl.all
+    # @crawls = Crawl.all
+    @crawls = Crawl.includes(hops: :bar)
+    # render component: 'Crawls', props: { crawls: @crawls }
   end
 
   def show
