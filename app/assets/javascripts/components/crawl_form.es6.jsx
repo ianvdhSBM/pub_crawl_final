@@ -2,29 +2,29 @@ class CrawlForm extends React.Component {
   constructor(){
     super()
     this.state = {
-      bars: [{
-        name: "",
-        address: ""
-      }],
       crawl: {
         name: "",
-        description: ""
+        description: "",
+        bar_names: [""]
       }
     }
   }
 
   addBar(){
-    var bars = this.state.bars;
-    bars.push({
-        name: "",
-        address: ""
-      });
-    this.setState({bars: bars});
+    var crawl = this.state.crawl;
+    crawl.bar_names.push("");
+    this.setState({crawl: crawl});
   }
   onBarNameChange(e, index){
-    var bars = this.state.bars;
-    bars[index].name = e.target.value;
-    this.setState({bars: bars})
+    var crawl = this.state.crawl;
+    crawl.bar_names[index] = e.target.value;
+    this.setState({crawl: crawl})
+  }
+
+  onBarRemove(index){
+    var crawl = this.state.crawl;
+    crawl.bar_names.splice(index, 1);
+    this.setState({crawl: crawl});
   }
 
   onDescChange(e){
@@ -39,20 +39,52 @@ class CrawlForm extends React.Component {
     this.setState({crawl: crawl})
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    data = {
+      crawl: {}
+    }
+    data.crawl = this.state.crawl;
+    console.log(data);
+    $.ajax({
+      url: "/crawls/",
+      dataType: 'json',
+      type: 'POST',
+      data: data,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  }
+
   render () {
     var self = this;
-    var barsArray = this.state.bars.map((bar, index) => {
+    var barsArray = this.state.crawl.bar_names.map((bar, index) => {
           return (
-            <div className="form-group">
-              <label>Bar Name</label>
-              <input key={index} className="form-control" placeholder="Bar Name"
-              defaultValue={bar.name} onChange={(e) => this.onBarChange(e, index)}/>
+            <div className="input-group" >
+              <input key={index} type="text" className="form-control" placeholder={"Bar " + (index + 1)}
+              defaultValue={bar} onChange={(e) => this.onBarNameChange(e, index)}/>
+              {(() => {
+                if(index > 0){
+                  return (
+                    <span className="input-group-btn">
+                      <button type="button" onClick={() => this.onBarRemove(index)} className="btn btn-default">X</button>
+                    </span>
+                  )
+                }
+                else{
+                  return <span className="input-group-addon" id="sizing-addon1">&nbsp;</span>
+                }
+              })()}
             </div>
           )
         })
 
     return (
-      <form >
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <div className="form-group">
           <label>Crawl Name</label>
           <input className="form-control" placeholder="Crawl Name" onChange={this.onNameChange.bind(this)}/>
