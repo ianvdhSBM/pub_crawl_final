@@ -2,19 +2,23 @@ class CrawlsList extends React.Component {
 
   constructor(props) {
     super();
+    this.filterProps = this.filterProps.bind(this);
     this.state = {
-      crawls: props.crawls
+      crawls: props.crawls,
     }
   }
 
+  sortName(crawls) {
+    return crawls.sort(function(a, b){
+      if(a.name < b.name) return -1;
+      if(a.name > b.name) return 1;
+      return 0;
+    })
+  }
 
-
-  // sortCrawls(param) {
-  //   // sort based on param
-  //   // set state
-  // }
-
+  // toggle sort to sort alphabetically / reverse
   filterProps(filter) {
+    debugger
     console.log('You clicked' + filter);
     switch (filter) {
       case 'dive bar':
@@ -28,6 +32,11 @@ class CrawlsList extends React.Component {
         break;
       case 'name':
         console.log('filter');
+        this.props.crawls.map(function(crawl) {
+          console.log(crawl.tags);
+        })
+        crawls = Array.from(this.props.crawls);
+        this.setState({crawls: this.sortName(crawls)})
         break;
       default:
         console.log('what?');
@@ -52,7 +61,7 @@ class CrawlsList extends React.Component {
 
         </div>
 
-        { this.props.crawls.map(function(crawl) {
+        { this.state.crawls.map(function(crawl) {
           return (
             <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
           )

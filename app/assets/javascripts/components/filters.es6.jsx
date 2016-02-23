@@ -29,9 +29,8 @@ class Filters extends React.Component {
             <li role="presentation" onClick={()=>this.props.filterProps('beer')}><a href="#">beer</a></li>
           </ul>
         </li>
-        <li role="presentation" className="active" onClick={()=>this.props.filterProps('string')}><a href="#">neighbourhood</a></li>
-        <li role="presentation" onClick={()=>this.props.filterProps('name')}><a href="#">name</a></li>
-        <li role="presentation" onClick={()=>this.props.filterProps('string')}><a href="#">proximity</a></li>
+        <li role="presentation" className="active" onClick={()=>this.props.filterProps('name')}><a href="#">name</a></li>
+        <li role="presentation" onClick={()=>this.props.filterProps('price')}><a href="#">price</a></li>
         <li role="presentation" onClick={()=>this.props.filterProps('rating')}><a href="#">rating</a></li>
       </ul>
     )
