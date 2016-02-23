@@ -15,6 +15,16 @@ class CrawlForm extends React.Component {
     crawl.bar_names.push("");
     this.setState({crawl: crawl});
   }
+
+  autocomplete(e, index){
+    var length = e.target.value.length;
+    if(length > 3){
+      if(length % 2 == 0){
+        console.log(index);
+      }
+    }
+  }
+
   onBarNameChange(e, index){
     var crawl = this.state.crawl;
     crawl.bar_names[index] = e.target.value;
@@ -66,7 +76,7 @@ class CrawlForm extends React.Component {
           return (
             <div className="input-group" >
               <input key={index} type="text" className="form-control" placeholder={"Bar " + (index + 1)}
-              defaultValue={bar} onChange={(e) => this.onBarNameChange(e, index)}/>
+              defaultValue={bar} onChange={(e) => this.onBarNameChange(e, index)} onKeyUp={(e) => this.autocomplete(e, index)}/>
               {(() => {
                 if(index > 0){
                   return (
