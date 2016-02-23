@@ -1,19 +1,21 @@
-var CrawlsList = React.createClass({
-  getInitialState: function() {
-    return {
-      crawls: this.props.crawls,
-      // bars: this.props.bars
-    }
-  },
+class CrawlsList extends React.Component {
 
-  render: function() {
-    var bars = this.props.bars;
+  constructor(props) {
+    super();
+    this.state = {
+      crawls: props.crawls
+    }
+  }
+
+  render () {
 
     return (
+
       <div className="container">
         <div className="row">
 
             <h1>Crawls</h1>
+            <Filters />
             <div className="crawlList-flex">
               <div className="crawlList-header"><h3>Name</h3></div>
               <div className="crawlList-header"><h3>Start Address</h3></div>
@@ -28,8 +30,8 @@ var CrawlsList = React.createClass({
           )
         })}
       </div>
-    );
-  }
-});
 
+    )
+  }
+}
 
