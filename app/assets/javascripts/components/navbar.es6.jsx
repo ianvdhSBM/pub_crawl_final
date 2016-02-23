@@ -1,4 +1,17 @@
 class Navbar extends React.Component {
+
+  renderSignInSignOut(user) {
+    if (user === null) {
+      return (
+        <li><a href="/users/sign_in">Sign in</a></li>
+      )
+    } else {
+      return (
+        <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
+      )
+    }
+  }
+
   render () {
     return (
       <nav className="navbar navbar-default">
@@ -24,10 +37,8 @@ class Navbar extends React.Component {
               <button type="submit" className="btn btn-default">search</button>
             </form>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="/users/sign_up">Sign up!</a></li>
-              <li><a href="/users/sign_in">Sign in</a></li>
-              <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
-              <li><a href="#">contact</a></li>
+              { this.renderSignInSignOut(this.props.user) }
+                <li><a href="#">contact</a></li>
             </ul>
           </div>
         </div>
