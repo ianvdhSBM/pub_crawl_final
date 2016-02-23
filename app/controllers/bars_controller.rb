@@ -1,7 +1,13 @@
 class BarsController < ApplicationController
 
+  def index
+    @bars = Bar.all
+    # render component: 'Bars', props: { bars: @bars }
+  end
+
   def show
     @bar = Bar.find_by(id: params[:id])
+    # render component: 'Bar', props: { bar: @bar }
   end
 
   def new
