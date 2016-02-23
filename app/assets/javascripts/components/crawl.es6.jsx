@@ -24,7 +24,7 @@ class Crawl extends React.Component {
             <div className="crawlList-rows">{crawl.description}</div>
           </div>
 
-            {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } /> : null}
+            {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags }/> : null}
 
         {/* </div> */}
       </div>

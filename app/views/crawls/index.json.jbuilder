@@ -1,5 +1,5 @@
 json.crawls(@crawls) do |crawl|
-  json.extract! crawl, :id, :name, :description
+  json.extract! crawl, :id, :name, :description, :tags
   json.start_address crawl.hops[0].bar.address
 
   json.hops(crawl.hops) do |hop|
