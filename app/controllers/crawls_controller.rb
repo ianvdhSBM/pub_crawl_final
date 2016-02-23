@@ -20,7 +20,6 @@ class CrawlsController < ApplicationController
 
   def create
     bar_names = params["crawl"].delete("bar_names")
-    byebug
     hops = []
     bar_names.each_with_index do |bar,index|
       b = Bar.find_by(name: bar)
