@@ -24,7 +24,9 @@ class Navbar extends React.Component {
               <button type="submit" className="btn btn-default">search</button>
             </form>
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">sign in</a></li>
+              <li><a href="/users/sign_up">Sign up!</a></li>
+              <li><a href="/users/sign_in">Sign in</a></li>
+              <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
               <li><a href="#">contact</a></li>
             </ul>
           </div>
