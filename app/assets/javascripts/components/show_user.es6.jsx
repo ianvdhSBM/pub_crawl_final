@@ -17,6 +17,7 @@ class ShowUser extends React.Component {
           <p>{user.email}</p>
           <p>{user.firstname}</p>
           <p>{user.lastname}</p>
+          <img src={user.image.image.thumb.url} />
         </div>
       </div>
     )

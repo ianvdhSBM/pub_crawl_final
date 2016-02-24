@@ -2,6 +2,7 @@ json.user do
   json.email      @user.email
   json.firstname  @user.firstname
   json.lastname   @user.lastname
+  json.image      @user.image
 
 
   json.crawls(@user.crawls) do |crawl|
