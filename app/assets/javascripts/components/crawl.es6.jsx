@@ -33,14 +33,3 @@ class Crawl extends React.Component {
     )
   }
 }
-
-      //  <section>
-      //   <tr onClick={this.expandCrawl.bind(this)}>
-      //     <td>{crawl.name}</td>
-      //     <td>{crawl.start_address}</td>
-      //     <td>{crawl.description}</td>
-      //   </tr>
-      //   <tr>
-      //     {self.state.details ? <CrawlDetails key={ crawl.id } hops={ crawl.hops } /> : null}
-      //   </tr>
-      // </section>
