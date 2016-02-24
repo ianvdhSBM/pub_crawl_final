@@ -20,7 +20,7 @@ class CrawlsList extends React.Component {
   // implement an 'all' filter set to this.props.crawls that will show the crawls in original order
   filterCrawls(filter) {
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
-    var filters = ['name', 'price', 'rating'];
+    var filters = ['all', 'name', 'price', 'rating'];
     if (tags.indexOf(filter) > -1) {
       this.setState({filtercrawls: this.props.crawls.filter(function(crawl) {
         for (var i = 0; i < crawl.tags.length; i++) {
@@ -31,9 +31,24 @@ class CrawlsList extends React.Component {
         return false;
       })})
     }
-    else if (filter === 'name') {
-      crawls = Array.from(this.props.crawls);
-      this.setState({filtercrawls: this.sortName(crawls)})
+    else if (filters.indexOf(filter) > -1) {
+      switch (filter) {
+        case 'all':
+          this.setState({filtercrawls: this.props.crawls})
+          break;
+        case 'name':
+          crawls = Array.from(this.props.crawls);
+          this.setState({filtercrawls: this.sortName(crawls)})
+          break;
+        case 'price':
+          console.log(filter);
+          break;
+        case 'rating':
+          console.log(filter);
+          break;
+        default:
+          console.log('wtf')
+      }
     }
   }
 
