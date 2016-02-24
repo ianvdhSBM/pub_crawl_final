@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
 
-has_and_belongs_to_many :bars
+has_and_belongs_to_many :crawls
 
 end

@@ -22,7 +22,7 @@ class Navbar extends React.Component {
 
   render () {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-fixed-top" id="navbar">
         <div className="container-fluid">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

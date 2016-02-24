@@ -2,10 +2,23 @@ class Crawl extends React.Component {
 
   constructor(props) {
     super();
+    // this.setAveragePrice = this.setAveragePrice.bind(this);
     this.state = {
       crawl: props.crawl,
-      details: false
+      details: false,
+      price: null
     }
+  }
+
+  componentDidMount() {
+    var bars = this.props.crawl.hops
+    var prices = [];
+    for (var i = 0; i < bars.length; i++) {
+      if (bars[i].price !== null) {
+        prices.push(bars[i].price);
+      }
+    }
+    this.setState({price: Math.round(((prices.reduce( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
   expandCrawl() {
@@ -23,10 +36,9 @@ class Crawl extends React.Component {
           <div className="crawlList-rows">{crawl.description}</div>
         </div>
 
-          {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } /> : null}
+            {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
 
       </div>
-
 
     )
   }
