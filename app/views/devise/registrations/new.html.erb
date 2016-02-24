@@ -1,7 +1,18 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
   <%= devise_error_messages! %>
+
+  <div>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+
+      <% if f.object.image? %>
+        <%= image_tag f.object.image.thumb.url %>
+        <%= f.label :remove_image %>
+        <%= f.check_box :remove_image %>
+    <% end %>
+  </div>
 
   <div class="field">
     <%= f.label :firstname %><br />
