@@ -11,9 +11,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
           <CrawlsList crawls={ this.state.crawls } />
-        </div>
       </div>
     )
 
