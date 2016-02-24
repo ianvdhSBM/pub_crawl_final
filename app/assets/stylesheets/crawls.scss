@@ -6,3 +6,19 @@
   display: flex;
   box-sizing: border-box;
 }*/
+.visually-hidden {
+  display: none;
+}
+
+div.awesomplete {
+  display: block;
+
+  ul {
+    top: 40px;
+  }
+
+  mark {
+    background: #FFFFFF;
+    background-color: #FFFFFF;
+  }
+}

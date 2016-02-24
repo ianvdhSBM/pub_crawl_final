@@ -19,22 +19,21 @@ class CrawlsController < ApplicationController
   end
 
   def create
-    bar_names = params["crawl"].delete("bar_names")
+    bar_names = params["bar_names"]
     hops = []
     bar_names.each_with_index do |bar,index|
-      b = Bar.find_by(name: bar)
-      unless b
-        #handle bar not found
-      else
+      unless bar.nil?
+        b = Bar.find_by(name: bar)
         hops << Hop.new(position: index + 1, bar: b)
       end
     end
     @crawl = Crawl.new(crawl_params)
+    hops.each {|hop| @crawl.hops << hop}
 
     if @crawl.save
-      # code here
+      redirect_to root_path
     else
-      # code here
+      render "new"
     end
   end
 

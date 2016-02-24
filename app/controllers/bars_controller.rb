@@ -43,6 +43,10 @@ class BarsController < ApplicationController
     end
   end
 
+  def autocomplete
+    @bars = Bar.where("name LIKE ?", "#{params[:query]}%").pluck(:name)
+  end
+
   private
 
   def bar_params

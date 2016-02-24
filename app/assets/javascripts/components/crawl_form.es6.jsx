@@ -55,17 +55,17 @@ class CrawlForm extends React.Component {
       crawl: {}
     }
     data.crawl = this.state.crawl;
-    console.log(data);
     $.ajax({
       url: "/crawls/",
       dataType: 'json',
       type: 'POST',
       data: data,
       success: function(data) {
-        this.setState({data: data});
+        window.location.pathname = data.location;
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        var message = JSON.parse(xhr.responseText);
+        console.log(message.message);
       }.bind(this)
     });
   }
