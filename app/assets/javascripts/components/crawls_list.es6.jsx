@@ -4,16 +4,26 @@ class CrawlsList extends React.Component {
     super();
     this.filterCrawls = this.filterCrawls.bind(this);
     this.state = {
-      filtercrawls: props.crawls
+      filtercrawls: props.crawls,
+      clicked: false
     }
   }
 
   sortName(crawls) {
-    return crawls.sort(function(a, b){
-      if(a.name < b.name) return -1;
-      if(a.name > b.name) return 1;
-      return 0;
-    })
+    if (this.state.clicked === true) {
+      return crawls.sort(function(a, b){
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
+        return 0;
+      })
+    }
+    else {
+      return crawls.sort(function(a, b) {
+        if(a.name > b.name) return -1;
+        if(a.name < b.name) return 1;
+        return 0;
+      })
+    }
   }
 
   // toggle sort to be both alphebetical / reverse alphabetical
@@ -37,6 +47,7 @@ class CrawlsList extends React.Component {
           this.setState({filtercrawls: this.props.crawls})
           break;
         case 'name':
+          this.setState({clicked: !this.state.clicked})
           crawls = Array.from(this.props.crawls);
           this.setState({filtercrawls: this.sortName(crawls)})
           break;

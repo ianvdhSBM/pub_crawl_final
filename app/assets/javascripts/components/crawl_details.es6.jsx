@@ -32,7 +32,6 @@ class CrawlDetails extends React.Component {
       </div>
       <div>
         <h2>Details</h2>
-
       </div>
     </div>
     )
