@@ -14,10 +14,15 @@ class ShowUser extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <p>{user.email}</p>
-          <p>{user.firstname}</p>
-          <p>{user.lastname}</p>
-          <img src={user.image.image.thumb.url} />
+          <div className="profile-flex">
+            <div className="profile-pic">
+              <img src={user.image.image.thumb.url} />
+            </div>
+            <div className="profile-details">
+              <h3>{user.firstname}'s profile</h3>
+              <p></p>
+            </div>
+          </div>
         </div>
       </div>
     )

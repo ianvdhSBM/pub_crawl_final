@@ -1,24 +1,4 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.crawlList-flex {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.crawlList-header {
-  width: 33.33333%;
-}
-
-.crawlList-rows {
-  width: 33.33333%;
-}
-
-.row.border {
-  border-top: solid 1px gray;
-}
-
-.hops-list {
-  width: 40.0%;
-}
+@import "crawls.scss";
+@import "users.scss";

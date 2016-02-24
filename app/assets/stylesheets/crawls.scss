@@ -2,7 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*#crawl-flex {
+.crawlList-flex {
   display: flex;
+  align-items: center;
   box-sizing: border-box;
-}*/
+}
+
+.crawlList-header {
+  width: 33.33333%;
+}
+
+.crawlList-rows {
+  width: 33.33333%;
+}
+
+.row.border {
+  border-top: solid 1px gray;
+}
+
+.hops-list {
+  width: 40.0%;
+}
