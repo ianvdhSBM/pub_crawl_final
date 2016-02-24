@@ -10,3 +10,9 @@ json.crawls(@crawls) do |crawl|
     json.extract! hop.bar, :name, :address, :city, :province, :phone_number, :website, :price
   end
 end
+
+json.tags(@crawls) do |crawl|
+  json.tags(crawl.tags) do |tag|
+    json.extract! tag, :name
+  end
+end

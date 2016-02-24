@@ -4,7 +4,7 @@ class CrawlsList extends React.Component {
     super();
     this.filterProps = this.filterProps.bind(this);
     this.state = {
-      crawls: props.crawls,
+      crawls: props.crawls
     }
   }
 
@@ -22,10 +22,15 @@ class CrawlsList extends React.Component {
     console.log('You clicked' + filter);
     switch (filter) {
       case 'dive bar':
+        //iterate over crawls to get each crawl's tags
+        //iterate over those tags
+        //see if it matches the case value
+        //if so set crawls: equal to a new array of those crawls
+        //this.setState({crawls: this.})
         console.log(filter);
         break;
       case 'wine':
-        console.log(filter);
+        this.setState({crawls: this.state.crawls.filter(this.filterByProperty)})
         break;
       case 'cocktails':
         console.log(filter);
@@ -43,6 +48,16 @@ class CrawlsList extends React.Component {
     }
 
   }
+
+  filterByProperty(value) {
+    for (var i = 0; i < value.tags.length; i++) {
+      if (value.tags[i].name === 'dive bar') {
+          return true;
+      }
+    }
+    return false;
+  }
+
 
   render () {
   
