@@ -10,27 +10,22 @@ class CrawlsList extends React.Component {
   render () {
 
     return (
+      <div className="row">
+        <h1>Crawls</h1>
+        <Filters />
 
-      <div className="container">
-        <div className="row">
-
-            <h1>Crawls</h1>
-            <Filters />
-            <div className="crawlList-flex">
-              <div className="crawlList-header"><h3>Name</h3></div>
-              <div className="crawlList-header"><h3>Start Address</h3></div>
-              <div className="crawlList-header"><h3>Description</h3></div>
-            </div>
-
+        <div className="crawlList-flex">
+          <div className="crawlList-header"><h3>Name</h3></div>
+          <div className="crawlList-header"><h3>Start Address</h3></div>
+          <div className="crawlList-header"><h3>Description</h3></div>
         </div>
 
-        { this.props.crawls.map(function(crawl) {
-          return (
-            <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } />
-          )
-        })}
+          { this.props.crawls.map(function(crawl) {
+            return (
+              <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } />
+            )
+          })}
       </div>
-
     )
   }
 }
