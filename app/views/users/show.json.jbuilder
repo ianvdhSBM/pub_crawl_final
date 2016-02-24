@@ -1,5 +1,7 @@
 json.user do
-  json.email @user.email
+  json.email      @user.email
+  json.firstname  @user.firstname
+  json.lastname   @user.lastname
 
 
   json.crawls(@user.crawls) do |crawl|

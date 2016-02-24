@@ -14,7 +14,9 @@ class ShowUser extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          {user.email}
+          <p>{user.email}</p>
+          <p>{user.firstname}</p>
+          <p>{user.lastname}</p>
         </div>
       </div>
     )
