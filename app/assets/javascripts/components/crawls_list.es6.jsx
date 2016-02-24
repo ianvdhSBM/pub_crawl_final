@@ -18,8 +18,7 @@ class CrawlsList extends React.Component {
 
   // toggle sort to sort alphabetically / reverse
   filterProps(filter) {
-    debugger
-    console.log('You clicked' + filter);
+    console.log('You clicked ' + filter);
     switch (filter) {
       case 'dive bar':
         //iterate over crawls to get each crawl's tags
@@ -32,9 +31,6 @@ class CrawlsList extends React.Component {
       case 'wine':
         this.setState({crawls: this.state.crawls.filter(this.filterByProperty)})
         break;
-      case 'cocktails':
-        console.log(filter);
-        break;
       case 'name':
         console.log('filter');
         this.props.crawls.map(function(crawl) {
@@ -46,11 +42,15 @@ class CrawlsList extends React.Component {
       default:
         console.log('what?');
     }
-
   }
 
   filterByProperty(value) {
+    var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
+    var filters = ['name', 'price', 'rating'];
     for (var i = 0; i < value.tags.length; i++) {
+      // if (tags.indexOf(value.tags[i].name) > -1) {
+      //   return true;
+      // }
       if (value.tags[i].name === 'dive bar') {
           return true;
       }
@@ -58,31 +58,31 @@ class CrawlsList extends React.Component {
     return false;
   }
 
-
   render () {
-  
+    var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
+    var filters = ['name', 'price', 'rating'];
     return (
+      <div>
+        <div className="container">
+          <div className="row">
 
-      <div className="container">
-        <div className="row">
+              <h1>Crawls</h1>
+              <Filters filterProps={this.filterProps} tags={tags} filters={filters}/>
+              <div className="crawlList-flex">
+                <div className="crawlList-header"><h3>Name</h3></div>
+                <div className="crawlList-header"><h3>Start Address</h3></div>
+                <div className="crawlList-header"><h3>Description</h3></div>
+              </div>
 
-            <h1>Crawls</h1>
-            <Filters filterProps={this.filterProps}/>
-            <div className="crawlList-flex">
-              <div className="crawlList-header"><h3>Name</h3></div>
-              <div className="crawlList-header"><h3>Start Address</h3></div>
-              <div className="crawlList-header"><h3>Description</h3></div>
-            </div>
+          </div>
 
+          { this.state.crawls.map(function(crawl) {
+            return (
+              <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
+            )
+          })}
         </div>
-
-        { this.state.crawls.map(function(crawl) {
-          return (
-            <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
-          )
-        })}
       </div>
-
     )
   }
 }
