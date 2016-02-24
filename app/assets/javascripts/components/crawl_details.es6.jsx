@@ -22,6 +22,7 @@ class CrawlDetails extends React.Component {
             })
           }
         </ol>
+        <span>Price: {this.props.price}</span>
         <ul>
           { tags.map(function(tag) {
             return (

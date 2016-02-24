@@ -26,8 +26,6 @@ class CrawlsList extends React.Component {
     }
   }
 
-  // toggle sort to be both alphebetical / reverse alphabetical
-  // implement an 'all' filter set to this.props.crawls that will show the crawls in original order
   filterCrawls(filter) {
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];

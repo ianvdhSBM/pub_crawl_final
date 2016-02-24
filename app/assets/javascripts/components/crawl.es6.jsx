@@ -10,17 +10,6 @@ class Crawl extends React.Component {
     }
   }
 
-  // setAveragePrice() {
-  //   var bars = this.props.crawl.hops
-  //   var prices = [];
-  //   for (var i = 0; i < bars.length; i++) {
-  //     if (bars[i].price !== null) {
-  //       prices.push(bars[i].price);
-  //     }
-  //   }
-  //   return avg = Math.round(((prices.reduce( (prev, curr) => prev + curr )) / (prices.length)));
-  // }
-
   componentDidMount() {
     var bars = this.props.crawl.hops
     var prices = [];
@@ -48,7 +37,7 @@ class Crawl extends React.Component {
             <div className="crawlList-rows">{crawl.description}</div>
           </div>
 
-            {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags }/> : null}
+            {self.state.details ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
 
         {/* </div> */}
       </div>
@@ -56,14 +45,3 @@ class Crawl extends React.Component {
     )
   }
 }
-
-      //  <section>
-      //   <tr onClick={this.expandCrawl.bind(this)}>
-      //     <td>{crawl.name}</td>
-      //     <td>{crawl.start_address}</td>
-      //     <td>{crawl.description}</td>
-      //   </tr>
-      //   <tr>
-      //     {self.state.details ? <CrawlDetails key={ crawl.id } hops={ crawl.hops } /> : null}
-      //   </tr>
-      // </section>
