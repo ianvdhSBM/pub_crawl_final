@@ -29,7 +29,6 @@ class Crawl extends React.Component {
         {/* </div> */}
       </div>
 
-
     )
   }
 }

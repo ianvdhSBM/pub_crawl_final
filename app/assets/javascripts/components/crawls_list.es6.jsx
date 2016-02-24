@@ -2,9 +2,9 @@ class CrawlsList extends React.Component {
 
   constructor(props) {
     super();
-    this.filterProps = this.filterProps.bind(this);
+    this.filterCrawls = this.filterCrawls.bind(this);
     this.state = {
-      crawls: props.crawls
+      filtercrawls: props.crawls
     }
   }
 
@@ -16,72 +16,49 @@ class CrawlsList extends React.Component {
     })
   }
 
-  // toggle sort to sort alphabetically / reverse
-  filterProps(filter) {
-    console.log('You clicked ' + filter);
-    switch (filter) {
-      case 'dive bar':
-        //iterate over crawls to get each crawl's tags
-        //iterate over those tags
-        //see if it matches the case value
-        //if so set crawls: equal to a new array of those crawls
-        //this.setState({crawls: this.})
-        console.log(filter);
-        break;
-      case 'wine':
-        this.setState({crawls: this.state.crawls.filter(this.filterByProperty)})
-        break;
-      case 'name':
-        console.log('filter');
-        this.props.crawls.map(function(crawl) {
-          console.log(crawl.tags);
-        })
-        crawls = Array.from(this.props.crawls);
-        this.setState({crawls: this.sortName(crawls)})
-        break;
-      default:
-        console.log('what?');
-    }
-  }
-
-  filterByProperty(value) {
+  // toggle sort to be both alphebetical / reverse alphabetical
+  // implement an 'all' filter set to this.props.crawls that will show the crawls in original order
+  filterCrawls(filter) {
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['name', 'price', 'rating'];
-    for (var i = 0; i < value.tags.length; i++) {
-      // if (tags.indexOf(value.tags[i].name) > -1) {
-      //   return true;
-      // }
-      if (value.tags[i].name === 'dive bar') {
-          return true;
-      }
+    if (tags.indexOf(filter) > -1) {
+      this.setState({filtercrawls: this.props.crawls.filter(function(crawl) {
+        for (var i = 0; i < crawl.tags.length; i++) {
+          if (crawl.tags[i].name === filter) {
+              return true;
+          }
+        }
+        return false;
+      })})
     }
-    return false;
+    else if (filter === 'name') {
+      crawls = Array.from(this.props.crawls);
+      this.setState({filtercrawls: this.sortName(crawls)})
+    }
   }
 
   render () {
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
-    var filters = ['name', 'price', 'rating'];
+    var filters = ['all', 'name', 'price', 'rating'];
     return (
-      <div>
-        <div className="container">
-          <div className="row">
+      <div className="container" id="master-div">
+        <div className="row">
 
-              <h1>Crawls</h1>
-              <Filters filterProps={this.filterProps} tags={tags} filters={filters}/>
-              <div className="crawlList-flex">
-                <div className="crawlList-header"><h3>Name</h3></div>
-                <div className="crawlList-header"><h3>Start Address</h3></div>
-                <div className="crawlList-header"><h3>Description</h3></div>
-              </div>
+            <h1>Crawls</h1>
+            <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
+            <div className="crawlList-flex">
+              <div className="crawlList-header"><h3>Name</h3></div>
+              <div className="crawlList-header"><h3>Start Address</h3></div>
+              <div className="crawlList-header"><h3>Description</h3></div>
+            </div>
 
-          </div>
-
-          { this.state.crawls.map(function(crawl) {
-            return (
-              <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
-            )
-          })}
         </div>
+
+        { this.state.filtercrawls.map(function(crawl) {
+          return (
+            <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
+          )
+        })}
       </div>
     )
   }
