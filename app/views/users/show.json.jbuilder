@@ -1,9 +1,9 @@
 json.user do
-  json.email      @user.email
-  json.firstname  @user.firstname
-  json.lastname   @user.lastname
-  json.image      @user.image
-
+  json.email        @user.email
+  json.firstname    @user.firstname
+  json.lastname     @user.lastname
+  json.image        @user.image
+  json.created_at   @user.created_at
 
   json.crawls(@user.crawls) do |crawl|
     json.extract! crawl, :id, :name, :description

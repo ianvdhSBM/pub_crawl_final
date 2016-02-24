@@ -3,11 +3,19 @@ class Navbar extends React.Component {
   renderSignInSignOut(user) {
     if (user === null) {
       return (
-        <li><a href="/users/sign_in">Sign in</a></li>
+        <ul className="nav navbar-nav navbar-right">
+          <li><a href="/users/sign_up">Sign up!</a></li>
+          <li><a href="/users/sign_in">Sign in</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
       )
     } else {
       return (
-        <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
+        <ul className="nav navbar-nav navbar-right">
+          <li><a href={"/users/" + user.id} >My Profile</a></li>
+          <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
       )
     }
   }
@@ -36,10 +44,7 @@ class Navbar extends React.Component {
               </div>
               <button type="submit" className="btn btn-default">search</button>
             </form>
-            <ul className="nav navbar-nav navbar-right">
-              { this.renderSignInSignOut(this.props.user) }
-                <li><a href="#">contact</a></li>
-            </ul>
+            { this.renderSignInSignOut(this.props.user) }
           </div>
         </div>
       </nav>

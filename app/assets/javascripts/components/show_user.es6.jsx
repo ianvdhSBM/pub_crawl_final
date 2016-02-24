@@ -20,9 +20,16 @@ class ShowUser extends React.Component {
             </div>
             <div className="profile-details">
               <h3>{user.firstname}'s profile</h3>
-              <p></p>
+              <p>{user.email}</p>
+              <p><strong>Joined:</strong> {user.created_at}</p>
+              <p><strong>Hops created:</strong> (Total number of hops created)</p>
+              <p><strong>Reviewed:</strong> (number of reviews) hops</p>
             </div>
           </div>
+          <div>
+            <h2>{user.firstname}'s Hops</h2>
+          </div>
+          <CrawlsList key= { user.id } crawls={ user.crawls } />
         </div>
       </div>
     )
