@@ -4,17 +4,17 @@ class Navbar extends React.Component {
     if (user === null) {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="/users/sign_up">Sign up!</a></li>
-          <li><a href="/users/sign_in">Sign in</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a href="/users/sign_up" className="navigation-item">Sign up!</a></li>
+          <li><a href="/users/sign_in" className="navigation-item">Sign in</a></li>
+          <li><a href="#" className="navigation-item">contact</a></li>
         </ul>
       )
     } else {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href={"/users/" + user.id} >My Profile</a></li>
-          <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a className="navigation-item" href={"/users/" + user.id}>My Profile</a></li>
+          <li><a className="navigation-item" rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
+          <li><a className="navigation-item" href="#">contact</a></li>
         </ul>
       )
     }
@@ -35,11 +35,13 @@ class Navbar extends React.Component {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li><a href="#">about <span className="sr-only">(current)</span></a></li>
-              <li><a href="#">hops</a></li>
+
+              <li><a href="#" className="navigation-item">about <span className="sr-only">(current)</span></a></li>
+              <li><a href="#" className="navigation-item">hops</a></li>
               {
                 this.props.user ? <li><a href="/crawls/new">Create New Hop</a></li> : false
               }
+              
             </ul>
             <form className="navbar-form navbar-left" role="search">
               <div className="form-group">

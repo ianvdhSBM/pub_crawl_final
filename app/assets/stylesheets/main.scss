@@ -1,2 +1,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  color: #3c3c3c;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+}
+
+p {
+  line-height: 1.8em;
+}
+
+li > a {
+  color: #3c3c3c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato';
+  font-weight: 700; 
+}
+
+mark {
+  background-color: #09E5D5;
+  line-height: 1.8em;
+}
+
+.page-wrapper {
+  margin-top: 50px;
+}
+
+#brand-header {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}

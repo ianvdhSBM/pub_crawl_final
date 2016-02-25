@@ -3,30 +3,38 @@ class CrawlsList extends React.Component {
   constructor(props) {
     super();
     this.filterCrawls = this.filterCrawls.bind(this);
+    this.setExpanded = this.setExpanded.bind(this);
     this.state = {
       filtercrawls: props.crawls,
-      clicked: false
+      clicked: false,
+      expanded: null
     }
+    console.log(this);
+  }
+
+  setExpanded(id) {
+    this.setState({expanded: id})
   }
 
   sortName(crawls) {
     if (this.state.clicked === true) {
       return crawls.sort(function(a, b){
-        if(a.name < b.name) return -1;
-        if(a.name > b.name) return 1;
+        if(a.name > b.name) return -1;
+        if(a.name < b.name) return 1;
         return 0;
       })
     }
     else {
       return crawls.sort(function(a, b) {
-        if(a.name > b.name) return -1;
-        if(a.name < b.name) return 1;
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
         return 0;
       })
     }
   }
 
   filterCrawls(filter) {
+    //put tags in the database - get rid of these hardcoded arrays
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     if (tags.indexOf(filter) > -1) {
@@ -62,12 +70,12 @@ class CrawlsList extends React.Component {
   }
 
   render () {
+    var self = this;
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     return (
-      <div id="master-div">
+      <div>
         <div className="row">
-          <h1>Crawls</h1>
           <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
 
           <div className="crawlList-flex">
@@ -78,7 +86,8 @@ class CrawlsList extends React.Component {
         </div>
             { this.state.filtercrawls.map(function(crawl) {
               return (
-                <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
+                <Crawl key={ crawl.id } crawl={ crawl } 
+                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.setExpanded} expanded={self.state.expanded}/>
               )
             })}
       </div>

@@ -1,8 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "main";
 @import "users";
 @import "awesomplete";
 @import "crawls";
+@import "navbar";
 
 .crawlList-flex {
   display: flex;
