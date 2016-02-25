@@ -10,7 +10,9 @@ class App extends React.Component {
   render () {
 
     return (
-      <div className="container">
+      <div className="container" id="master-div">
+        <Description />
+        <h1>hops.</h1>
           <CrawlsList crawls={ this.state.crawls } />
       </div>
     )

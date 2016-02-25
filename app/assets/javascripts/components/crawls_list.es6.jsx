@@ -12,15 +12,15 @@ class CrawlsList extends React.Component {
   sortName(crawls) {
     if (this.state.clicked === true) {
       return crawls.sort(function(a, b){
-        if(a.name < b.name) return -1;
-        if(a.name > b.name) return 1;
+        if(a.name > b.name) return -1;
+        if(a.name < b.name) return 1;
         return 0;
       })
     }
     else {
       return crawls.sort(function(a, b) {
-        if(a.name > b.name) return -1;
-        if(a.name < b.name) return 1;
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
         return 0;
       })
     }
@@ -65,9 +65,8 @@ class CrawlsList extends React.Component {
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     return (
-      <div id="master-div">
+      <div>
         <div className="row">
-          <h1>Crawls</h1>
           <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
 
           <div className="crawlList-flex">
