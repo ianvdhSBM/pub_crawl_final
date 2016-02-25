@@ -25,6 +25,7 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-fixed-top" id="navbar">
         <div className="container-fluid">
           <div className="navbar-header">
+            {/* add icon to the dropdown button */}
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span className="sr-only">Toggle</span>
               <span className="icon-bar"></span>
