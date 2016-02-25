@@ -6,8 +6,13 @@ class BarsController < ApplicationController
   end
 
   def show
-    @bar = Bar.find_by(id: params[:id])
-    # render component: 'Bar', props: { bar: @bar }
+    if request.xhr?
+      @bar = Bar.find_by(name: params[:name])
+      render "show.json.jbuilder"
+    else
+      @bar = Bar.find_by(id: params[:id])
+      # respond to normal request
+    end
   end
 
   def new
@@ -44,7 +49,7 @@ class BarsController < ApplicationController
   end
 
   def autocomplete
-    @bars = Bar.where("name LIKE ?", "#{params[:query]}%").pluck(:name)
+    @bars = Bar.where("name LIKE ?", "#{params[:query]}%").select([:id, :name])
   end
 
   private
