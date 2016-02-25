@@ -4,17 +4,17 @@ class Navbar extends React.Component {
     if (user === null) {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="/users/sign_up">Sign up!</a></li>
-          <li><a href="/users/sign_in">Sign in</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a href="/users/sign_up" className="navigation-item">Sign up!</a></li>
+          <li><a href="/users/sign_in" className="navigation-item">Sign in</a></li>
+          <li><a href="#" className="navigation-item">contact</a></li>
         </ul>
       )
     } else {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href={"/users/" + user.id} >My Profile</a></li>
-          <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a className="navigation-item" href={"/users/" + user.id}>My Profile</a></li>
+          <li><a className="navigation-item" rel="nofollow" data-method="delete" href="/users/sign_out">Sign out</a></li>
+          <li><a className="navigation-item" href="#">contact</a></li>
         </ul>
       )
     }
