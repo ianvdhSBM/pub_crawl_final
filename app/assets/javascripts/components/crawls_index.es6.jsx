@@ -1,9 +1,13 @@
-class App extends React.Component {
+class CrawlsIndex extends React.Component {
 
   constructor(props) {
     super();
     this.state = {
-      crawls: props.crawls
+      crawls: props.crawls,
+      mapCoordinates: {
+        lat: 43.645425,
+        lng: -79.395020
+      }
     }
   }
 
@@ -11,6 +15,7 @@ class App extends React.Component {
 
     return (
       <div className="container page-wrapper">
+        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng}/>
         <Description />
         <h1>hops.</h1>
           <CrawlsList crawls={ this.state.crawls } />
