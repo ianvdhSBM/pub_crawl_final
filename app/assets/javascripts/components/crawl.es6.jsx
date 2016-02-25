@@ -5,7 +5,6 @@ class Crawl extends React.Component {
     // this.setAveragePrice = this.setAveragePrice.bind(this);
     this.state = {
       crawl: props.crawl,
-      details: false,
       price: null
     }
   }
@@ -24,12 +23,9 @@ class Crawl extends React.Component {
   expandCrawl(e) {
     if (e.target.tagName === 'A') return;
 
-    if (this.state.details === true) {
-      this.setState({details: !this.state.details})
+    if (this.props.expanded === this.state.crawl.id) {
       this.props.setExpanded(null)
-    }
-    else {
-      this.setState({details: !this.state.details})
+    } else {
       this.props.setExpanded(this.state.crawl.id)
     }
   }

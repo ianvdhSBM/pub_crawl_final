@@ -2,8 +2,10 @@ class CrawlsIndex extends React.Component {
 
   constructor(props) {
     super();
+    this.setExpanded = this.setExpanded.bind(this);
     this.state = {
       crawls: props.crawls,
+      expanded: null,
       mapCoordinates: {
         lat: 43.645425,
         lng: -79.395020
@@ -11,14 +13,18 @@ class CrawlsIndex extends React.Component {
     }
   }
 
-  render () {
+  setExpanded(id) {
+    this.setState({expanded: id})
+  }
 
+  render () {
+    var self = this;
     return (
       <div className="container page-wrapper">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng}/>
         <Description />
         <h1>hops.</h1>
-          <CrawlsList crawls={ this.state.crawls } />
+          <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
       </div>
     )
 

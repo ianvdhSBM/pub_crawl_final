@@ -3,17 +3,13 @@ class CrawlsList extends React.Component {
   constructor(props) {
     super();
     this.filterCrawls = this.filterCrawls.bind(this);
-    this.setExpanded = this.setExpanded.bind(this);
+    // this.setExpanded = this.setExpanded.bind(this);
     this.state = {
       filtercrawls: props.crawls,
       clicked: false,
       expanded: null
     }
     console.log(this);
-  }
-
-  setExpanded(id) {
-    this.setState({expanded: id})
   }
 
   sortName(crawls) {
@@ -86,8 +82,8 @@ class CrawlsList extends React.Component {
         </div>
             { this.state.filtercrawls.map(function(crawl) {
               return (
-                <Crawl key={ crawl.id } crawl={ crawl } 
-                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.setExpanded} expanded={self.state.expanded}/>
+                <Crawl key={ crawl.id } crawl={ crawl }
+                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded}/>
               )
             })}
       </div>
