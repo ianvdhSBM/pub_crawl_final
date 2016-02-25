@@ -3,10 +3,19 @@ class CrawlsList extends React.Component {
   constructor(props) {
     super();
     this.filterCrawls = this.filterCrawls.bind(this);
+    this.setExpanded = this.setExpanded.bind(this);
     this.state = {
       filtercrawls: props.crawls,
-      clicked: false
+      clicked: false,
+      expanded: null
     }
+    console.log(this);
+  }
+
+  setExpanded(id) {
+    this.setState({expanded: id})
+    console.log(id);
+    console.log(this);
   }
 
   sortName(crawls) {
@@ -62,6 +71,7 @@ class CrawlsList extends React.Component {
   }
 
   render () {
+    var self = this;
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     return (
@@ -77,7 +87,8 @@ class CrawlsList extends React.Component {
         </div>
             { this.state.filtercrawls.map(function(crawl) {
               return (
-                <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags }/>
+                <Crawl key={ crawl.id } crawl={ crawl } 
+                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.setExpanded} expanded={self.state.expanded}/>
               )
             })}
       </div>
