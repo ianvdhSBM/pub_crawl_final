@@ -36,6 +36,8 @@ gem 'carrierwave'
 # gem 'rmagick'
 gem 'mini_magick', '~> 4.3'
 
+# import social icons from font-awesome
+gem 'font-awesome-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

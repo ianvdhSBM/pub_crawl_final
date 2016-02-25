@@ -1,10 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "main";
 @import "users";
 @import "awesomplete";
 @import "crawls";
 @import "navbar";
+@import "footer";
 
 .crawlList-flex {
   display: flex;
