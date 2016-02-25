@@ -28,6 +28,8 @@ class CrawlsController < ApplicationController
       end
     end
     @crawl = Crawl.new(crawl_params)
+    @crawl.user_id = current_user.id
+
     hops.each {|hop| @crawl.hops << hop}
 
     if @crawl.save
