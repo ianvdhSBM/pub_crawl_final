@@ -18,17 +18,19 @@ class Crawl extends React.Component {
         prices.push(bars[i].price);
       }
     }
-    this.setState({price: Math.round(((prices.reduce( (prev, curr) => prev + curr )) / (prices.length)))})
+    this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
-  expandCrawl(id) {
+  expandCrawl(e) {
+    if (e.target.tagName === 'A') return;
+
     if (this.state.details === true) {
       this.setState({details: !this.state.details})
       this.props.setExpanded(null)
     }
     else {
       this.setState({details: !this.state.details})
-      this.props.setExpanded(id)
+      this.props.setExpanded(this.state.crawl.id)
     }
   }
 
@@ -36,7 +38,7 @@ class Crawl extends React.Component {
     var self = this;
     var crawl = this.state.crawl;
     return (
-      <div className="row border" onClick={()=>this.expandCrawl(crawl.id).bind(this)}>
+      <div className="row border" onClick={this.expandCrawl.bind(this)}>
         <div className="crawlList-flex">
           <div className="crawlList-rows"><h4>{crawl.name}</h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
