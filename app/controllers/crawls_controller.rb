@@ -11,7 +11,11 @@ class CrawlsController < ApplicationController
   end
 
   def new
-    @crawl = Crawl.new
+    if user_signed_in?
+      @crawl = Crawl.new
+    else
+      redirect_to user_session_path, notice: "Please sign in to create a new hop!"
+    end
   end
 
   def edit
