@@ -1,7 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "crawls.scss";
-@import "users.scss";
+@import "users";
+@import "awesomplete";
+@import "crawls";
 
 .crawlList-flex {
   display: flex;

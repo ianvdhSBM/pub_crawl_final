@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*
+  Crawls Index Page
+ */
 .crawlList-flex {
   display: flex;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .crawlList-header {
@@ -22,4 +24,24 @@
 
 .hops-list {
   width: 40.0%;
+}
+
+/*
+  Crawls Form Page
+ */
+.visually-hidden {
+  display: none;
+}
+
+div.awesomplete {
+  display: block;
+
+  ul {
+    top: 40px;
+  }
+
+  mark {
+    background: #FFFFFF;
+    background-color: #FFFFFF;
+  }
 }

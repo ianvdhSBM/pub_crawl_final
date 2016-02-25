@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :users, only: [:show, :create, :edit, :update, :destroy]
-  resources :bars, only: [:index, :show, :create, :edit, :update]
+  resources :bars, only: [:index, :show, :create, :edit, :update] do
+    collection do
+      get 'autocomplete/:query' => :autocomplete
+    end
+  end
   resources :drinks, only: [:new, :create]
 
   root to: 'crawls#index'
