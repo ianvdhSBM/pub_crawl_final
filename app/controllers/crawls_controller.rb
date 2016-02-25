@@ -11,7 +11,12 @@ class CrawlsController < ApplicationController
   end
 
   def new
-    @crawl = Crawl.new
+    if user_signed_in?
+      @crawl = Crawl.new
+    else
+      flash[:notice] = "Please sign in to create a new hop!"
+      redirect_to user_session_path
+    end
   end
 
   def edit
@@ -28,6 +33,8 @@ class CrawlsController < ApplicationController
       end
     end
     @crawl = Crawl.new(crawl_params)
+    @crawl.user_id = current_user.id
+
     hops.each {|hop| @crawl.hops << hop}
 
     if @crawl.save

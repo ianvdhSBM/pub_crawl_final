@@ -37,6 +37,9 @@ class Navbar extends React.Component {
             <ul className="nav navbar-nav">
               <li><a href="#">about <span className="sr-only">(current)</span></a></li>
               <li><a href="#">hops</a></li>
+              {
+                this.props.user ? <li><a href="/crawls/new">Create New Hop</a></li> : false
+              }
             </ul>
             <form className="navbar-form navbar-left" role="search">
               <div className="form-group">
