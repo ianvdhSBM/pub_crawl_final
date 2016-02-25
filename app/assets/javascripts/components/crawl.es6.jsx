@@ -21,15 +21,22 @@ class Crawl extends React.Component {
     this.setState({price: Math.round(((prices.reduce( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
-  // expandCrawl() {
-  //   this.setState({details: !this.state.details})
-  // }
+  expandCrawl(id) {
+    if (this.state.details === true) {
+      this.setState({details: !this.state.details})
+      this.props.setExpanded(null)
+    }
+    else {
+      this.setState({details: !this.state.details})
+      this.props.setExpanded(id)
+    }
+  }
 
   render () {
     var self = this;
     var crawl = this.state.crawl;
     return (
-      <div className="row border" onClick={()=>this.props.setExpanded(crawl.id)}>
+      <div className="row border" onClick={()=>this.expandCrawl(crawl.id).bind(this)}>
         <div className="crawlList-flex">
           <div className="crawlList-rows"><h4>{crawl.name}</h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
