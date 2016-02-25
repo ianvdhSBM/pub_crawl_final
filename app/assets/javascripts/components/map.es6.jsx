@@ -19,7 +19,9 @@ class Map extends React.Component {
     var map = new GMaps({
       el: '#map',
       lat: this.props.lat,
-      lng: this.props.lng
+      lng: this.props.lng,
+      scrollwheel: false,
+      zoom: 13
     });
   }
 
