@@ -1,4 +1,4 @@
-class App extends React.Component {
+class CrawlsIndex extends React.Component {
 
   constructor(props) {
     super();
