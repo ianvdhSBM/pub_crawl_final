@@ -49,6 +49,17 @@ happyhour = Tag.create!(name: "happy hour")
 food = Tag.create!(name: "food")
 fancy = Tag.create!(name: "fancy")
 
+user = User.new(
+        firstname:             "Ron",
+        lastname:              "Swanson",
+        email:                 "test@test.com",
+        password:              "password",
+        password_confirmation: "password"
+      )
+
+# user.skip_confirmation!
+user.save!
+
 
 tags = []
 tags << cool
