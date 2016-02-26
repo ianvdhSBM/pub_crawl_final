@@ -12,29 +12,26 @@ class CrawlDetails extends React.Component {
     var hops = this.state.hops
     var tags = this.state.tags
     return (
-      <div className="crawlList-flex">
-      <div className="hops-list">
-        <ol>
-          { hops.map(function(hop) {
-            return (
-              <li key={hop.id}><a target="_blank" href={hop.website}>{hop.name}</a>, {hop.address}, {hop.city}, {hop.province}</li>
-              )
-            })
-          }
-        </ol>
-        <span>Price: {this.props.price}</span>
-        <ul>
-          { tags.map(function(tag) {
-            return (
-              <li key={tag.created_at}>{tag.name}</li>
-            )
-          })}
-        </ul>
+      <div className="details-flex">
+        <div className="hops-list">
+          <h4>hop list</h4>
+          <ul className="hops-list-ul">
+            { hops.map(function(hop, index) {
+              return (
+                <li key={hop.id}><strong>Hop #{index + 1}:</strong>  <a target="_blank" href={hop.website}>{hop.name}</a>, {hop.address}, {hop.city}, {hop.province}</li>
+                )
+              })
+            }
+          </ul>
+        </div>
+        <div className="details-description">
+          <h4>Decription</h4>
+          <p>{this.props.crawl.description}</p>
+          <p>Average Price: {this.props.price}</p>
+
+
+        </div>
       </div>
-      <div>
-        <h2>Details</h2>
-      </div>
-    </div>
     )
   }
 }

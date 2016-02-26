@@ -40,14 +40,18 @@ class Crawl extends React.Component {
           <div className="crawlList-rows">{crawl.start_address}</div>
           <div className="crawlList-rows">{crawl.description}</div>
         </div>
+        <div className="tags-flex">
+          { this.props.tags.map(function(tag) {
+            return (
+              <div className="tags-list" key={tag.id}>#{tag.name}</div>
+            )
+          })}
+        </div>
 
-            {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
+        {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
 
       </div>
 
     )
   }
 }
-
-// self.state.details
-// onClick={this.expandCrawl.bind(this)
