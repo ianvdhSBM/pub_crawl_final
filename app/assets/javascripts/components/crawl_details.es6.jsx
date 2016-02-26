@@ -14,7 +14,7 @@ class CrawlDetails extends React.Component {
     return (
       <div className="details-flex">
         <div className="hops-list">
-          <h4>hop list</h4>
+          <h3>hop list</h3>
           <ul className="hops-list-ul">
             { hops.map(function(hop, index) {
               return (
@@ -25,7 +25,7 @@ class CrawlDetails extends React.Component {
           </ul>
         </div>
         <div className="details-description">
-          <h4>Decription</h4>
+          <h3>Decription</h3>
           <p>{this.props.crawl.description}</p>
           <p>Average Price: {this.props.price}</p>
 

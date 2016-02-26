@@ -30,10 +30,21 @@ class CrawlShow extends React.Component {
     return (
       <div className="container page-wrapper">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng}/>
+        <div>
+          <div><h2>{crawl.name}</h2></div>
+          <div className="tags-flex">
 
-        <h1>{crawl.name}</h1>
+            { self.props.crawl.tags.map(function(tag) {
+              return (
+                <div className="tags-list" key={tag.id}>#{tag.name}</div>
+              )
+            })}
+
+          </div>
+        </div>
+        <div>
         <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/>
-
+        </div>
       </div>
     )
 
