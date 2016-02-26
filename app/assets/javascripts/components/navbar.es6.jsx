@@ -42,7 +42,7 @@ class Navbar extends React.Component {
               {
                 this.props.user ? <li><a href="/crawls/new">Create New Hop</a></li> : false
               }
-              
+
             </ul>
             { this.renderSignInSignOut(this.props.user) }
           </div>

@@ -84,7 +84,7 @@ class CrawlsList extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var content = e.target.querySelector('[name="search"]').value;
-    this.searchName(content)    
+    this.searchName(content)
     e.target.reset()
   }
 
