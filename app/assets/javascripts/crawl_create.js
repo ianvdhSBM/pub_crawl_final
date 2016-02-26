@@ -1,12 +1,21 @@
 $(function() {
   if ($("form.new_crawl").length > 0) {
     var currentIndex = 1;
+    var bars = [];
     var $barOne = $("input[name='bar_names[0]'");
     awesomplete = [];
     awesomplete.push(new Awesomplete($barOne.get(0), {
       minChars: 3,
       autoFirst: false
     }));
+
+    map = new GMaps({
+      el: '#map',
+      lat: 43.645425,
+      lng: -79.395020,
+      scrollwheel: false,
+      zoom: 13
+    });
 
     $('.tags-select').multiselect();
 
@@ -77,5 +86,6 @@ $(function() {
         console.log($(this).data("added"));
       });
     });
+
   }
 });
