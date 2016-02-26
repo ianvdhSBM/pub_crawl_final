@@ -3,6 +3,8 @@ json.crawl do
   json.start_address @crawl.hops[0].bar.address
   json.start_lat @crawl.hops[0].bar.lat
   json.start_lng @crawl.hops[0].bar.lng
+  json.user @crawl.user
+
   # json.tags(crawl.tags) do |tag|
   #   json.extract! tag, :name
   # end
