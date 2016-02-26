@@ -1,3 +1,5 @@
+"use strict"
+
 class Crawl extends React.Component {
 
   constructor(props) {
@@ -48,10 +50,20 @@ class Crawl extends React.Component {
 
           </div>
         </div>
-
-
-        {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
-
+        <div>
+          {this.props.expanded === crawl.id ?
+            <ReactCSSTransitionGroup
+            className="details"
+            component="div"
+            transitionName="details"
+            // transitionAppear={true}
+            // transitionAppearTimeout={1000}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+          >
+            <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags } price={ this.state.price }/>
+          </ReactCSSTransitionGroup> : null }
+        </div>
       </div>
 
     )

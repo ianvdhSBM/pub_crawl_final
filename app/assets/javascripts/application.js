@@ -17,7 +17,6 @@
 //= require react
 //= require react_ujs
 //= require components
-
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/.
-
