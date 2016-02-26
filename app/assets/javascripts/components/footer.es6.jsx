@@ -6,8 +6,7 @@ class Footer extends React.Component {
         <div id="footer">
           <div className="container">
             <div className="row">
-              <div className="social col-lg-5 col-lg-offset-2 text-center">
-                <ul className="social-icons">
+                <ul className="social-icons text-center">
                   <li className="social-list">
                     <a href="#">
                       <span className="fa-stack fa-lg">
@@ -40,8 +39,10 @@ class Footer extends React.Component {
                       </span>
                     </a>
                   </li>
+                  <br/>
+                  <div className="credits">Created by Ian Van Den Heuvel, Paul Iogna, and Hanna Jones</div>
+                  <div className="credits">&copy; Lighthouse Labs, February 2016</div>
                 </ul>
-              </div>
             </div>
           </div>
         </div>

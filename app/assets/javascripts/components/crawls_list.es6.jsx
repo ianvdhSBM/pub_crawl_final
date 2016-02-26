@@ -94,28 +94,28 @@ class CrawlsList extends React.Component {
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div id="list-container">
-          <form className="input-group" onSubmit={this.handleSubmit}>
-            <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">Find</button>
-            </span>
-          </form>
-          <div className="row">
-            <div className="filters-flex">
-              <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
-            </div>
+        <div className="row">
+          <div className="filters-flex">
+            <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
+            <form className="input-group" onSubmit={this.handleSubmit}>
+              <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="submit">Find</button>
+              </span>
+            </form>
           </div>
-          <div className="crawlList-flex">
-            <div className="crawlList-header"><h3>Name</h3></div>
-            <div className="crawlList-header"><h3>Start Address</h3></div>
-            <div className="crawlList-header"><h3>Tags</h3></div>
-          </div>
-            { this.state.filtercrawls.map(function(crawl) {
-              return (
-                <Crawl key={ crawl.id } crawl={ crawl }
-                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded}/>
-              )
-            })}
+        </div>
+        <div className="crawlList-flex">
+          <div className="crawlList-header"><h3>Name</h3></div>
+          <div className="crawlList-header"><h3>Start Address</h3></div>
+          <div className="crawlList-header"><h3>Tags</h3></div>
+        </div>
+          { this.state.filtercrawls.map(function(crawl) {
+            return (
+              <Crawl key={ crawl.id } crawl={ crawl }
+              bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded}/>
+            )
+          })}
       </div>
     )
   }

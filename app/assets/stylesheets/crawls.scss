@@ -36,6 +36,10 @@
   color: #fff;
 }
 
+li#dropdown.dropdown:hover {
+  background-color: #fff;
+}
+
 .filters-flex {
   display: flex;
   align-items: center;
@@ -76,8 +80,6 @@
   border-top: solid 1px gray;
 }
 
-
-
 .tags-flex {
   display: flex;
   flex-wrap: wrap;
@@ -85,10 +87,11 @@
 
 .tags-list {
   margin: 5px;
-  padding: 10px 20px 10px 20px;
+  padding: 8px 15px 8px 15px;
   border-radius: 20px;
   background-color: #0987E5;
-  font-weight: 700;
+  font-weight: lighter;
+  font-size: 0.8em;
   color: white;
 }
 
