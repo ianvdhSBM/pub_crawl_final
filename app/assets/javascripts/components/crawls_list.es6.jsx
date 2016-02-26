@@ -94,7 +94,6 @@ class CrawlsList extends React.Component {
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div id="list-container">
-        <section id="fixed">
           <form className="input-group" onSubmit={this.handleSubmit}>
             <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
             <span className="input-group-btn">
@@ -105,14 +104,12 @@ class CrawlsList extends React.Component {
             <div className="filters-flex">
               <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
             </div>
-
-            <div className="crawlList-flex">
-              <div className="crawlList-header"><h3>Name</h3></div>
-              <div className="crawlList-header"><h3>Start Address</h3></div>
-              <div className="crawlList-header"><h3>Description</h3></div>
-            </div>
           </div>
-        </section>
+          <div className="crawlList-flex">
+            <div className="crawlList-header"><h3>Name</h3></div>
+            <div className="crawlList-header"><h3>Start Address</h3></div>
+            <div className="crawlList-header"><h3>Tags</h3></div>
+          </div>
             { this.state.filtercrawls.map(function(crawl) {
               return (
                 <Crawl key={ crawl.id } crawl={ crawl }

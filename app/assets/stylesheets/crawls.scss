@@ -76,8 +76,57 @@
   border-top: solid 1px gray;
 }
 
+
+
+.tags-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tags-list {
+  margin: 5px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  background-color: #0987E5;
+  font-weight: 700;
+  color: white;
+}
+
+/*
+  CrawlShow component
+*/
+
+.crawlShow-flex {
+  display: flex;
+  align-items: center;
+}
+
+/*
+  CrawlDetails component
+*/
+
+.details-flex {
+  display: flex;
+  /*justify-content: center;*/
+}
+
+
 .hops-list {
-  width: 40.0%;
+  /*width: 50.0%;*/
+}
+
+.hops-list-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hops-list-ul li {
+  padding: 5px 0;
+
+}
+
+.details-description {
+  padding-left: 15px;
 }
 
 section #fixed {

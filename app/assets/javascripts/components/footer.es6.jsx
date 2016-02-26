@@ -6,7 +6,7 @@ class Footer extends React.Component {
         <div id="footer">
           <div className="container">
             <div className="row">
-              <div className="social col-lg-2 col-lg-offset-5 text-center">
+              <div className="social col-lg-5 col-lg-offset-2 text-center">
                 <ul className="social-icons">
                   <li className="social-list">
                     <a href="#">
