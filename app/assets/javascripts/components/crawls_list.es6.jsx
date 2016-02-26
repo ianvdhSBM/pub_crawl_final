@@ -74,9 +74,12 @@ class CrawlsList extends React.Component {
 
   searchName(val) {
     var crawls = this.props.crawls
+    // var val = val.downcase
+    // console.log(val);
     var filtered = []
     for (var i = 0; i < crawls.length; i++) {
-      if (crawls[i].name === val) {
+      if (crawls[i].name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+        console.log(val)
         filtered.push(crawls[i]);
       }
     }
