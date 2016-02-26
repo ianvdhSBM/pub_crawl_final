@@ -8,7 +8,7 @@ class CrawlsIndex extends React.Component {
       markers.push({
         lat: props.crawls[i].hops[0].lat,
         lng: props.crawls[i].hops[0].lng,
-        title: props.crawls[i].hops[0].name
+        title: props.crawls[i].name
       });
     }
     this.state = {
@@ -23,17 +23,15 @@ class CrawlsIndex extends React.Component {
   }
 
   setExpanded(id) {
-
     var crawl = this.state.crawls.filter(function(c){
       return c.id === id;
     });
-    var markers = []
-    debugger
-    for(var i = 0; i < crawl.hops.length; i++){
+    var markers = [];
+    for(var i = 0; i < crawl[0].hops.length; i++){
       markers.push({
-        lat: crawl.hops[i].lat,
-        lng: crawl.hops[i].lng,
-        title: crawl.hops[i].name
+        lat: crawl[0].hops[i].lat,
+        lng: crawl[0].hops[i].lng,
+        title: crawl[0].hops[i].name
       });
     }
     this.setState({
@@ -46,13 +44,13 @@ class CrawlsIndex extends React.Component {
     var self = this;
     return (
       <div className="container page-wrapper">
-        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
+        <Map lat={ this.state.mapCoordinates.lat } lng={ this.state.mapCoordinates.lng }
+        markers={ this.state.markers }/>
         <Description />
         <h1>hops.</h1>
-          <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+          <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded }
+          expanded={ this.state.expanded }/>
       </div>
     )
-
   }
-
 }
