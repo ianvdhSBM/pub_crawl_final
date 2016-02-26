@@ -13,3 +13,7 @@ json.crawl do
     json.extract! hop.bar, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
   end
 end
+
+json.user do
+  json.extract! @user, :id, :firstname, :lastname, :email
+end

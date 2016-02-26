@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   # before_filter :load_movie, :restrict_access
+  protect_from_forgery :except => [:create]
 
   def new
     @review = @crawl.reviews.build
