@@ -30,14 +30,36 @@ mark {
   line-height: 1.8em;
 }
 
-.page-wrapper {
-  margin-top: 75px;
-}
-
 #brand-header {
   color: #fff;
 }
 
 .text-center {
   text-align: center;
+}
+
+.crawlList-flex {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.crawlList-header {
+  width: 33.33333%;
+}
+
+.crawlList-rows {
+  width: 33.33333%;
+}
+
+.row.border {
+  border-top: solid 1px gray;
+}
+
+.hops-list {
+  width: 40.0%;
+}
+
+#outermost {
+  margin-top: 70px;
 }

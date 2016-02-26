@@ -25,6 +25,7 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-fixed-top" id="navbar">
         <div className="container-fluid">
           <div className="navbar-header">
+            {/* add icon to the dropdown button */}
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span className="sr-only">Toggle</span>
               <span className="icon-bar"></span>
@@ -43,12 +44,6 @@ class Navbar extends React.Component {
               }
               
             </ul>
-            <form className="navbar-form navbar-left" role="search">
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="find a crawl" />
-              </div>
-              <button type="submit" className="btn btn-default">search</button>
-            </form>
             { this.renderSignInSignOut(this.props.user) }
           </div>
         </div>

@@ -48,6 +48,3 @@ class Crawl extends React.Component {
     )
   }
 }
-
-// self.state.details
-// onClick={this.expandCrawl.bind(this)

@@ -5,6 +5,12 @@
 /*
   Crawls Index Page
  */
+.filters-flex {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
 .crawlList-flex {
   display: flex;
   align-items: center;

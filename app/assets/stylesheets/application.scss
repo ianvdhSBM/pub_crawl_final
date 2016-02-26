@@ -1,10 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "main";
 @import "users";
 @import "awesomplete";
 @import "crawls";
 @import "navbar";
+@import "footer";
+@import "map";
 
 .crawlList-flex {
   display: flex;
@@ -28,8 +32,10 @@
   width: 40.0%;
 }
 
-// Navbar Padding
-
-#master-div {
-  margin-top: 50px;
+#outermost {
+  margin-top: 70px;
 }
+
+// .container .page-wrapper {
+//   margin-top: 50px;
+// }

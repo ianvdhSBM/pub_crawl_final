@@ -27,7 +27,9 @@ class Map extends React.Component {
 
   render () {
     return (
-        <div id="map"></div>
+      <div class="scrollspy">
+        <div id="map" data-spy="affix" data-offset-top="500"></div>
+      </div>
     );
   }
 }

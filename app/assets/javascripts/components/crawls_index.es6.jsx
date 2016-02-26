@@ -20,11 +20,13 @@ class CrawlsIndex extends React.Component {
   render () {
     var self = this;
     return (
-      <div className="container page-wrapper">
+      <div id="outermost">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng}/>
-        <Description />
-        <h1>hops.</h1>
-          <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+        <div className="container page-wrapper">
+          <Description />
+          <h1>hops.</h1>
+            <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+        </div>
       </div>
     )
 
