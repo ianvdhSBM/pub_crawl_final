@@ -122,7 +122,7 @@ class CrawlsList extends React.Component {
             { this.state.filtercrawls.map(function(crawl) {
               return (
                 <Crawl key={ crawl.id } crawl={ crawl }
-                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded}/>
+                bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded === crawl.id }/>
               )
             })}
       </div>

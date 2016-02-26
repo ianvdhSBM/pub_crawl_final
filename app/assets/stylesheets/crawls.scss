@@ -76,8 +76,6 @@
   border-top: solid 1px gray;
 }
 
-
-
 .tags-flex {
   display: flex;
   flex-wrap: wrap;
@@ -91,6 +89,10 @@
   font-weight: 700;
   color: white;
 }
+
+/*
+  Crawl animations for CrawlDetails component
+*/
 
 /*
   CrawlShow component
@@ -131,6 +133,39 @@
 
 section #fixed {
   position: fixed;
+}
+
+/*
+  Crawl animations for CrawlDetails component
+*/
+
+.details-enter {
+  transition: all 1s;
+  opacity: 0;
+  transform: translateX(-200%);
+  max-height: 0;
+  padding: 0 !important;
+}
+
+.details-enter.details-enter-active {
+  opacity: 100;
+  transform: translateX(0%);
+  max-height: 200px;
+  padding: 10px 0 !important;
+}
+
+.details-leave {
+  transition: all 1s;
+  transform: translateY(0%);
+  max-height: 200px;
+  padding: 10px 0 !important;
+}
+
+.details-leave.details-leave-active {
+  transform: translateX(-200%);
+  transition: 0.1s;
+  max-height: 0;
+  padding: 0 !important;
 }
 
 /*
