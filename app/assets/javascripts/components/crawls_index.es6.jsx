@@ -22,7 +22,8 @@ class CrawlsIndex extends React.Component {
     return (
       <div className="container page-wrapper">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng}/>
-        <Description />
+        {console.log("This user is: " + self.props.user)}
+        { this.props.user ? <Description /> : null }
         <h1>hops.</h1>
           <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
       </div>

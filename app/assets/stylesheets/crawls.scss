@@ -27,11 +27,16 @@
 
 .tags-flex {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tags-list {
-  margin: 10px 20px 10px 20px;
+  margin: 5px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  background-color: #0987E5;
+  font-weight: 700;
+  color: white;
 }
 
 /*
