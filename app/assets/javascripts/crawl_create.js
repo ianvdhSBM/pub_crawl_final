@@ -8,6 +8,8 @@ $(function() {
       autoFirst: false
     }));
 
+    $('.tags-select').multiselect();
+
     $("#add-bar").unbind("click").on("click", function() {
       var newFormGroupText = ["<div class='form-group'>",
         "<div class='input-group'>",

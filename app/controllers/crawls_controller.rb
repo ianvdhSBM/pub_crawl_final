@@ -13,6 +13,7 @@ class CrawlsController < ApplicationController
   def new
     if user_signed_in?
       @crawl = Crawl.new
+      @tags = Tag.all
     else
       flash[:notice] = "Please sign in to create a new hop!"
       redirect_to user_session_path
