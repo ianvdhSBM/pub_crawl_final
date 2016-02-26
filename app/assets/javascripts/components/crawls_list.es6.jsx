@@ -30,9 +30,17 @@ class CrawlsList extends React.Component {
     }
   }
 
+  setTagsArray(tags) {
+    tagsArray = []
+    tags.map(function(tag) {
+      tagsArray.push(tag.name);
+    })
+    return tagsArray;
+  }
+
   filterCrawls(filter) {
     //put tags in the database - get rid of these hardcoded arrays
-    var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
+    var tags = this.setTagsArray(this.props.tags)
     var filters = ['all', 'name', 'price', 'rating'];
     if (tags.indexOf(filter) > -1) {
       this.setState({filtercrawls: this.props.crawls.filter(function(crawl) {
@@ -90,7 +98,8 @@ class CrawlsList extends React.Component {
 
   render () {
     var self = this;
-    var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
+    var tags = this.setTagsArray(this.props.tags);
+    console.log("log the tags: " + this.props.tags);
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div id="list-container">

@@ -5,13 +5,6 @@ class CrawlsIndex extends React.Component {
     this.setExpanded = this.setExpanded.bind(this);
 
     var markers = this.setDefaultMarkers(props.crawls)
-    // for(var i = 0; i < props.crawls.length; i++){
-    //   markers.push({
-    //     lat: props.crawls[i].hops[0].lat,
-    //     lng: props.crawls[i].hops[0].lng,
-    //     title: props.crawls[i].name
-    //   });
-    // }
 
     this.state = {
       crawls: props.crawls,
@@ -72,7 +65,7 @@ class CrawlsIndex extends React.Component {
         <div className="container page-wrapper">
           <Description />
           <h1>hops.</h1>
-            <CrawlsList crawls={ this.state.crawls } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+            <CrawlsList crawls={ this.state.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
         </div>
       </div>
     )
