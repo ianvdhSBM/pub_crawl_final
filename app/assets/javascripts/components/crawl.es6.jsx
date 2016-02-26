@@ -5,7 +5,6 @@ class Crawl extends React.Component {
     // this.setAveragePrice = this.setAveragePrice.bind(this);
     this.state = {
       crawl: props.crawl,
-      details: false,
       price: null
     }
   }
@@ -24,12 +23,9 @@ class Crawl extends React.Component {
   expandCrawl(e) {
     if (e.target.tagName === 'A') return;
 
-    if (this.state.details === true) {
-      this.setState({details: !this.state.details})
+    if (this.props.expanded === this.state.crawl.id) {
       this.props.setExpanded(null)
-    }
-    else {
-      this.setState({details: !this.state.details})
+    } else {
       this.props.setExpanded(this.state.crawl.id)
     }
   }
@@ -42,10 +38,19 @@ class Crawl extends React.Component {
         <div className="crawlList-flex">
           <div className="crawlList-rows"><h4>{crawl.name}</h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
-          <div className="crawlList-rows">{crawl.description}</div>
+          <div className="crawlList-rows tags-flex">
+
+            { this.props.tags.map(function(tag) {
+              return (
+                <div className="tags-list" key={tag.id}>#{tag.name}</div>
+              )
+            })}
+
+          </div>
         </div>
 
-            {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
+
+        {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
 
       </div>
 
@@ -53,5 +58,11 @@ class Crawl extends React.Component {
   }
 }
 
-// self.state.details
-// onClick={this.expandCrawl.bind(this)
+
+        // <div className="tags-flex">
+        //   { this.props.tags.map(function(tag) {
+        //     return (
+        //       <div className="tags-list" key={tag.id}>#{tag.name}</div>
+        //     )
+        //   })}
+        // </div>
