@@ -3,6 +3,7 @@ class CrawlsController < ApplicationController
   def index
     # @crawls = Crawl.all
     @crawls = Crawl.includes(hops: :bar)
+    @tags = Tag.all
     # render component: 'Crawls', props: { crawls: @crawls }
   end
 
