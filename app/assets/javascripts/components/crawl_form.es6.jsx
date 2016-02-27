@@ -5,29 +5,107 @@ class CrawlForm extends React.Component {
       crawl: {
         name: "",
         description: "",
-        bar_names: [""]
+        bars: [{
+          name: "",
+          id: null,
+          lat: null,
+          lng: null,
+          awesomplete: null,
+          attached: false
+        }]
       }
+    }
+  }
+
+  componentDidMount(){
+    var crawl = this.state.crawl;
+    var barInputs = this.getBarInputs();
+    var awesomplete = new Awesomplete(barInputs[0], {
+      minChars: 3,
+      autoFirst: false
+    });
+    crawl.bars[0].awesomplete = awesomplete;
+    this.setState({crawl: crawl})
+  }
+
+  componentDidUpdate(){
+    var barInputs = this.getBarInputs();
+    for(var i = 0; i < barInputs.length; i++){
+      var name = barInputs[i].getAttribute("name");
+      var regex = /\d+/;
+      var match = name.match(regex);
+      if(!this.state.crawl.bars[Number.parseInt(match[0])].attached){
+        barInputs[i].addEventListener("awesomplete-select", function(){
+        });
+      }
+      // barInputs[i].addEventListener("awesomplete-selectcomplete", function() {
+
+      // }
     }
   }
 
   addBar(){
     var crawl = this.state.crawl;
-    crawl.bar_names.push("");
+    crawl.bars.push({
+          name: "",
+          id: null,
+          lat: null,
+          lng: null,
+          awesomplete: null
+        });
     this.setState({crawl: crawl});
+    crawl = this.state.crawl;
+    var barInput = this.findBarInput(crawl.bars.length -1);
+    crawl.bars[crawl.bars.length - 1].awesomplete = new Awesomplete(barInput, {
+      minChars: 3,
+      autoFirst: false
+    });
   }
 
-  autocomplete(e, index){
-    var length = e.target.value.length;
-    if(length > 3){
-      if(length % 2 == 0){
-        console.log(index);
+  findBarInput(index){
+    var barInputs = this.getBarInputs();
+    var filteredInputs = barInputs.filter(function(input){
+      var name = input.getAttribute("name");
+      var regex = /\d+/;
+      var match = name.match(regex);
+      if(match[0] == index){
+        return input;
+      }
+    });
+    return filteredInputs[0];
+  }
+
+  getBarInputs(){
+    var inputs = document.getElementsByTagName("input");
+    var barInputs = [];
+    for(var i = 0; i < inputs.length; i++){
+      var input = inputs[i];
+      var name = input.getAttribute("name");
+      if(name && name.indexOf("bar_names") > -1){
+        barInputs.push(input);
       }
     }
+    return barInputs;
   }
 
   onBarNameChange(e, index){
     var crawl = this.state.crawl;
-    crawl.bar_names[index] = e.target.value;
+    var value = e.target.value;
+    crawl.bars[index].name = value;
+    if(e.target.value.length > 2){
+      $.ajax({
+            url: '/bars/autocomplete/' + value,
+            type: 'GET',
+            dataType: 'json'
+          })
+          .success(function(data) {
+            var list = [];
+            for(var i = 0; i < data.length; i++){
+              list.push(data[i].name)
+            }
+            crawl.bars[index].awesomplete.list = list;
+          });
+    }
     this.setState({crawl: crawl})
   }
 
@@ -72,11 +150,11 @@ class CrawlForm extends React.Component {
 
   render () {
     var self = this;
-    var barsArray = this.state.crawl.bar_names.map((bar, index) => {
+    var barsArray = this.state.crawl.bars.map((bar, index) => {
           return (
             <div className="input-group" >
-              <input key={index} type="text" className="form-control" placeholder={"Bar " + (index + 1)}
-              defaultValue={bar} onChange={(e) => this.onBarNameChange(e, index)} onKeyUp={(e) => this.autocomplete(e, index)}/>
+              <input key={index} type="text" name={"bar_names[" + index + "]"} className="form-control" placeholder={"Bar " + (index + 1) + " Name"}
+              defaultValue={bar.name} onChange={(e) => this.onBarNameChange(e, index)}/>
               {(() => {
                 if(index > 0){
                   return (

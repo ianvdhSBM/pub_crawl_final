@@ -20,5 +20,6 @@
 
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/.
+//= require crawl_create
 
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;

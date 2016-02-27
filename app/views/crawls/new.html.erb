@@ -1,22 +1,37 @@
-<%# Original component <%= react_component('CrawlForm')%>
-<%#<%= javascript_include_tag "crawl_create" %>
-<%= form_for(@crawl) do |f| %>
-  <div class="form-group">
-    <%= f.text_field :name, class: "form-control", placeholder: "Crawl Name"%>
-  </div>
-  <div class="form-group">
-    <%= f.text_field :description, class: "form-control", placeholder: "Crawl Description"%>
-  </div>
-  <div class="form-group">
-    <div class="input-group">
-      <%= text_field_tag 'bar_names[0]', nil, class: "form-control bar-names", placeholder: "Bar Name", list: "data-list"%>
-      <div class="input-group-addon">&nbsp;&nbsp;</div>
+<div class="outermost">
+  <div id="map"></div>
+  <div class="container page-wrapper">
+    <div class="col-md-8 col-md-offset-2">
+      <%= form_for(@crawl) do |f| %>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Crawl Name"%>
+            <div class="input-group-addon">&nbsp;&nbsp;</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= f.text_field :description, class: "form-control", placeholder: "Crawl Description"%>
+            <div class="input-group-addon">&nbsp;&nbsp;</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= select_tag 'tags[]', options_from_collection_for_select(@tags, "id", "name" ), {multiple: true, class: "tags-select form-control"}
+     %>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <%= text_field_tag 'bar_names[0]', nil, class: "form-control bar-names", placeholder: "Bar Name", list: "data-list"%>
+            <div class="input-group-addon">&nbsp;&nbsp;</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= button_tag "Add Bar", id: "add-bar", type: "button", class: "btn btn-default" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Submit", class: "btn btn-default" %>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div class="form-group">
-    <%= button_tag "Add Bar", id: "add-bar", type: "button", class: "btn btn-default" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-default" %>
-  </div>
-<% end %>
+</div>
