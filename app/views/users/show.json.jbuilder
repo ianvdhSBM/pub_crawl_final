@@ -14,3 +14,7 @@ json.user do
     end
   end
 end
+
+json.tags(@tags) do |tag|
+  json.extract! tag, :name, :id
+end

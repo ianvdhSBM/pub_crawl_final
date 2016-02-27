@@ -8,8 +8,7 @@ class CrawlsList extends React.Component {
     this.state = {
       crawls: props.crawls,
       filtercrawls: props.crawls,
-      clicked: false,
-      expanded: null,
+      clicked: false
     }
   }
 
@@ -99,7 +98,7 @@ class CrawlsList extends React.Component {
   render () {
     var self = this;
     var tags = this.setTagsArray(this.props.tags);
-    console.log("log the tags: " + this.props.tags);
+
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div id="list-container">

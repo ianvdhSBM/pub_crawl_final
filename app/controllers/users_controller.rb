@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    # @crawls = Crawl.find_by(user_id: @user.id)
-
+    @tags = Tag.all
   end
 
   def new
