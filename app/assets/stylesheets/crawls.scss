@@ -109,6 +109,18 @@ li#dropdown.dropdown:hover {
   align-items: center;
 }
 
+#crawl-details-show {
+  width: 70.0%;
+  float: left;
+}
+
+#review-form {
+  width: 30.0%;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 #show-reviews {
   width: 100%;
 }
@@ -116,6 +128,8 @@ li#dropdown.dropdown:hover {
 div.review {
   margin-left: 500px;
 }
+
+
 /*
   CrawlDetails component
 */
@@ -125,9 +139,9 @@ div.review {
   /*justify-content: center;*/
 }
 
-
 .hops-list {
   /*width: 50.0%;*/
+  width: 60%;
 }
 
 .hops-list-ul {
@@ -141,7 +155,8 @@ div.review {
 }
 
 .details-description {
-  padding-left: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 section #fixed {

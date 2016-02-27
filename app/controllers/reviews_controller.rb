@@ -1,17 +1,19 @@
 class ReviewsController < ApplicationController
 
   # before_filter :load_movie, :restrict_access
+  before_filter :load_crawl
   protect_from_forgery :except => [:create]
 
   def new
-    @review = @crawl.reviews.build
+    @review = @crawl.reviews.new
   end
 
   def create
-    @review = @crawl.reviews.build(review_params)
+    @review = @crawl.reviews.new(rating: params[:rating], comment: params[:comment])
     @review.user_id = current_user.id
 
     if @review.save
+      render nothing: true
       # redirect_to @crawl, notice: "Review created successfully"
     else
       # render :new

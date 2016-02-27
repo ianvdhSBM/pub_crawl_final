@@ -2,7 +2,6 @@ class Crawl extends React.Component {
 
   constructor(props) {
     super();
-    // this.setAveragePrice = this.setAveragePrice.bind(this);
     this.state = {
       crawl: props.crawl,
       price: null
@@ -36,19 +35,18 @@ class Crawl extends React.Component {
     return (
       <div className="row border" onClick={this.expandCrawl.bind(this)}>
         <div className="crawlList-flex">
-          <div className="crawlList-rows"><h4>{crawl.name}</h4></div>
+          <div className="crawlList-rows"><h4><a href={"/crawls/" + crawl.id}>{crawl.name}</a></h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
           <div className="crawlList-rows tags-flex">
 
             { this.props.tags.map(function(tag) {
               return (
-                <div className="tags-list" key={tag.id}>#{tag.name}</div>
+                <div className="tags-list" key={tag.name}>#{tag.name}</div>
               )
             })}
 
           </div>
         </div>
-
 
         {this.props.expanded === crawl.id ? <CrawlDetails key={ crawl.id } crawl= {crawl} hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/> : null}
 

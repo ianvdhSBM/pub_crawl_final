@@ -29,7 +29,6 @@ class CrawlDetails extends React.Component {
           <p>{this.props.crawl.description}</p>
           <p>Average Price: {this.props.price}</p>
 
-
         </div>
       </div>
     )
