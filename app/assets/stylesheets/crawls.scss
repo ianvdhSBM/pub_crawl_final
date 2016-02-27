@@ -6,6 +6,59 @@
   Crawls Index Page
  */
 
+//fix the stupid tags hover issue
+#dropdown {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#dropdown:hover,
+#dropdown:focus {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: none;
+}
+
+#toggle-tags {
+  border: 2px solid #0987E5;
+  color: #0987E5;
+  padding: 10px 20px 10px 20px;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+#toggle-tags:hover {
+  background-color: #0987E5;
+  color: #fff;
+}
+
+.filters-flex {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.nav-pills > li {
+  border: 2px solid #0987E5;
+  color: #0987E5;
+  padding: 10px 20px 10px 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.nav-pills > li:hover,
+.nav-pills > li:focus,
+.nav-pills > li:active, {
+  background-color: #0987E5;
+  color: #fff;
+}
+
 .crawlList-flex {
   display: flex;
   align-items: center;
@@ -76,6 +129,10 @@
   padding-left: 15px;
 }
 
+section #fixed {
+  position: fixed;
+}
+
 /*
   Crawls Form Page
  */
@@ -94,11 +151,4 @@ div.awesomplete {
     background: #FFFFFF;
     background-color: #FFFFFF;
   }
-}
-
-/*
-  MAP
- */
-#map {
-  height: 400px;
 }

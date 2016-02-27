@@ -1,35 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "main";
 @import "users";
 @import "awesomplete";
 @import "crawls";
 @import "navbar";
+@import "footer";
 
-.crawlList-flex {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.crawlList-header {
-  width: 33.33333%;
-}
-
-.crawlList-rows {
-  width: 33.33333%;
-}
-
-.row.border {
-  border-top: solid 1px gray;
-}
-
-.hops-list {
-  width: 40.0%;
-}
-
-// Navbar Padding
-
-#master-div {
-  margin-top: 50px;
-}

@@ -3,13 +3,14 @@ class CrawlsList extends React.Component {
   constructor(props) {
     super();
     this.filterCrawls = this.filterCrawls.bind(this);
-    // this.setExpanded = this.setExpanded.bind(this);
+    this.searchName = this.searchName.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
+      crawls: props.crawls,
       filtercrawls: props.crawls,
       clicked: false,
-      expanded: null
+      expanded: null,
     }
-    console.log(this);
   }
 
   sortName(crawls) {
@@ -50,7 +51,7 @@ class CrawlsList extends React.Component {
           break;
         case 'name':
           this.setState({clicked: !this.state.clicked})
-          crawls = Array.from(this.props.crawls);
+          crawls = Array.from(this.state.crawls);
           this.setState({filtercrawls: this.sortName(crawls)})
           break;
         case 'price':
@@ -65,21 +66,50 @@ class CrawlsList extends React.Component {
     }
   }
 
+  searchName(val) {
+    var crawls = this.props.crawls
+    var filtered = []
+    for (var i = 0; i < crawls.length; i++) {
+      if (crawls[i].name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+        console.log(val)
+        filtered.push(crawls[i]);
+      }
+    }
+    console.log(filtered)
+    if (filtered.length > 0) {
+      this.setState({filtercrawls: filtered})
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    var content = e.target.querySelector('[name="search"]').value;
+    this.searchName(content)    
+    e.target.reset()
+  }
+
   render () {
     var self = this;
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     return (
-      <div>
-        <div className="row">
-          <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
-
+      <div id="list-container">
+          <form className="input-group" onSubmit={this.handleSubmit}>
+            <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
+            <span className="input-group-btn">
+              <button className="btn btn-default" type="submit">Find</button>
+            </span>
+          </form>
+          <div className="row">
+            <div className="filters-flex">
+              <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
+            </div>
+          </div>
           <div className="crawlList-flex">
             <div className="crawlList-header"><h3>Name</h3></div>
             <div className="crawlList-header"><h3>Start Address</h3></div>
             <div className="crawlList-header"><h3>Tags</h3></div>
           </div>
-        </div>
             { this.state.filtercrawls.map(function(crawl) {
               return (
                 <Crawl key={ crawl.id } crawl={ crawl }

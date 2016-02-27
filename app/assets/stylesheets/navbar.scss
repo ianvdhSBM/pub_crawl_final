@@ -1,14 +1,33 @@
-.navbar {
+.navbar-fixed-top {
   background-color: #0987E5;
+  padding: 5px;
+  border-bottom: 10px solid #076CB7;
 }
+
+.navbar-brand {
+  font-weight: 900;
+  font-size: 1.8em;
+  margin-top: -3px;
+  margin-right: 8px;
+  border-right: 1px solid #fff;
+  height: 80%;
+}
+
+.nav .navbar-brand:hover,
+.nav .navbar-brand:focus {
+    color: #076CB7;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    background-color: #076CB7;
+    color: #fff;
+}
+
 
 a.navigation-item {
   color: #fff;
 }
-
-// li > a.contact-link {
-//   color: #fff;
-// }
 
 .navbar-brand {
   color: #fff;
@@ -17,4 +36,8 @@ a.navigation-item {
 button.navbar-toggle {
   background-color: #3a9fea;
   border: 2px solid #fff;
+}
+
+.navbar li:hover {
+  color: #076CB7;
 }

@@ -57,12 +57,3 @@ class Crawl extends React.Component {
     )
   }
 }
-
-
-        // <div className="tags-flex">
-        //   { this.props.tags.map(function(tag) {
-        //     return (
-        //       <div className="tags-list" key={tag.id}>#{tag.name}</div>
-        //     )
-        //   })}
-        // </div>
