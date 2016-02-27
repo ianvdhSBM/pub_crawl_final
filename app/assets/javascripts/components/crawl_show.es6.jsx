@@ -64,10 +64,11 @@ class CrawlShow extends React.Component {
   }
 
   handleSubmit() {
+    crawl = this.state.crawl
     data = this.state.review
     console.log(data);
     $.ajax({
-      url: "/crawls/1/reviews",
+      url: "/crawls/" + crawl.id + "/reviews",
       dataType: 'json',
       type: 'POST',
       data: data,
@@ -126,6 +127,7 @@ class CrawlShow extends React.Component {
           }
         </div>
         <div id="show-reviews">
+          {/* display reviews in a table */}
           { this.state.filteredreviews.map(function(review) {
             return (
               <div className="review" key={review.id}>
