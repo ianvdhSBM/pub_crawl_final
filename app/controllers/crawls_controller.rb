@@ -25,18 +25,17 @@ class CrawlsController < ApplicationController
   end
 
   def create
-    bar_names = params["bar_names"]
-    hops = []
-    bar_names.each_with_index do |bar,index|
-      unless bar.nil?
-        b = Bar.find_by(name: bar)
-        hops << Hop.new(position: index + 1, bar: b)
-      end
-    end
     @crawl = Crawl.new(crawl_params)
     @crawl.user_id = current_user.id
+    params[:bar_names].each_with_index do |bar,index|
+      unless bar.nil?
+        b = Bar.find_by(name: bar)
+        @crawl.hops << Hop.new(position: index + 1, bar: b)
+      end
+    end
 
-    hops.each {|hop| @crawl.hops << hop}
+    params[:tags].each {|tag_id| @crawl.tags << Tag.find_by(id: tag_id)}
+
 
     if @crawl.save
       redirect_to root_path

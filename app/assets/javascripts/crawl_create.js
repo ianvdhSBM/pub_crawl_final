@@ -1,4 +1,11 @@
-$(function() {
+$(document).on("page:load", function() {
+  loadForm();
+});
+$(document).on("ready", function() {
+  loadForm();
+});
+
+var loadForm = function(){
   if ($("form.new_crawl").length > 0) {
     var currentIndex = 1;
     //DONT DELETE SHIT FROM HERE. SET IT TO NULL\/fvbgbg
@@ -112,7 +119,7 @@ $(function() {
     });
 
     $("body").on("awesomplete-selectcomplete", "input", function() {
-      console.log($(this));
+      $(this).data("added", true);
       var name = $(this).attr("name");
       var num = name.match(/\d/g);
       barName = $(this).val();
@@ -136,11 +143,21 @@ $(function() {
       $(this).data("added", false);
     });
     $("form.new_crawl").on("submit", function(e) {
-      e.preventDefault();
-      $("input:text").each(function() {
-        console.log($(this).data("added"));
+      $inputs = $("input:text");
+      $inputs.each(function(){
+        $(this).closest(".form-group").removeClass("has-error");
+        if($(this).val() === ""){
+          $(this).closest(".form-group").addClass("has-error");
+          e.preventDefault();
+        }
+        if(/^bar_names\[\d+\]/.test($(this).attr("name"))){
+          if(!$(this).data("added")){
+            $(this).closest(".form-group").addClass("has-error");
+            e.preventDefault();
+          }
+        }
       });
     });
 
   }
-});
+}
