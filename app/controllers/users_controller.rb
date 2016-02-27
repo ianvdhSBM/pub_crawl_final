@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @tags = Tag.all
+    @tags = Tag.order(:name)
     @current_user = current_user
   end
 

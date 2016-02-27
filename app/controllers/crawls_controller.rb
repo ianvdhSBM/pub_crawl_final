@@ -13,7 +13,7 @@ class CrawlsController < ApplicationController
 
   def new
     @crawl = Crawl.new
-    @tags = Tag.all
+    @tags = Tag.order(:name)
   end
 
   def edit
