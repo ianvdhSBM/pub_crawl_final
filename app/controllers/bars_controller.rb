@@ -7,7 +7,7 @@ class BarsController < ApplicationController
 
   def show
     if request.xhr?
-      @bar = Bar.find_by(name: params[:name])
+      @bar = Bar.find_by(id: params[:id])
       render "show.json.jbuilder"
     else
       @bar = Bar.find_by(id: params[:id])
