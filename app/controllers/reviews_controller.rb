@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
 
-  # before_filter :load_movie, :restrict_access
   before_filter :load_crawl
   protect_from_forgery :except => [:create]
 
@@ -14,7 +13,6 @@ class ReviewsController < ApplicationController
 
     if @review.save
       render nothing: true
-      # redirect_to @crawl, notice: "Review created successfully"
     else
       # render :new
     end
