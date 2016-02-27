@@ -58,9 +58,14 @@ li#dropdown.dropdown:hover {
 
 .nav-pills > li:hover,
 .nav-pills > li:focus,
-.nav-pills > li:active, {
+.nav-pills > li:active {
   background-color: #0987E5;
   color: #fff;
+}
+
+.dropdown-menu {
+  height: 200px;
+  overflow: auto;
 }
 
 .crawlList-flex {
@@ -104,6 +109,13 @@ li#dropdown.dropdown:hover {
   align-items: center;
 }
 
+#show-reviews {
+  width: 100%;
+}
+
+div.review {
+  margin-left: 500px;
+}
 /*
   CrawlDetails component
 */

@@ -8,7 +8,8 @@ class CrawlsController < ApplicationController
 
   def show
     @crawl = Crawl.find_by(id: params[:id])
-    @user = current_user
+    @reviews = Review.all
+    current_user ? @user = current_user : nil
   end
 
   def new

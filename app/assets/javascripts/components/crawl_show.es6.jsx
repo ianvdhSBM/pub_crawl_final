@@ -13,6 +13,15 @@ class CrawlShow extends React.Component {
         title: props.crawl.hops[i].name
       });
     }
+    var crawl_id = props.crawl.id
+    console.log(crawl_id)
+    var filteredreviews = [];
+    for (var i = 0; i < props.reviews.length; i++) {
+      if (props.reviews[i].crawl_id === crawl_id) {
+        filteredreviews.push(props.reviews[i]);
+      }
+    }
+    console.log(filteredreviews)
     this.state = {
       markers: markers,
       crawl: props.crawl,
@@ -20,11 +29,13 @@ class CrawlShow extends React.Component {
         lat: 43.645425,
         lng: -79.395020
       },
+      filteredreviews: filteredreviews,
+      reviews: props.reviews,
       review: {
         crawl_id: props.crawl.id,
         rating: null,
         comment: '',
-        user_id: props.user.id
+        user_id: props.user ? props.user.id : null
       }
     }
   }
@@ -94,25 +105,38 @@ class CrawlShow extends React.Component {
           <div>
           <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/>
           </div>
-          <div className="review">
-            <h3>Review Goes Here</h3>
-            <form className="input-group" onSubmit={this.handleSubmit}>
-              <label>Rating:</label>
-              <select className="form-control" id="rating" value={review.value}onChange={this.onRatingChange}>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-              <div className="form-group">
-                <label>Comments:</label>
-                <textarea value={review.comment} onChange={this.onCommentChange} className="form-control" id="comment" rows="5"></textarea>
-                <br/>
+          { this.props.user ?
+            <div className="review">
+              <h3>Review Goes Here</h3>
+              <form className="input-group" onSubmit={this.handleSubmit}>
+                <label>Rating:</label>
+                <select className="form-control" id="rating" value={review.value}onChange={this.onRatingChange}>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <div className="form-group">
+                  <label>Comments:</label>
+                  <textarea value={review.comment} onChange={this.onCommentChange} className="form-control" id="comment" rows="5"></textarea>
+                  <br/>
+                </div>
+                <button type="submit" className="btn btn-default">Submit</button>
+              </form>
+            </div> : false
+          }
+        </div>
+        <div id="show-reviews">
+          { this.state.filteredreviews.map(function(review) {
+            return (
+              <div className="review">
+                <h3>{review.user_id}</h3>
+                <p>{review.rating}</p>
+                <p>{review.comment}</p>
               </div>
-              <button type="submit" className="btn btn-default">Submit</button>
-            </form>
-          </div>
+            )
+          })}
         </div>
       </div>  
     )
