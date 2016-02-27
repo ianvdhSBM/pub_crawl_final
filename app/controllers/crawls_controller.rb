@@ -1,5 +1,5 @@
 class CrawlsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     # @crawls = Crawl.all
     @crawls = Crawl.includes(hops: :bar)
