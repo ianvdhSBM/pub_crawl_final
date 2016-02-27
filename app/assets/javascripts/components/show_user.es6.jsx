@@ -31,7 +31,6 @@ class ShowUser extends React.Component {
       //     title: crawl[0].hops[i].name
       //   });
       // }
-      console.log(this)
       this.setState({
         expanded: id
         // markers: markers
@@ -43,24 +42,34 @@ class ShowUser extends React.Component {
     var user = this.props.user;
     var self = this;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="profile-flex">
-            <div className="profile-pic">
-              <img src={user.image.image.thumb.url} />
+      <div id="outermost">
+        <br/><br/>
+        <div className="container">
+          <div className="row">
+            <div className="profile-flex">
+              <div className="profile-pic">
+                <img src={user.image.image.thumb.url || "/uploads/default/default.png"} />
+              </div>
+              <div className="profile-details">
+                <h3>
+                  {user.firstname}'s profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {
+                    user.id === this.props.current_user.id ?
+                      <a href="/users/edit" className="btn btn-default">Edit my info</a> :
+                      null
+                  }
+                </h3>
+                <p>{user.email}</p>
+                <p><strong>Joined:</strong> {user.created_at}</p>
+                <p><strong>Hops created:</strong> {this.props.user.crawls.length}</p>
+                <p><strong>Reviewed:</strong> (number of reviews) hops</p>
+              </div>
             </div>
-            <div className="profile-details">
-              <h3>{user.firstname}'s profile</h3>
-              <p>{user.email}</p>
-              <p><strong>Joined:</strong> {user.created_at}</p>
-              <p><strong>Hops created:</strong> (Total number of hops created)</p>
-              <p><strong>Reviewed:</strong> (number of reviews) hops</p>
+            <div>
+              <h2>{user.firstname}'s Hops</h2>
             </div>
+            <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
           </div>
-          <div>
-            <h2>{user.firstname}'s Hops</h2>
-          </div>
-          <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
         </div>
       </div>
     )

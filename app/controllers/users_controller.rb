@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @tags = Tag.all
+    @current_user = current_user
   end
 
   def new

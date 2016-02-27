@@ -15,8 +15,16 @@
 .profile-pic img {
   max-width: 100%;
   max-height: 100%;
+  border-radius: 30px;
 }
 
 .profile-details {
   padding-left: 20px;
+}
+
+.notice {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: lightgreen;
+  border: green 2px solid;
 }
