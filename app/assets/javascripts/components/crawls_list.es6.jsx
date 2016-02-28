@@ -77,9 +77,15 @@ class CrawlsList extends React.Component {
     var crawls = this.props.crawls
     var filtered = []
     for (var i = 0; i < crawls.length; i++) {
-      if (crawls[i].name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
-        console.log(val)
-        filtered.push(crawls[i]);
+      var crawl = crawls[i];
+      if (crawl.name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+        filtered.push(crawl);
+      }
+      //only returns the first crawl
+      for (var j = i; j < crawl.hops.length; j++) {
+        if (crawl.hops[j].name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
+          filtered.push(crawl);
+        }
       }
     }
     console.log(filtered)
