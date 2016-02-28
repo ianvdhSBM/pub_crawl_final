@@ -56,7 +56,7 @@ class Crawl extends React.Component {
             className="details"
             component="div"
             transitionName="details"
-            transitionEnterTimeout={1000}
+            transitionEnterTimeout={500}
             transitionLeaveTimeout={100}
           >
 

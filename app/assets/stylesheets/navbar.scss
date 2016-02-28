@@ -24,7 +24,6 @@
     color: #fff;
 }
 
-
 a.navigation-item {
   color: #fff;
 }
@@ -40,4 +39,8 @@ button.navbar-toggle {
 
 .navbar li:hover {
   color: #076CB7;
+}
+
+.navbar .navbar-header .icon-bar {
+    background-color: #fff;
 }

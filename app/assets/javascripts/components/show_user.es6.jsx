@@ -14,7 +14,6 @@ class ShowUser extends React.Component {
   setExpanded(id) {
     if (id === null) {
       // var markers = this.setDefaultMarkers(this.state.crawls);
-      console.log(this)
       this.setState({
         expanded: id
         // markers: markers

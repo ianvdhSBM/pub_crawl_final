@@ -7,7 +7,7 @@ json.crawls(@crawls) do |crawl|
   end
 
   json.hops(crawl.hops) do |hop|
-    json.extract! hop.bar, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
+    json.extract! hop.bar, :id, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
   end
 end
 

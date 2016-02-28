@@ -9,76 +9,21 @@
 @import "navbar";
 @import "footer";
 
-@media only screen and (max-width: 500px) {
-
-  .crawlList-flex {
-    flex-direction: column;
-  }
-
-  .crawlList-header {
-    width: auto;
-    margin: 0;
-  }
-
-  .crawlList-header.first {
-    order: 1;
-  }
-
-  .crawlList-header.second {
-    order: 2;
-  }
-
-  .crawlList-header.third {
-    order: 3;
-  }
+@media only screen and (max-width: 600px) {
 
   /*
-    Crawl component
+    Filters component
   */
 
-  .details-flex {
-    flex-direction: column;
+  .nav-pills > li:first-child {
+    margin-left: 15px;
+    padding: 10px 20px 10px 20px;
   }
 
-  .crawlList-rows {
-    width: auto;
+  .nav-pills > li {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px 15px 10px 15px;
   }
-
-  .crawlList-rows.first {
-    order: 1;
-  }
-
-  .crawlList-rows.second {
-    order: 2;
-  }
-
-  .crawlList-rows.third {
-    order: 3;
-  }
-
-  /*
-    CrawlDetails component
-  */
-
-  .details-description {
-    padding-left: 0;
-    order: 1;
-  }
-
-  .hops-list {
-    width: auto;
-    order: 2;
-  }
-
-  /*.hops-list-ul {
-    list-style: none;
-    padding: 0;
-  }*/
-
-
-
-
-
-
 
 }
