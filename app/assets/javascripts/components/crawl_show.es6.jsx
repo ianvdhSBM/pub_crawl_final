@@ -14,15 +14,15 @@ class CrawlShow extends React.Component {
       });
     }
     var crawl_id = props.crawl.id
-    console.log(crawl_id)
     var filteredreviews = [];
     for (var i = 0; i < props.reviews.length; i++) {
       if (props.reviews[i].crawl_id === crawl_id) {
         filteredreviews.push(props.reviews[i]);
       }
     }
-    console.log(filteredreviews)
     this.state = {
+      user: props.user,
+      users: props.users,
       markers: markers,
       crawl: props.crawl,
       mapCoordinates: {
@@ -63,6 +63,15 @@ class CrawlShow extends React.Component {
     this.setState({review: review})
   }
 
+  // filterUsers(reviewId) {
+  //   this.state.users.filter(function(user) {
+  //     if (user.id === reviewId) {
+  //       console.log(user);
+  //       return user
+  //     }
+  //   })
+  // }
+
   handleSubmit() {
     crawl = this.state.crawl
     data = this.state.review
@@ -73,7 +82,7 @@ class CrawlShow extends React.Component {
       type: 'POST',
       data: data,
       success: function(data) {
-        console.log(data);
+        console.log(cool);
       }.bind(this),
       error: function(xhr, status, err) {
         console.log('you suck');
@@ -125,18 +134,31 @@ class CrawlShow extends React.Component {
               </form>
             </div> : false
           }
-        </div>
-        <div id="show-reviews">
-          {/* display reviews in a table */}
-          { this.state.filteredreviews.map(function(review) {
-            return (
-              <div className="review" key={review.id}>
-                <h3>{review.user_id}</h3>
-                <p>{review.rating}</p>
-                <p>{review.comment}</p>
-              </div>
-            )
-          })}
+          { this.state.filteredreviews.length > 0 ?
+            <div id="show-reviews">
+              {/* display reviews in a table */}
+              <table className="table table-hover text-center">
+                <thead>
+                  <tr>
+                    <th className="text-center"><h3>Username</h3></th>
+                    <th className="text-center"><h3>Rating</h3></th>
+                    <th className="text-center"><h3>Comment</h3></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  { this.state.filteredreviews.map(function(review) {
+                    return (
+                      <tr className="review" key={review.id}>
+                        <td><h5>Username here plz</h5></td>
+                        <td><p>{review.rating}</p></td>
+                        <td><p>{review.comment}</p></td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div> : false
+          }
         </div>
       </div>  
     )

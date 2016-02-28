@@ -31,7 +31,6 @@ class CrawlsList extends React.Component {
   }
 
   filterCrawls(filter) {
-    //put tags in the database - get rid of these hardcoded arrays
     var tags = ['dive bar', 'wine', 'beer', 'cool', 'lounge', 'fancy', 'food'];
     var filters = ['all', 'name', 'price', 'rating'];
     if (tags.indexOf(filter) > -1) {

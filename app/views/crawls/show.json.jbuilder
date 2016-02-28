@@ -19,3 +19,8 @@ end
 json.reviews(@reviews) do |review|
   json.extract! review, :crawl_id, :user_id, :rating, :comment
 end
+
+json.users(@users) do |user|
+  json.extract! user, :id, :firstname, :lastname
+end
+

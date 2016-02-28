@@ -9,6 +9,7 @@ class CrawlsController < ApplicationController
   def show
     @crawl = Crawl.find_by(id: params[:id])
     @reviews = Review.all
+    @users = User.all
     current_user ? @user = current_user : nil
   end
 
