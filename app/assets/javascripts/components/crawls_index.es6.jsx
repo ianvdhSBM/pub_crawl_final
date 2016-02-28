@@ -63,7 +63,7 @@ class CrawlsIndex extends React.Component {
       <div id="outermost">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
         <div className="container page-wrapper">
-          <Description />
+          {/* <Description /> */}
           <h1>hops.</h1>
             <CrawlsList crawls={ this.state.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
         </div>

@@ -9,3 +9,76 @@
 @import "navbar";
 @import "footer";
 
+@media only screen and (max-width: 500px) {
+
+  .crawlList-flex {
+    flex-direction: column;
+  }
+
+  .crawlList-header {
+    width: auto;
+    margin: 0;
+  }
+
+  .crawlList-header.first {
+    order: 1;
+  }
+
+  .crawlList-header.second {
+    order: 2;
+  }
+
+  .crawlList-header.third {
+    order: 3;
+  }
+
+  /*
+    Crawl component
+  */
+
+  .details-flex {
+    flex-direction: column;
+  }
+
+  .crawlList-rows {
+    width: auto;
+  }
+
+  .crawlList-rows.first {
+    order: 1;
+  }
+
+  .crawlList-rows.second {
+    order: 2;
+  }
+
+  .crawlList-rows.third {
+    order: 3;
+  }
+
+  /*
+    CrawlDetails component
+  */
+
+  .details-description {
+    padding-left: 0;
+    order: 1;
+  }
+
+  .hops-list {
+    width: auto;
+    order: 2;
+  }
+
+  /*.hops-list-ul {
+    list-style: none;
+    padding: 0;
+  }*/
+
+
+
+
+
+
+
+}
