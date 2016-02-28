@@ -12,10 +12,12 @@ class Map extends React.Component {
     if(this.mapLat == this.props.lat && this.mapLng == this.props.lng){
       map.removeMarkers();
       var markers = this.props.markers;
+      var image = 'http://www.googlemapsmarkers.com/v1/076CB7/';
       for(var i = 0; i < markers.length; i++){
         map.addMarker({
           lat: markers[i].lat,
           lng: markers[i].lng,
+          icon: image,
           infoWindow: {
             content: "<p>" + markers[i].title + "</p>"
           }
@@ -32,13 +34,17 @@ class Map extends React.Component {
       lat: this.props.lat,
       lng: this.props.lng,
       scrollwheel: false,
+      streetViewControl: false,
+      mapTypeControl: false,
       zoom: 13
     });
     var markers = this.props.markers;
+    var image = 'http://www.googlemapsmarkers.com/v1/076CB7/';
     for(var i = 0; i < markers.length; i++){
       map.addMarker({
         lat: markers[i].lat,
         lng: markers[i].lng,
+        icon: image,
         infoWindow: {
           content: "<p>" + markers[i].title + "</p>"
         }

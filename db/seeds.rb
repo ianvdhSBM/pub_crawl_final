@@ -21,9 +21,6 @@ bars2 << Bar.find_by(name: "Buca")
 bars2 << Bar.find_by(name: "Cadillac Lounge")
 bars2 << Bar.find_by(name: "Spice Route")
 
-review1 = Review.new(crawl_id: 1, user_id: 1, rating: 5, comment: "cool crawl")
-review2 = Review.new(crawl_id: 1, user_id: 2, rating: 2, comment: "bad crawl")
-
 cool = Tag.new(name: "cool")
 beer = Tag.new(name: "beer")
 wine = Tag.new(name: "wine")
