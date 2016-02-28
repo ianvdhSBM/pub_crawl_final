@@ -33,6 +33,7 @@ var loadForm = function(){
 
     rerenderMarkers = function(){
       map.removeMarkers();
+      map.cleanRoute();
       markers = [];
       bars.forEach(function(bar){
         if(bar !== null){
@@ -42,13 +43,31 @@ var loadForm = function(){
           });
         }
       });
-      markers.forEach(function(marker){
+      var waypoints = [];
+      markers.forEach(function(marker, index){
         if(marker.lat !== null || marker.lng !== null){
           map.addMarker({
             lat: marker.lat,
-            lng: marker.lng
+            lng: marker.lng,
+            label: (index + 1).toString()
+          });
+          waypoints.push({
+            location: new google.maps.LatLng({
+              lat: Number.parseFloat(marker.lat),
+              lng: Number.parseFloat(marker.lng)
+            })
           });
         }
+      });
+
+      map.drawRoute({
+        origin: [markers[0].lat, markers[0].lng],
+        destination: [Number.parseFloat(markers[markers.length - 1].lat), Number.parseFloat(markers[markers.length - 1].lng)],
+        travelMode: "walking",
+        waypoints: waypoints,
+        strokeColor: "blue",
+        strokeOpacity: 0.5,
+        strokeWeight: 3
       });
     }
 

@@ -30,7 +30,7 @@ class Map extends React.Component {
             lat: Number.parseFloat(markers[i].lat),
             lng: Number.parseFloat(markers[i].lng)
           })
-        })
+        });
       }
       map.drawRoute({
         origin: [markers[0].lat, markers[0].lng],
