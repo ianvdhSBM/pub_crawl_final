@@ -10,7 +10,7 @@ class Filters extends React.Component {
       <ul className="nav nav-pills">
         {this.props.filters.map(function(filter) {
           return (
-            <li role="presentation" onClick={()=>self.props.filterCrawls(filter)}>{filter}</li>
+            <li key={filter} role="presentation" onClick={()=>self.props.filterCrawls(filter)}>{filter}</li>
           )
         })}
         <li id="dropdown" role="presentation" className="dropdown">
@@ -20,7 +20,7 @@ class Filters extends React.Component {
           <ul className="dropdown-menu">
             {this.props.tags.map(function(tag) {
               return (
-                <li role="presentation" onClick={()=>self.props.filterCrawls(tag)}><a href="#">{tag}</a></li>
+                <li key={tag} role="presentation" onClick={()=>self.props.filterCrawls(tag)}><a href="#">{tag}</a></li>
               )
             })}
           </ul>

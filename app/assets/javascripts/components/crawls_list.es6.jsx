@@ -98,20 +98,18 @@ class CrawlsList extends React.Component {
   render () {
     var self = this;
     var tags = this.setTagsArray(this.props.tags);
-
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div id="list-container">
-          <form className="input-group" onSubmit={this.handleSubmit}>
-            <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">Find</button>
-            </span>
-          </form>
-          <div className="row">
-            <div className="filters-flex">
-              <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
-            </div>
+        <div className="row">
+          <div className="filters-flex">
+            <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
+            <form className="input-group" onSubmit={this.handleSubmit}>
+              <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="submit">Find</button>
+              </span>
+            </form>
           </div>
           <div className="crawlList-flex">
             <div className="crawlList-header first"><h3>Name</h3></div>
@@ -124,6 +122,7 @@ class CrawlsList extends React.Component {
                 bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded === crawl.id }/>
               )
             })}
+        </div>
       </div>
     )
   }

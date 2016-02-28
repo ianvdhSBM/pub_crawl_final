@@ -40,7 +40,7 @@ class Navbar extends React.Component {
               <li><a href="#" className="navigation-item">about <span className="sr-only">(current)</span></a></li>
               <li><a href="#" className="navigation-item">hops</a></li>
               {
-                this.props.user ? <li><a href="/crawls/new">Create New Hop</a></li> : false
+                this.props.user ? <li><a className="navigation-item"  href="/crawls/new">Create New Hop</a></li> : false
               }
 
             </ul>

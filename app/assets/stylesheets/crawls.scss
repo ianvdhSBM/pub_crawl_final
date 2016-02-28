@@ -36,6 +36,10 @@
   color: #fff;
 }
 
+li#dropdown.dropdown:hover {
+  background-color: #fff;
+}
+
 .filters-flex {
   display: flex;
   align-items: center;
@@ -54,9 +58,14 @@
 
 .nav-pills > li:hover,
 .nav-pills > li:focus,
-.nav-pills > li:active, {
+.nav-pills > li:active {
   background-color: #0987E5;
   color: #fff;
+}
+
+.dropdown-menu {
+  height: 200px;
+  overflow: auto;
 }
 
 .crawlList-flex {
@@ -83,10 +92,11 @@
 
 .tags-list {
   margin: 5px;
-  padding: 10px 20px 10px 20px;
+  padding: 8px 15px 8px 15px;
   border-radius: 20px;
   background-color: #0987E5;
-  font-weight: 700;
+  font-weight: lighter;
+  font-size: 0.8em;
   color: white;
 }
 
@@ -99,6 +109,27 @@
   align-items: center;
 }
 
+#crawl-details-show {
+  width: 70.0%;
+  float: left;
+}
+
+#review-form {
+  width: 30.0%;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#show-reviews {
+  width: 100%;
+}
+
+div.review {
+  margin-left: 500px;
+}
+
+
 /*
   CrawlDetails component
 */
@@ -108,9 +139,9 @@
   /*justify-content: center;*/
 }
 
-
 .hops-list {
   /*width: 50.0%;*/
+  width: 60%;
 }
 
 .hops-list-ul {
@@ -125,7 +156,8 @@
 }
 
 .details-description {
-  padding-left: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 section #fixed {

@@ -18,7 +18,7 @@ class CrawlDetails extends React.Component {
           <ul className="hops-list-ul">
             { hops.map(function(hop, index) {
               return (
-                <li key={hop.id}><strong>Hop #{index + 1}:</strong>  <a target="_blank" href={hop.website}>{hop.name}</a>, {hop.address}, {hop.city}, {hop.province}</li>
+                <li key={index}><strong>Hop #{index + 1}:</strong>  <a target="_blank" href={hop.website}>{hop.name}</a>, {hop.address}, {hop.city}, {hop.province}</li>
                 )
               })
             }
@@ -28,7 +28,6 @@ class CrawlDetails extends React.Component {
           <h3>Decription</h3>
           <p>{this.props.crawl.description}</p>
           <p>Average Price: {this.props.price}</p>
-
 
         </div>
       </div>

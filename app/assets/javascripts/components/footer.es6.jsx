@@ -6,10 +6,9 @@ class Footer extends React.Component {
         <div id="footer">
           <div className="container">
             <div className="row">
-              <div className="social col-lg-5 col-lg-offset-2 text-center">
-                <ul className="social-icons">
+                <ul className="social-icons text-center">
                   <li className="social-list">
-                    <a href="#">
+                    <a href="https://github.com/ianvdhSBM/pub_crawl_final" target="_blank">
                       <span className="fa-stack fa-lg">
                         <i className="fa fa-circle fa-stack-2x"></i>
                         <i className="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -17,7 +16,7 @@ class Footer extends React.Component {
                     </a>
                   </li>
                   <li className="social-list">
-                    <a href="#">
+                    <a href="https://github.com/ianvdhSBM/pub_crawl_final" target="_blank">
                       <span className="fa-stack fa-lg">
                         <i className="fa fa-circle fa-stack-2x"></i>
                         <i className="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -25,7 +24,7 @@ class Footer extends React.Component {
                     </a>
                   </li>
                   <li className="social-list">
-                    <a href="#">
+                    <a href="https://github.com/ianvdhSBM/pub_crawl_final" target="_blank">
                       <span className="fa-stack fa-lg">
                         <i className="fa fa-circle fa-stack-2x"></i>
                         <i className="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -33,15 +32,17 @@ class Footer extends React.Component {
                     </a>
                   </li>
                   <li className="social-list">
-                    <a href="#">
+                    <a href="https://github.com/ianvdhSBM/pub_crawl_final" target="_blank">
                       <span className="fa-stack fa-lg">
                         <i className="fa fa-circle fa-stack-2x"></i>
                         <i className="fa fa-instagram fa-stack-1x fa-inverse"></i>
                       </span>
                     </a>
                   </li>
+                  <br/>
+                  <div className="credits">Created by Ian Van Den Heuvel, Paul Iogna, and Hanna Jones</div>
+                  <div className="credits">&copy; Lighthouse Labs, February 2016</div>
                 </ul>
-              </div>
             </div>
           </div>
         </div>

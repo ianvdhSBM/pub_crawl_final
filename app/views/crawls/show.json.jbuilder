@@ -5,11 +5,22 @@ json.crawl do
   json.start_lng @crawl.hops[0].bar.lng
   json.user @crawl.user
 
-  # json.tags(crawl.tags) do |tag|
-  #   json.extract! tag, :name
-  # end
-
   json.hops(@crawl.hops) do |hop|
     json.extract! hop.bar, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
   end
 end
+
+if current_user
+  json.user do
+    json.extract! @user, :id, :firstname, :lastname, :email
+  end 
+end
+
+json.reviews(@reviews) do |review|
+  json.extract! review, :crawl_id, :user_id, :rating, :comment
+end
+
+json.users(@users) do |user|
+  json.extract! user, :id, :firstname, :lastname
+end
+

@@ -11,12 +11,6 @@ json.crawls(@crawls) do |crawl|
   end
 end
 
-json.tags(@crawls) do |crawl|
-  json.tags(crawl.tags) do |tag|
-    json.extract! tag, :name
-  end
-end
-
 json.tags(@tags) do |tag|
   json.extract! tag, :name, :id
 end
