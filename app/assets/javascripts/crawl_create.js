@@ -31,6 +31,8 @@ var loadForm = function(){
       zoom: 13
     });
 
+    map.setOptions({styles: styles});
+
     rerenderMarkers = function(){
       map.removeMarkers();
       map.cleanRoute();
