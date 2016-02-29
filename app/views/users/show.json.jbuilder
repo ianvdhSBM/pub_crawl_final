@@ -5,6 +5,7 @@ json.user do
   json.lastname     @user.lastname
   json.image        @user.image
   json.created_at   @user.created_at.to_date
+  json.provider     @user.provider
 
   json.crawls(@user.crawls) do |crawl|
     json.extract! crawl, :id, :name, :description, :tags

@@ -51,10 +51,10 @@ class ShowUser extends React.Component {
               </div>
               <div className="profile-details">
                 <h3>
-                  {user.firstname}'s profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {user.firstname} {user.lastname} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   {
-                    user.id === this.props.current_user.id ?
-                      <small><a href="/users/edit" className="profile-edit">Edit my info</a></small> :
+                    user.id === this.props.current_user.id && user.provider === null ?
+                      <small><a href="/users/edit" className="profile-edit">edit my info</a></small> :
                       null
                   }
                 </h3>
