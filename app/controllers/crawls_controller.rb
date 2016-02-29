@@ -1,16 +1,13 @@
 class CrawlsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    # @crawls = Crawl.all
     @crawls = Crawl.includes(hops: :bar)
     @tags = Tag.order(:name)
-    # render component: 'Crawls', props: { crawls: @crawls }
   end
 
   def show
     @crawl = Crawl.find_by(id: params[:id])
-    @reviews = Review.all
-    @users = User.all
+    @reviews = Review.includes(:user)
     current_user ? @user = current_user : nil
   end
 
