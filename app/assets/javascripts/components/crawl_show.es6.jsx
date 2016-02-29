@@ -48,10 +48,15 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
+  onRatingChange(e) {
+    var newRating = e.target.value;
+    this.setState({review: {rating: newRating}})
+  }
+
+
   handleSubmit(e) {
     var review = this.state.review;
     var crawl = this.state.crawl;
-    review.rating = e.target.querySelector('#rating').value;
     review.comment = e.target.querySelector('#comment').value;
     this.setState({review: review})
     var data = this.state.review;
@@ -86,20 +91,28 @@ class CrawlShow extends React.Component {
             </div>
           </div>
           <div id="crawl-details-show">
-            <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags} price={ this.state.price }/>
+            <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags } price={ this.state.price }/>
           </div>
           { this.props.user ?
             <div id="review-form">
               <h3>Write a Review</h3>
-              <form className="input-group" onSubmit={this.handleSubmit}>
+              <form className="input-group" onChange={this.onRatingChange.bind(this)}>
                 <label>Rating:</label>
-                <select name="review[rating]" className="form-control" id="rating" value={review.value}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
+                <div className="stars">
+                  <input type="radio" name="star" className="star-1 rating" id="star-1" value="1" />
+                  <label className="star-1" htmlFor="star-1">1</label>
+                  <input type="radio" name="star" className="star-2 rating" id="star-2" value="2" />
+                  <label className="star-2" htmlFor="star-2">2</label>
+                  <input type="radio" name="star" className="star-3 rating" id="star-3" value="3" />
+                  <label className="star-3" htmlFor="star-3">3</label>
+                  <input type="radio" name="star" className="star-4 rating" id="star-4" value="4" />
+                  <label className="star-4" htmlFor="star-4">4</label>
+                  <input type="radio" name="star" className="star-5 rating" id="star-5" value="5" />
+                  <label className="star-5" htmlFor="star-5">5</label>
+                  <span></span>
+                </div>
+              </form>
+              <form className="input-group" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label>Comments:</label>
                   <textarea name="review[comment]" className="form-control" id="comment" rows="5"></textarea>

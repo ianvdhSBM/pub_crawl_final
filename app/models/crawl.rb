@@ -15,8 +15,5 @@ class Crawl < ActiveRecord::Base
   # validates :description,
   #   length: { maximum: 150 }
 
-  def get_users
-
-  end
 
 end
