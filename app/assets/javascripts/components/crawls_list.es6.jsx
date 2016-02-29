@@ -38,7 +38,6 @@ class CrawlsList extends React.Component {
   }
 
   filterCrawls(filter) {
-    //put tags in the database - get rid of these hardcoded arrays
     var tags = this.setTagsArray(this.props.tags)
     var filters = ['all', 'name', 'price', 'rating'];
     if (tags.indexOf(filter) > -1) {
@@ -74,6 +73,7 @@ class CrawlsList extends React.Component {
   }
 
   searchName(val) {
+    //var hops
     var crawls = this.props.crawls
     var filtered = []
     for (var i = 0; i < crawls.length; i++) {
@@ -81,16 +81,17 @@ class CrawlsList extends React.Component {
       if (crawl.name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
         filtered.push(crawl);
       }
-      //only returns the first crawl
-      for (var j = i; j < crawl.hops.length; j++) {
+      for (var j = 0; j < crawl.hops.length; j++) {
         if (crawl.hops[j].name.toLowerCase().indexOf(val.toLowerCase()) > -1) {
           filtered.push(crawl);
         }
       }
     }
-    console.log(filtered)
     if (filtered.length > 0) {
       this.setState({filtercrawls: filtered})
+    }
+    else {
+      this.setState({filtercrawls: []})
     }
   }
 

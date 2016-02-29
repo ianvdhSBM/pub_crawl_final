@@ -3,8 +3,6 @@ class CrawlShow extends React.Component {
   constructor(props) {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onCommentChange = this.onCommentChange.bind(this);
-    this.onRatingChange = this.onRatingChange.bind(this);
     var markers = [];
     for(var i = 0; i < props.crawl.hops.length; i++){
       markers.push({
@@ -22,7 +20,6 @@ class CrawlShow extends React.Component {
     }
     this.state = {
       user: props.user,
-      users: props.users,
       markers: markers,
       crawl: props.crawl,
       mapCoordinates: {
@@ -51,42 +48,18 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
-  onCommentChange(e) {
+  handleSubmit(e) {
     var review = this.state.review;
-    review.comment = e.target.value;
+    var crawl = this.state.crawl;
+    review.rating = e.target.querySelector('#rating').value;
+    review.comment = e.target.querySelector('#comment').value;
     this.setState({review: review})
-  }
-
-  onRatingChange(e) {
-    var review = this.state.review;
-    review.rating = e.target.value;
-    this.setState({review: review})
-  }
-
-  // filterUsers(reviewId) {
-  //   this.state.users.filter(function(user) {
-  //     if (user.id === reviewId) {
-  //       console.log(user);
-  //       return user
-  //     }
-  //   })
-  // }
-
-  handleSubmit() {
-    crawl = this.state.crawl
-    data = this.state.review
-    console.log(data);
+    var data = this.state.review;
     $.ajax({
       url: "/crawls/" + crawl.id + "/reviews",
       dataType: 'json',
       type: 'POST',
-      data: data,
-      success: function(data) {
-        console.log(cool);
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.log('you suck');
-      }
+      data: data
     })
   }
 
@@ -118,7 +91,7 @@ class CrawlShow extends React.Component {
               <h3>Review Goes Here</h3>
               <form className="input-group" onSubmit={this.handleSubmit}>
                 <label>Rating:</label>
-                <select name="review[rating]" className="form-control" id="rating" value={review.value}onChange={this.onRatingChange}>
+                <select name="review[rating]" className="form-control" id="rating" value={review.value}>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -127,7 +100,7 @@ class CrawlShow extends React.Component {
                 </select>
                 <div className="form-group">
                   <label>Comments:</label>
-                  <textarea name="review[comment]" value={review.comment} onChange={this.onCommentChange} className="form-control" id="comment" rows="5"></textarea>
+                  <textarea name="review[comment]" className="form-control" id="comment" rows="5"></textarea>
                   <br/>
                 </div>
                 <button type="submit" className="btn btn-default">Submit</button>
@@ -136,7 +109,6 @@ class CrawlShow extends React.Component {
           }
           { this.state.filteredreviews.length > 0 ?
             <div id="show-reviews">
-              {/* display reviews in a table */}
               <table className="table table-hover text-center">
                 <thead>
                   <tr>
@@ -149,7 +121,7 @@ class CrawlShow extends React.Component {
                   { this.state.filteredreviews.map(function(review) {
                     return (
                       <tr className="review" key={review.id}>
-                        <td><h5>Username here plz</h5></td>
+                        <td><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></td>
                         <td><p>{review.rating}</p></td>
                         <td><p>{review.comment}</p></td>
                       </tr>
