@@ -13,7 +13,7 @@ end
 if current_user
   json.user do
     json.extract! @user, :id, :firstname, :lastname, :email
-  end 
+  end
 end
 
 json.reviews(@reviews) do |review|

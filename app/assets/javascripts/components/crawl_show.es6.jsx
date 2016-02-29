@@ -132,6 +132,9 @@ class CrawlShow extends React.Component {
             </div> : false
           }
         </div>
+        { this.props.user ?
+        <InviteForm userId={this.props.user.id} crawlId={this.props.crawl.id}/> : false
+        }
       </div>
     )
   }

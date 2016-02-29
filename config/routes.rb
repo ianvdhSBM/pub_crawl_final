@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'invite/invite_user'
+
   # devise_for :users
   devise_for :users, :controllers => { registrations: 'registrations' }
 
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
   resources :drinks, only: [:new, :create]
+
+  post 'invites', to: 'invites#invite_user'
+  get 'invites/:id', to: 'invites#get_invites'
 
   root to: 'crawls#index'
   # The priority is based upon order of creation: first created -> highest priority.
