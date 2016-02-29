@@ -7,6 +7,8 @@ class Crawl < ActiveRecord::Base
   has_many :invitees
   has_and_belongs_to_many :tags
 
+  attr_reader :average_rating
+
   # validates :name,
   #   presence: true,
   #   uniqueness: true,
@@ -19,4 +21,8 @@ class Crawl < ActiveRecord::Base
 
   end
 
+  def average_rating
+    rating = self.reviews.average(:rating)
+    rating.round if rating
+  end
 end
