@@ -95,8 +95,8 @@ class CrawlShow extends React.Component {
     var crawl = this.props.crawl;
     var review = this.state.review;
     return (
-      <div>   
-        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>      
+      <div>
+        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
         <div className="container page-wrapper">
           <div>
             <div><h2>{crawl.name}</h2></div>
@@ -160,7 +160,8 @@ class CrawlShow extends React.Component {
             </div> : false
           }
         </div>
-      </div>  
+      </div>
     )
   }
+
 }
