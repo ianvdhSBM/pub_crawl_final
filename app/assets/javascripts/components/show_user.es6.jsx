@@ -61,7 +61,7 @@ class ShowUser extends React.Component {
                 <p>{user.email}</p>
                 <p><strong>Joined:</strong> {user.created_at}</p>
                 <p><strong>Hops created:</strong> {this.props.user.crawls.length}</p>
-                <p><strong>Reviewed:</strong> (number of reviews) hops</p>
+                <p><strong>Hops reviewed:</strong> {this.props.user.reviews.length}</p>
               </div>
             </div>
             <div>

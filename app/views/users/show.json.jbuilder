@@ -14,6 +14,10 @@ json.user do
       json.extract! hop.bar, :id, :name, :address, :city, :province, :phone_number, :website, :price
     end
   end
+
+  json.reviews(@user.reviews) do |review|
+    json.extract! review, :id, :comment, :rating
+  end
 end
 
 json.tags(@tags) do |tag|

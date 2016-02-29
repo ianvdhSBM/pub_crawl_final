@@ -6,6 +6,7 @@ class Footer extends React.Component {
         <div id="footer">
           <div className="container">
             <div className="row">
+              <div className="social-icons-list-flex">
                 <ul className="social-icons text-center">
                   <li className="social-list">
                     <a href="https://github.com/ianvdhSBM/pub_crawl_final" target="_blank">
@@ -39,10 +40,11 @@ class Footer extends React.Component {
                       </span>
                     </a>
                   </li>
-                  <br/>
-                  <div className="credits">Created by Ian Van Den Heuvel, Paul Iogna, and Hanna Jones</div>
-                  <div className="credits">&copy; Lighthouse Labs, February 2016</div>
                 </ul>
+                <br/>
+                <div className="credits">Created by Ian Van Den Heuvel, Paul Iogna, and Hanna Jones</div>
+                <div className="credits">&copy; Lighthouse Labs, February 2016</div>
+              </div>
             </div>
           </div>
         </div>
