@@ -56,7 +56,7 @@ class BarShow extends React.Component {
               <h2>{bar.name}</h2>
               <p><strong>Website: </strong><a target="_blank" href={bar.website}>{bar.website}</a></p>
               <p><strong>Address: </strong>{bar.address}, {bar.city}, {bar.province}</p>
-              <p><strong>Phone</strong>{bar.phone_number}</p>
+              <p><strong>Phone: </strong>{bar.phone_number}</p>
               <p><strong>Average Price: </strong>{bar.price}</p>
 
             </div>
