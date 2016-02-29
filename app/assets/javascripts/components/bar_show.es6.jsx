@@ -3,7 +3,7 @@ class BarShow extends React.Component {
   constructor(props) {
     super();
     this.setExpanded = this.setExpanded.bind(this);
-    markers = [{lat: props.bar.lat, lng: props.bar.lng}]
+    markers = [{lat: props.bar.lat, lng: props.bar.lng, title: props.bar.name}]
     this.state = {
       bar: props.bar,
       crawls: props.bar.crawls,
@@ -49,8 +49,8 @@ class BarShow extends React.Component {
     var crawls = this.props.bar.crawls;
     return (
       <div id="outermost">
+        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} />
         <div className="container page-wrapper">
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} />
           <div>
             <div>
               <h2>{bar.name}</h2>
