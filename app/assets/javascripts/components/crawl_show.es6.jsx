@@ -72,7 +72,9 @@ class CrawlShow extends React.Component {
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
         <div className="container page-wrapper">
           <div>
-            <div><h2>{crawl.name}</h2></div>
+            <div>
+              <h2>{crawl.name}</h2>
+            </div>
             <div className="tags-flex">
 
               { self.props.crawl.tags.map(function(tag) {
@@ -88,7 +90,7 @@ class CrawlShow extends React.Component {
           </div>
           { this.props.user ?
             <div id="review-form">
-              <h3>Review Goes Here</h3>
+              <h3>Write a Review</h3>
               <form className="input-group" onSubmit={this.handleSubmit}>
                 <label>Rating:</label>
                 <select name="review[rating]" className="form-control" id="rating" value={review.value}>
@@ -105,7 +107,13 @@ class CrawlShow extends React.Component {
                 </div>
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
-            </div> : false
+              <br/>
+            </div> :
+              <div>
+                <h3>
+                  Please <a href="/users/sign_in">Sign In</a> to write a review
+                </h3>
+              </div>
           }
           { this.state.filteredreviews.length > 0 ?
             <div id="show-reviews">
