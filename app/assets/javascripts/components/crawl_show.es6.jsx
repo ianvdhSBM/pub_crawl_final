@@ -51,6 +51,3 @@ class CrawlShow extends React.Component {
   }
 
 }
-
-
-// <Crawl key={ crawl.id } crawl={ crawl } tags={ crawl.tags } />

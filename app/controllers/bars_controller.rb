@@ -6,13 +6,8 @@ class BarsController < ApplicationController
   end
 
   def show
-    if request.xhr?
-      @bar = Bar.find_by(id: params[:id])
-      render "show.json.jbuilder"
-    else
-      @bar = Bar.find_by(id: params[:id])
-      # respond to normal request
-    end
+    @bar = Bar.find_by(id: params[:id])
+    @tags = Tag.order(:name)
   end
 
   def new

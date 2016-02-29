@@ -13,3 +13,4 @@
 /tmp
 .DS_Store
 /public/uploads/
+!/public/uploads/default/default.png
