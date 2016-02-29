@@ -6,14 +6,14 @@ json.crawl do
   json.user @crawl.user
 
   json.hops(@crawl.hops) do |hop|
-    json.extract! hop.bar, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
+    json.extract! hop.bar, :id, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
   end
 end
 
 if current_user
   json.user do
     json.extract! @user, :id, :firstname, :lastname, :email
-  end 
+  end
 end
 
 json.reviews(@reviews) do |review|
