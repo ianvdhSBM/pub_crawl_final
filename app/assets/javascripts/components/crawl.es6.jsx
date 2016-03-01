@@ -37,7 +37,7 @@ class Crawl extends React.Component {
     return (
       <div className="row border" onClick={this.expandCrawl.bind(this)}>
         <div className="crawlList-flex">
-          <div className="crawlList-rows"><h4><a href={"/crawls/" + crawl.id}>{crawl.name}</a></h4></div>
+          <div className="crawlList-rows"><h4><a className="crawl-name" href={"/crawls/" + crawl.id}>{crawl.name}</a></h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
           <div className="crawlList-rows tags-flex">
 

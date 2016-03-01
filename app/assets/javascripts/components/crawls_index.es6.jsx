@@ -18,7 +18,6 @@ class CrawlsIndex extends React.Component {
   }
 
   setDefaultMarkers(crawls) {
-    // var crawls = this.props.crawls;
     var markers = [];
     for(var i = 0; i < crawls.length; i++){
       markers.push({
@@ -60,12 +59,14 @@ class CrawlsIndex extends React.Component {
   render () {
     var self = this;
     return (
-      <div className="outermost">
-        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
-        <div className="container page-wrapper">
-          {/* <Description /> */}
-          <h1>hops.</h1>
-            <CrawlsList crawls={ this.state.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+      <div id="flexbox-container-columns">
+          <div id="crawls-container-flex">
+            {/* <Description /> */}
+            <h1>hops.</h1>
+              <CrawlsList crawls={ this.state.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
+          </div>
+        <div id="map-flex">
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
         </div>
       </div>
     )
