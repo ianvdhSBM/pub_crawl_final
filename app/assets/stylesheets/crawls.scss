@@ -74,11 +74,19 @@ li#dropdown.dropdown:hover {
 }
 
 .crawlList-header {
-  width: 33.33333%;
+  width: 19%;
+}
+
+.crawlList-header:nth-child(4) {
+  width: 39%;
 }
 
 .crawlList-rows {
-  width: 33.33333%;
+  width: 19%;
+}
+
+.crawlList-rows.tags-flex {
+  width: 39%;
 }
 
 .row.border {
@@ -101,12 +109,54 @@ li#dropdown.dropdown:hover {
 }
 
 /*
+  CrawlDetails component
+*/
+
+.details-flex {
+  display: flex;
+  /*justify-content: center;*/
+}
+
+.hops-list {
+  /*width: 50.0%;*/
+  width: 60%;
+}
+
+.hops-list-ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 5px 0;
+}
+
+.hops-list-ul li {
+  padding: 5px 0 5px 0;
+
+}
+
+.details-description {
+  padding-left: 20px;
+}
+
+section #fixed {
+  position: fixed;
+}
+
+/*
   CrawlShow component
 */
 
 .crawlShow-flex {
   display: flex;
   align-items: center;
+}
+
+.crawlShow-flex div.tags-flex {
+  padding-left: 100px;
+}
+
+.crawl-name {
+  /* To push the rating stars to the right */
+  padding-right: 20px;
 }
 
 #crawl-details-show {
@@ -129,40 +179,29 @@ div.review {
   margin-left: 500px;
 }
 
-
-/*
-  CrawlDetails component
-*/
-
-.details-flex {
+.details-reviews-flex {
   display: flex;
-  /*justify-content: center;*/
 }
 
-.hops-list {
-  /*width: 50.0%;*/
-  width: 60%;
+.review-list-flex {
+  display: flex;
+  align-items: center;
 }
 
-.hops-list-ul {
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 5px 0;
+.review-list-header {
+  width: 33%;
+  text-align: center;
 }
 
-.hops-list-ul li {
-  padding: 5px 0;
-
+.review-list-row {
+  width: 33%;
+  text-align: center;
 }
 
-.details-description {
-  padding-left: 20px;
-  padding-right: 20px;
+.review-list-row p {
+  margin: 10px 0 10px 0;
 }
 
-section #fixed {
-  position: fixed;
-}
 
 /*
   Crawl animations for CrawlDetails component
@@ -200,6 +239,7 @@ section #fixed {
 /*
   Crawls Form Page
  */
+
 .visually-hidden {
   display: none;
 }
@@ -217,10 +257,13 @@ div.awesomplete {
   }
 }
 
+/*
+  Media query CSS for mobile screens
+*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
-    /*
+  /*
     CrawlsList component
   */
 
@@ -229,11 +272,11 @@ div.awesomplete {
   }
 
   .crawlList-header {
-    width: auto;
-    margin: 0;
+    width: auto !important;
+    /*margin: auto;*/
   }
 
-  .crawlList-header.first {
+  /*.crawlList-header.first {
     order: 1;
   }
 
@@ -243,7 +286,7 @@ div.awesomplete {
 
   .crawlList-header.third {
     order: 3;
-  }
+  }*/
 
   /*
     Crawl component
@@ -257,31 +300,92 @@ div.awesomplete {
     width: auto;
   }
 
-  .crawlList-rows.first {
-    order: 1;
+  .crawlList-header h3 {
+    margin: 5px 0 5px 0;
   }
 
-  .crawlList-rows.second {
-    order: 2;
-  }
-
-  .crawlList-rows.third {
-    order: 3;
+  .crawlList-rows.tags-flex {
+    width: 350px;
+    justify-content: center;
+    /*align-items: center;*/
   }
 
   /*
     CrawlDetails component
   */
 
+  .details-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .details-description {
     padding-left: 0;
     order: 1;
+    text-align: center;
   }
 
   .hops-list {
     width: auto;
     order: 2;
+    padding: 0;
+    text-align: center;
   }
 
+  /*
+    CrawlShow component
+  */
+
+  .crawlShow-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crawl-name {
+    /*order: 1;*/
+    padding-right: 0;
+  }
+
+  .crawl-rating {
+    /*order: 2;*/
+  }
+
+  .crawlShow-flex div.tags-flex {
+    padding-left: 0;
+  }
+
+  /*
+    CrawlShow component - Review form flex
+  */
+
+  .details-reviews-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-list-flex {
+    flex-direction: column;
+  }
+
+  .review-list-header {
+    width: auto;
+  }
+
+  .review-list-row {
+    width: auto;
+  }
+
+  .review-list-row p {
+    margin: 5px 0 5px 0;
+  }
+
+  .crawl-details-review div h3 {
+    text-align: center;
+  }
 }
+
+
+
+
+
 
