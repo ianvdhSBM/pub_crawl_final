@@ -60,7 +60,7 @@ class CrawlsIndex extends React.Component {
   render () {
     var self = this;
     return (
-      <div id="outermost">
+      <div className="outermost">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
         <div className="container page-wrapper">
           {/* <Description /> */}

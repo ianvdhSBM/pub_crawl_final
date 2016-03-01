@@ -5,6 +5,7 @@ json.user do
   json.lastname     @user.lastname
   json.image        @user.image
   json.created_at   @user.created_at.to_date
+  json.provider     @user.provider
 
   json.crawls(@user.crawls) do |crawl|
     json.extract! crawl, :id, :name, :description, :tags
@@ -13,6 +14,10 @@ json.user do
     json.hops(crawl.hops) do |hop|
       json.extract! hop.bar, :id, :name, :address, :city, :province, :phone_number, :website, :price
     end
+  end
+
+  json.reviews(@user.reviews) do |review|
+    json.extract! review, :id, :comment, :rating
   end
 end
 

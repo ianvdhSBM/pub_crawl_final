@@ -12,6 +12,7 @@ class Map extends React.Component {
     if(this.mapLat == this.props.lat && this.mapLng == this.props.lng){
       map.removeMarkers();
       map.cleanRoute();
+      map.setZoom(14);
       var markers = this.props.markers;
       var waypoints = [];
       for(var i = 0; i < markers.length; i++){
