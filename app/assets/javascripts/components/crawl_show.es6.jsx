@@ -68,7 +68,7 @@ class CrawlShow extends React.Component {
     var crawl = this.props.crawl;
     var review = this.state.review;
     return (
-      <div>
+      <div className="outermost">
         <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
         <div className="container page-wrapper">
           <div>

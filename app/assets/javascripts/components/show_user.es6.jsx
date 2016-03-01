@@ -41,9 +41,9 @@ class ShowUser extends React.Component {
     var user = this.props.user;
     var self = this;
     return (
-      <div id="outermost">
+      <div className="outermost">
         <br/><br/>
-        <div className="container">
+        <div className="container page-wrapper">
           <div className="row">
             <div className="profile-flex">
               <div className="profile-pic">
@@ -60,6 +60,7 @@ class ShowUser extends React.Component {
                 </h3>
                 <p>{user.email}</p>
                 <p><strong>Joined:</strong> {user.created_at}</p>
+                <p>{user.uid}</p>
                 <p><strong>Hops created:</strong> {this.props.user.crawls.length}</p>
                 <p><strong>Hops reviewed:</strong> {this.props.user.reviews.length}</p>
               </div>

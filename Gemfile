@@ -44,6 +44,9 @@ gem 'font-awesome-sass'
 # debugging
 gem 'pry'
 
+gem 'httpclient'
+
+
 gem 'omniauth-facebook'
 # Use Unicorn as the app server
 # gem 'unicorn'
