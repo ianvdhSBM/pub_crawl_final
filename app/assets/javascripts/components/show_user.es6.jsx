@@ -5,8 +5,6 @@ class ShowUser extends React.Component {
     this.setExpanded = this.setExpanded.bind(this);
 
     this.state = {
-      user: props.user,
-      crawls: props.user.crawls,
       expanded: null
     }
   }

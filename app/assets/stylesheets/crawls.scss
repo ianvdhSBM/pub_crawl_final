@@ -44,6 +44,7 @@ li#dropdown.dropdown:hover {
   display: flex;
   align-items: center;
   align-content: center;
+  position: static;
 }
 
 .nav-pills > li {
@@ -107,6 +108,49 @@ a.crawl-name {
 a.crawl-name:hover {
   color: #076CB7;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+  /*
+    Filters component
+  */
+
+  .nav-pills > li:first-child {
+  /*  margin-left: 10px;*/
+    padding: 10px 20px 10px 20px;
+  }
+
+  .nav-pills > li {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+  }
+
+  .filters-flex {
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  // .filters-flex .filters-search {
+  //   order: 1;
+  //   /*align-self: flex-start;*/
+  // }
+
+  // .filters-flex .filters-ul {
+  //   order: 2;
+  //   /*align*/
+  // }
+
+  #toggle-tags {
+    padding: 10px;
+  }
+
+  #tags-responsive-dropdown.dropdown-menu {
+    padding: 5px;
+    margin: 5px;
+  }
+
 }
 /*
   CrawlShow component
@@ -251,6 +295,10 @@ div.awesomplete {
 
   .crawlList-header.third {
     order: 3;
+  }
+
+  #justified {
+    margin-left: 50px;
   }
 
   /*

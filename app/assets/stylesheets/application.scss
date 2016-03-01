@@ -11,44 +11,44 @@
 @import 'bootstrap-social';
 @import 'two-column';
 
-@media only screen and (max-width: 600px) {
+// @media only screen and (max-width: 600px) {
 
-  /*
-    Filters component
-  */
+//   /*
+//     Filters component
+//   */
 
-  .nav-pills > li:first-child {
-  /*  margin-left: 10px;*/
-    padding: 10px 20px 10px 20px;
-  }
+//   .nav-pills > li:first-child {
+//   /*  margin-left: 10px;*/
+//     padding: 10px 20px 10px 20px;
+//   }
 
-  .nav-pills > li {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 10px;
-  }
+//   .nav-pills > li {
+//     margin-left: 5px;
+//     margin-right: 5px;
+//     padding: 10px;
+//   }
 
-  .filters-flex {
-    flex-direction: column;
-  }
+//   .filters-flex {
+//     flex-direction: column;
+//   }
 
-  .filters-flex .filters-search {
-    order: 1;
-    /*align-self: flex-start;*/
-  }
+//   .filters-flex .filters-search {
+//     order: 1;
+//     /*align-self: flex-start;*/
+//   }
 
-  .filters-flex .filters-ul {
-    order: 2;
-    /*align*/
-  }
+//   .filters-flex .filters-ul {
+//     order: 2;
+//     /*align*/
+//   }
 
-  #toggle-tags {
-    padding: 10px;
-  }
+//   #toggle-tags {
+//     padding: 10px;
+//   }
 
-  #tags-responsive-dropdown.dropdown-menu {
-    padding: 5px;
-    margin: 5px;
-  }
+//   #tags-responsive-dropdown.dropdown-menu {
+//     padding: 5px;
+//     margin: 5px;
+//   }
 
-}
+// }

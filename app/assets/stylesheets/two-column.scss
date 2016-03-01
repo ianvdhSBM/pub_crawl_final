@@ -15,20 +15,16 @@
 
 #crawls-container-flex {
   width: 40%;
-  height: 1000px;
+  height: 750px;
   overflow: auto;
   padding: 85px 50px 0 50px;
   margin-bottom: 20px;
   z-index: 1;
 }
 
-// #fixed {
-//   display: flex;
-//   align-items: center;
-//   width: 50%;
-//   height: 100%;
-//   z-index: 0;
-// }
+//need to make filters fixed and the rest scroll
+//make contact info expand only on click
+//center social icons
 
 ::-webkit-scrollbar {
     width: 12px;

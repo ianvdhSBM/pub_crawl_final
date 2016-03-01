@@ -19,15 +19,12 @@ class CrawlShow extends React.Component {
       }
     }
     this.state = {
-      user: props.user,
       markers: markers,
-      crawl: props.crawl,
       mapCoordinates: {
         lat: 43.645425,
         lng: -79.395020
       },
       filteredreviews: filteredreviews,
-      reviews: props.reviews,
       review: {
         crawl_id: props.crawl.id,
         rating: 1,
@@ -50,7 +47,7 @@ class CrawlShow extends React.Component {
 
   handleSubmit(e) {
     var review = this.state.review;
-    var crawl = this.state.crawl;
+    var crawl = this.props.crawl;
     review.rating = e.target.querySelector('#rating').value;
     review.comment = e.target.querySelector('#comment').value;
     this.setState({review: review})
@@ -69,7 +66,7 @@ class CrawlShow extends React.Component {
     var review = this.state.review;
     return (
       <div className="outermost">
-        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
+        <Map id="show-map" lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
         <div className="container page-wrapper">
           <div>
             <div>
