@@ -24,7 +24,7 @@ class Crawl extends React.Component {
     if (this.props.crawl.rating) {
       document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
       var elements = document.getElementById("averageRating").elements;
-      for (var i = 0, len = elements.length; i < len; ++i) {
+      for (var i = 0; i < elements.length; i++) {
           elements[i].disabled = true;
       }
     }

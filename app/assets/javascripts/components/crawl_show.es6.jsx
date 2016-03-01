@@ -50,7 +50,7 @@ class CrawlShow extends React.Component {
     // Sets average rating stars
     document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
     var elements = document.getElementById("averageRating").elements;
-    for (var i = 0, len = elements.length; i < len; ++i) {
+    for (var i = 0; i < elements.length; ++i) {
         elements[i].disabled = true;
     }
   }
@@ -107,7 +107,7 @@ class CrawlShow extends React.Component {
                     </div>
                   </form>
                 </div>
-                <div>
+                <div className="crawlShow-tags">
                   <div className="tags-flex">
 
                     { self.props.crawl.tags.map(function(tag) {
@@ -172,29 +172,27 @@ class CrawlShow extends React.Component {
 
           { this.state.filteredreviews.length > 0 ?
             <div id="show-reviews">
-              <table className="table table-hover text-center">
-                <thead>
-                  <tr>
-                    <th className="text-center"><h3>Username</h3></th>
-                    <th className="text-center"><h3>Rating</h3></th>
-                    <th className="text-center"><h3>Comment</h3></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  { this.state.filteredreviews.map(function(review) {
-                    return (
-                      <tr className="review" key={review.id}>
-                        <td><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></td>
-                        <td><p>{review.rating}</p></td>
-                        <td><p>{review.comment}</p></td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
+              <div className="review-list-flex">
+                <div className="review-list-header"><h4>Username</h4></div>
+                <div className="review-list-header"><h4>Rating</h4></div>
+                <div className="review-list-header"><h4>Comments</h4></div>
+              </div>
+
+                { this.state.filteredreviews.map(function(review) {
+                  return (
+                    <div className="row border">
+                      <div className="review-list-flex" key={review.id}>
+                        <div className="review-list-row"><p><a href={"/users/" + review.user.id}><strong>{review.user.firstname} {review.user.lastname}</strong></a></p></div>
+                        <div className="review-list-row"><p>{review.rating}</p></div>
+                        <div className="review-list-row"><p>{review.comment}</p></div>
+                      </div>
+                    </div>
+                  )
+                })}
             </div> : false
           }
         </div>
+        <br/>
       </div>
     )
   }

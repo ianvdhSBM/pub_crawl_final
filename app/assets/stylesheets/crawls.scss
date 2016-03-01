@@ -183,6 +183,25 @@ div.review {
   display: flex;
 }
 
+.review-list-flex {
+  display: flex;
+  align-items: center;
+}
+
+.review-list-header {
+  width: 33%;
+  text-align: center;
+}
+
+.review-list-row {
+  width: 33%;
+  text-align: center;
+}
+
+.review-list-row p {
+  margin: 10px 0 10px 0;
+}
+
 
 /*
   Crawl animations for CrawlDetails component
@@ -220,6 +239,7 @@ div.review {
 /*
   Crawls Form Page
  */
+
 .visually-hidden {
   display: none;
 }
@@ -243,7 +263,7 @@ div.awesomplete {
 
 @media only screen and (max-width: 800px) {
 
-    /*
+  /*
     CrawlsList component
   */
 
@@ -302,12 +322,14 @@ div.awesomplete {
   .details-description {
     padding-left: 0;
     order: 1;
+    text-align: center;
   }
 
   .hops-list {
     width: auto;
     order: 2;
     padding: 0;
+    text-align: center;
   }
 
   /*
@@ -341,7 +363,25 @@ div.awesomplete {
     align-items: center;
   }
 
+  .review-list-flex {
+    flex-direction: column;
+  }
 
+  .review-list-header {
+    width: auto;
+  }
+
+  .review-list-row {
+    width: auto;
+  }
+
+  .review-list-row p {
+    margin: 5px 0 5px 0;
+  }
+
+  .crawl-details-review div h3 {
+    text-align: center;
+  }
 }
 
 
