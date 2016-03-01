@@ -107,59 +107,69 @@ class CrawlShow extends React.Component {
                     </div>
                   </form>
                 </div>
+                <div>
+                  <div className="tags-flex">
+
+                    { self.props.crawl.tags.map(function(tag) {
+                      return (
+                        <div className="tags-list" key={tag.id}>
+                          #{tag.name}
+                        </div>
+                      )
+                    })}
+
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="tags-flex">
+          </div>
+          <div className="details-reviews-flex">
 
-              { self.props.crawl.tags.map(function(tag) {
-                return (
-                  <div className="tags-list" key={tag.id}>
-                    #{tag.name}
-                  </div>
-                )
-              })}
-
+            <div id="crawl-details-show">
+              <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags } price={ this.state.price }/>
             </div>
-          </div>
-          <div id="crawl-details-show">
-            <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags } price={ this.state.price }/>
-          </div>
-          { this.props.user ?
-            <div id="review-form">
-              <h3>Write a Review</h3>
-              <form className="input-group ratingsForm" onChange={this.onRatingChange.bind(this)}>
-                <label>Rating:</label>
-                <div className="stars">
-                  <input type="radio" name="star" className="star-1 rating" id="star-1" value="1" />
-                  <label className="star-1" htmlFor="star-1">1</label>
-                  <input type="radio" name="star" className="star-2 rating" id="star-2" value="2" />
-                  <label className="star-2" htmlFor="star-2">2</label>
-                  <input type="radio" name="star" className="star-3 rating" id="star-3" value="3" />
-                  <label className="star-3" htmlFor="star-3">3</label>
-                  <input type="radio" name="star" className="star-4 rating" id="star-4" value="4" />
-                  <label className="star-4" htmlFor="star-4">4</label>
-                  <input type="radio" name="star" className="star-5 rating" id="star-5" value="5" />
-                  <label className="star-5" htmlFor="star-5">5</label>
-                  <span></span>
+            { this.props.user ?
+              <div className="crawl-details-review">
+                <div>
+                  <h3>Write a Review</h3>
                 </div>
-              </form>
-              <form className="input-group" onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <label>Comments:</label>
-                  <textarea name="review[comment]" className="form-control" id="comment" rows="5"></textarea>
+                <div id="review-form">
+                  <form className="input-group ratingsForm" onChange={this.onRatingChange.bind(this)}>
+                    <label>Rating:</label>
+                    <div className="stars">
+                      <input type="radio" name="star" className="star-1 rating" id="star-1" value="1" />
+                      <label className="star-1" htmlFor="star-1">1</label>
+                      <input type="radio" name="star" className="star-2 rating" id="star-2" value="2" />
+                      <label className="star-2" htmlFor="star-2">2</label>
+                      <input type="radio" name="star" className="star-3 rating" id="star-3" value="3" />
+                      <label className="star-3" htmlFor="star-3">3</label>
+                      <input type="radio" name="star" className="star-4 rating" id="star-4" value="4" />
+                      <label className="star-4" htmlFor="star-4">4</label>
+                      <input type="radio" name="star" className="star-5 rating" id="star-5" value="5" />
+                      <label className="star-5" htmlFor="star-5">5</label>
+                      <span></span>
+                    </div>
+                  </form>
+                  <form className="input-group" onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                      <label>Comments:</label>
+                      <textarea name="review[comment]" className="form-control" id="comment" rows="5"></textarea>
+                      <br/>
+                    </div>
+                    <button type="submit" className="btn btn-default">Submit</button>
+                  </form>
                   <br/>
                 </div>
-                <button type="submit" className="btn btn-default">Submit</button>
-              </form>
-              <br/>
-            </div> :
-              <div>
-                <h3>
-                  Please <a href="/users/sign_in">Sign In</a> to write a review
-                </h3>
-              </div>
-          }
+              </div> :
+                <div>
+                  <h3>
+                    Please <a href="/users/sign_in">Sign In</a> to write a review
+                  </h3>
+                </div>
+            }
+          </div>
+
           { this.state.filteredreviews.length > 0 ?
             <div id="show-reviews">
               <table className="table table-hover text-center">
