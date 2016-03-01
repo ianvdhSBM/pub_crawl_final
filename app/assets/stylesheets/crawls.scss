@@ -109,6 +109,10 @@ li#dropdown.dropdown:hover {
   align-items: center;
 }
 
+  .crawl-name {
+    padding-right: 20px;
+  }
+
 #crawl-details-show {
   width: 70.0%;
   float: left;
@@ -217,6 +221,9 @@ div.awesomplete {
   }
 }
 
+/*
+  Media query CSS for mobile screens
+*/
 
 @media only screen and (max-width: 600px) {
 
@@ -283,5 +290,28 @@ div.awesomplete {
     order: 2;
   }
 
+  /*
+    CrawlShow component
+  */
+
+  .crawlShow-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crawl-name {
+    order: 1;
+    padding-right: 0;
+  }
+
+  .crawl-rating {
+    order: 2;
+  }
+
 }
+
+
+
+
+
 

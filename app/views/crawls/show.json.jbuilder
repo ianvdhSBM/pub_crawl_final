@@ -5,6 +5,8 @@ json.crawl do
   json.start_lng @crawl.hops[0].bar.lng
   json.user @crawl.user
 
+  json.rating @crawl.average_rating
+
   json.hops(@crawl.hops) do |hop|
     json.extract! hop.bar, :id, :name, :address, :city, :province, :phone_number, :website, :price, :lat, :lng
   end

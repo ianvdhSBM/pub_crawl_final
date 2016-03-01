@@ -46,7 +46,14 @@ class CrawlShow extends React.Component {
       }
     }
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
+    document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
+
+    var elements = document.getElementById("averageRating").elements;
+    for (var i = 0, len = elements.length; i < len; ++i) {
+        elements[i].disabled = true;
+    }
   }
+
 
   onRatingChange(e) {
     var newRating = e.target.value;
@@ -78,13 +85,37 @@ class CrawlShow extends React.Component {
         <div className="container page-wrapper">
           <div>
             <div>
-              <h2>{crawl.name}</h2>
+              <div className="crawlShow-flex">
+                <div className="crawl-name">
+                  <h2>{crawl.name}</h2>
+                </div>
+                <div className="crawl-rating">
+                  <form id="averageRating">
+                    <div className="stars">
+                      <input type="radio" name="star" className="star-10" id="star-10" />
+                      <label className="star-10" htmlFor="star-10">1</label>
+                      <input type="radio" name="star" className="star-20" id="star-20" />
+                      <label className="star-20" htmlFor="star-20">2</label>
+                      <input type="radio" name="star" className="star-30" id="star-30" />
+                      <label className="star-30" htmlFor="star-30">3</label>
+                      <input type="radio" name="star" className="star-40" id="star-40" />
+                      <label className="star-40" htmlFor="star-40">4</label>
+                      <input type="radio" name="star" className="star-50" id="star-50" />
+                      <label className="star-50" htmlFor="star-50">5</label>
+                      <span></span>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
+
             <div className="tags-flex">
 
               { self.props.crawl.tags.map(function(tag) {
                 return (
-                  <div className="tags-list" key={tag.id}>#{tag.name}</div>
+                  <div className="tags-list" key={tag.id}>
+                    #{tag.name}
+                  </div>
                 )
               })}
 
@@ -96,7 +127,7 @@ class CrawlShow extends React.Component {
           { this.props.user ?
             <div id="review-form">
               <h3>Write a Review</h3>
-              <form className="input-group" onChange={this.onRatingChange.bind(this)}>
+              <form className="input-group ratingsForm" onChange={this.onRatingChange.bind(this)}>
                 <label>Rating:</label>
                 <div className="stars">
                   <input type="radio" name="star" className="star-1 rating" id="star-1" value="1" />
