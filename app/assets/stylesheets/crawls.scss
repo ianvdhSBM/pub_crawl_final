@@ -74,11 +74,19 @@ li#dropdown.dropdown:hover {
 }
 
 .crawlList-header {
-  width: 33.33333%;
+  width: 19%;
+}
+
+.crawlList-header:nth-child(4) {
+  width: 39%;
 }
 
 .crawlList-rows {
-  width: 33.33333%;
+  width: 19%;
+}
+
+.crawlList-rows.tags-flex {
+  width: 39%;
 }
 
 .row.border {
@@ -155,13 +163,12 @@ div.review {
 }
 
 .hops-list-ul li {
-  padding: 5px 0;
+  padding: 5px 0 5px 0;
 
 }
 
 .details-description {
   padding-left: 20px;
-  padding-right: 20px;
 }
 
 section #fixed {
@@ -225,7 +232,7 @@ div.awesomplete {
   Media query CSS for mobile screens
 */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
     /*
     CrawlsList component
@@ -236,11 +243,11 @@ div.awesomplete {
   }
 
   .crawlList-header {
-    width: auto;
-    margin: 0;
+    width: auto !important;
+    /*margin: auto;*/
   }
 
-  .crawlList-header.first {
+  /*.crawlList-header.first {
     order: 1;
   }
 
@@ -250,7 +257,7 @@ div.awesomplete {
 
   .crawlList-header.third {
     order: 3;
-  }
+  }*/
 
   /*
     Crawl component
@@ -264,21 +271,23 @@ div.awesomplete {
     width: auto;
   }
 
-  .crawlList-rows.first {
-    order: 1;
+  .crawlList-header h3 {
+    margin: 5px 0 5px 0;
   }
 
-  .crawlList-rows.second {
-    order: 2;
-  }
-
-  .crawlList-rows.third {
-    order: 3;
+  .crawlList-rows.tags-flex {
+    width: 350px;
+    justify-content: center;
   }
 
   /*
     CrawlDetails component
   */
+
+  .details-flex {
+    flex-direction: column;
+    align-items: center;
+  }
 
   .details-description {
     padding-left: 0;
@@ -288,6 +297,7 @@ div.awesomplete {
   .hops-list {
     width: auto;
     order: 2;
+    padding: 0;
   }
 
   /*
