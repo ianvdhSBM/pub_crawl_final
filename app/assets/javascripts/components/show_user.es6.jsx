@@ -43,7 +43,7 @@ class ShowUser extends React.Component {
     return (
       <div className="outermost">
         <br/><br/>
-        <div className="container page-wrapper">
+        <div className="page-container">
           <div className="row">
             <div className="profile-flex">
               <div className="profile-pic">
