@@ -22,7 +22,8 @@ class CrawlsIndex extends React.Component {
       markers.push({
         lat: crawls[i].hops[0].lat,
         lng: crawls[i].hops[0].lng,
-        title: crawls[i].name
+        title: crawls[i].name,
+        class: null
       });
     }
     return markers;
@@ -53,6 +54,10 @@ class CrawlsIndex extends React.Component {
         markers: markers
       });
     }
+  }
+
+  setClass(className) {
+    this.setState({class: className})
   }
 
   render () {

@@ -10,7 +10,7 @@ class CrawlDetails extends React.Component {
     return (
       <div className="details-flex">
         <div className="hops-list">
-          <h3>bar list</h3>
+          <h3>bars list</h3>
           <ul className="hops-list-ul">
             { hops.map(function(hop, index) {
               var url = "/bars/" + hop.id;

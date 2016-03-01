@@ -2,7 +2,6 @@ class Footer extends React.Component {
   render () {
     return (
       <div>
-        <div id="footer-bar" className="hidden"></div>
         <div id="footer" className="hidden">
           <div className="container">
             <div className="row">

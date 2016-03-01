@@ -7,8 +7,7 @@ class CrawlsList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       filtercrawls: props.crawls,
-      clicked: false,
-      initialmarkers: props.markers
+      clicked: false
     }
   }
 
@@ -54,8 +53,7 @@ class CrawlsList extends React.Component {
       switch (filter) {
         case 'all':
           this.setState({filtercrawls: this.props.crawls})
-          this.setState({markers: initialmarkers})
-          break;
+          this.props.setExpanded(null)
         case 'name':
           this.setState({clicked: !this.state.clicked})
           crawls = Array.from(this.props.crawls);
@@ -117,7 +115,7 @@ class CrawlsList extends React.Component {
           </form>
         </div>
         <div className="filters-flex">
-          <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters}/>
+          <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters} setExpanded={this.setExpanded}/>
         </div>
         <div className="crawlList-flex">
           <div className="crawlList-header first"><h3>Name</h3></div>
