@@ -37,7 +37,18 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
+
+    $(document).on("ready", function() {
+      $("#contact").on('click', function() {
+        console.log('clicked');
+        $("#footer").toggleClass('hidden');
+      })
+    })
   </script>
+
+
+
 
 </html>
 
