@@ -22,28 +22,42 @@ class ShowUser extends React.Component {
     }
   }
 
+  setDefaultMarkers(crawls) {
+    var markers = [];
+    for(var i = 0; i < crawls.length; i++){
+      markers.push({
+        lat: crawls[i].hops[0].lat,
+        lng: crawls[i].hops[0].lng,
+        title: crawls[i].name,
+        class: null
+      });
+    }
+    return markers;
+  }
+
   setExpanded(id) {
+    var crawls = this.props.user.crawls;
     if (id === null) {
-      // var markers = this.setDefaultMarkers(this.state.crawls);
+      var markers = this.setDefaultMarkers(crawls);
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     } else {
-      // var crawl = this.state.crawls.filter(function(c){
-      //   return c.id === id;
-      // });
-      // var markers = [];
-      // for(var i = 0; i < crawl[0].hops.length; i++){
-      //   markers.push({
-      //     lat: crawl[0].hops[i].lat,
-      //     lng: crawl[0].hops[i].lng,
-      //     title: crawl[0].hops[i].name
-      //   });
-      // }
+      var crawl = crawls.filter(function(c){
+        return c.id === id;
+      });
+      var markers = [];
+      for(var i = 0; i < crawl[0].hops.length; i++){
+        markers.push({
+          lat: crawl[0].hops[i].lat,
+          lng: crawl[0].hops[i].lng,
+          title: crawl[0].hops[i].name
+        });
+      }
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     }
   }

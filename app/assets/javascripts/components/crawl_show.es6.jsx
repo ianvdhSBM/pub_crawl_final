@@ -182,7 +182,7 @@ class CrawlShow extends React.Component {
               { this.state.filteredreviews.length > 0 ?
                 <div id="show-reviews">
                   <div className="review-list-flex">
-                    <div className="review-list-header"><h4>Username</h4></div>
+                    <div className="review-list-header"><strong><h4>Username</h4></strong></div>
                     <div className="review-list-header"><h4>Rating</h4></div>
                     <div className="review-list-header"><h4>Comments</h4></div>
                   </div>
@@ -191,7 +191,7 @@ class CrawlShow extends React.Component {
                       return (
                         <div className="row border">
                           <div className="review-list-flex" key={review.id}>
-                            <div className="review-list-row"><p><a href={"/users/" + review.user.id}><strong>{review.user.firstname} {review.user.lastname}</strong></a></p></div>
+                            <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
                             <div className="review-list-row"><p>{review.rating}</p></div>
                             <div className="review-list-row"><p>{review.comment}</p></div>
                           </div>
