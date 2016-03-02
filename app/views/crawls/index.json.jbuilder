@@ -4,6 +4,11 @@ json.crawls(@crawls) do |crawl|
 
   json.rating crawl.average_rating
 
+  json.user do
+    json.firstname crawl.user.firstname
+    json.lastname crawl.user.lastname
+    json.id crawl.user.id
+  end
 
   json.tags(crawl.tags) do |tag|
     json.extract! tag, :name
