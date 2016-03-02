@@ -5,12 +5,15 @@
 .profile-flex {
   display: flex;
   box-sizing: border-box;
+  flex-direction: column-reverse;
+  align-content: center;
 }
 
 .profile-pic {
   width: 250px;
   height: 250px;
-  padding-right: 20px;
+  order: 1;
+  align-self: center;
 }
 
 .profile-pic img {
@@ -21,6 +24,7 @@
 
 .profile-details {
   padding-left: 20px;
+  text-align: center;
 }
 
 .notice {
@@ -46,8 +50,12 @@
   text-decoration: none;
 }
 
-.page-container {
-  padding: 20px 100px 100px 100px;
+// .page-container {
+//   padding: 20px 100px 100px 100px;
+// }
+
+#no-hops {
+  color: #0987E5;
 }
 
 @media only screen and (max-width: 600px) {

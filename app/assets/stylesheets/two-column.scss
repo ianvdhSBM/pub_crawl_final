@@ -1,0 +1,40 @@
+//change these to classes
+
+#flexbox-container-columns {
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#map-flex {
+  width: 75%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+#crawls-container-flex {
+  width: 40%;
+  overflow: auto;
+  padding: 85px 50px 0 50px;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 10px;
+}

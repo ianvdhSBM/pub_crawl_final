@@ -2,8 +2,7 @@ class Footer extends React.Component {
   render () {
     return (
       <div>
-        <div id="footer-bar"></div>
-        <div id="footer">
+        <div id="footer" className="hidden">
           <div className="container">
             <div className="row">
               <div className="social-icons-list-flex">

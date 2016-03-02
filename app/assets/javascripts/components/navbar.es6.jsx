@@ -6,7 +6,7 @@ class Navbar extends React.Component {
         <ul className="nav navbar-nav navbar-right">
           <li><a href="/users/sign_up" className="navigation-item"><i className="fa fa-users fa-lg"></i> sign up!</a></li>
           <li><a href="/users/sign_in" className="navigation-item"><i className="fa fa-sign-in fa-lg"></i> sign in</a></li>
-          <li><a href="#" className="navigation-item">contact</a></li>
+          <li><a href="#" className="navigation-item" id="contact">contact</a></li>
         </ul>
       )
     } else {
@@ -14,7 +14,7 @@ class Navbar extends React.Component {
         <ul className="nav navbar-nav navbar-right">
           <li><a className="navigation-item" href={"/users/" + user.id}><i className="fa fa-user fa-lg"></i> my profile</a></li>
           <li><a className="navigation-item" rel="nofollow" data-method="delete" href="/users/sign_out"><i className="fa fa-sign-out fa-lg"></i> sign out</a></li>
-          <li><a className="navigation-item" href="#">contact</a></li>
+          <li><a className="navigation-item" href="#" id="contact">contact</a></li>
         </ul>
       )
     }

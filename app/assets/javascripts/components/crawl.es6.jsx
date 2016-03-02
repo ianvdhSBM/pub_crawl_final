@@ -5,7 +5,6 @@ class Crawl extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      crawl: props.crawl,
       price: null
     }
   }
@@ -32,11 +31,11 @@ class Crawl extends React.Component {
 
   expandCrawl(e) {
     if (e.target.tagName === 'A') return;
-    // if (this.props.expanded === this.state.crawl.id)
+    // if (this.props.expanded === this.props.crawl.id)
     if (this.props.expanded) {
       this.props.setExpanded(null)
     } else {
-      this.props.setExpanded(this.state.crawl.id)
+      this.props.setExpanded(this.props.crawl.id)
     }
   }
 
@@ -48,7 +47,7 @@ class Crawl extends React.Component {
     return (
       <div className="row border" onClick={this.expandCrawl.bind(this)}>
         <div className="crawlList-flex">
-          <div className="crawlList-rows"><h4><a href={"/crawls/" + crawl.id}>{crawl.name}</a></h4></div>
+          <div className="crawlList-rows"><h4><a className="crawl-name" href={"/crawls/" + crawl.id}>{crawl.name}</a></h4></div>
           <div className="crawlList-rows">{crawl.start_address}</div>
           <div className="crawlList-rows">
             { crawl.rating ?
