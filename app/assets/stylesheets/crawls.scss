@@ -98,7 +98,7 @@ Crawls List
 }
 
 .crawlList-header h3 {
-  margin: 5px 0 5px 0;
+  margin-top: 10px;
 }
 
 .crawlList-header.first h3 {
@@ -289,9 +289,6 @@ div.awesomplete {
   }
 }
 
-/*
-  Media query CSS for mobile screens
-*/
 
 @media only screen and (max-width: 800px) {
 
@@ -299,125 +296,72 @@ div.awesomplete {
     CrawlsList component
   */
 
-  .crawlList-flex {
-    flex-direction: column;
-  }
-
-  .crawlList-header {
-    width: auto !important;
-    /*margin: auto;*/
-  }
-
-  /*.crawlList-header.first {
-    order: 1;
-  }
-
-  .crawlList-header.second {
-    order: 2;
-  }
-
-  .crawlList-header.third {
-    order: 3;
-  }*/
-
-  #justified {
-    margin-left: 50px;
-  }
 
   /*
     Crawl component
   */
 
- /* .details-flex {
-    flex-direction: column;
-  }*/
-
-  .crawlList-rows {
-    width: auto;
-  }
-
-  .crawlList-header h3 {
-    margin: 5px 0 5px 0;
-  }
-
-  .crawlList-rows.tags-flex {
-    width: 350px;
-    justify-content: center;
-    /*align-items: center;*/
-  }
 
   /*
     CrawlDetails component
   */
 
-/*  // .details-flex {
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
-
-  // .details-description {
-  //   padding-left: 0;
-  //   order: 1;
-  //   text-align: center;
-  // }
-
-  // .hops-list {
-  //   width: auto;
-  //   order: 2;
-  //   padding: 0;
-  //   text-align: center;
-  // }*/
-
   /*
     CrawlShow component
   */
-
-  .crawlShow-flex {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .crawl-name {
-    /*order: 1;*/
-    padding-right: 0;
-  }
-
-  .crawl-rating {
-    /*order: 2;*/
-  }
-
-  .crawlShow-flex div.tags-flex {
-    padding-left: 0;
-  }
 
   /*
     CrawlShow component - Review form flex
   */
 
-  .details-reviews-flex {
+  /*
+    Filters component
+  */
+
+  .nav-pills > li:first-child {
+    padding: 10px 20px 10px 20px;
+  }
+
+  .nav-pills > li {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px;
+  }
+
+  /*
+    Two columns
+  */
+
+  #flexbox-container-columns {
     flex-direction: column;
     align-items: center;
   }
 
-  .review-list-flex {
-    flex-direction: column;
+  #map-flex {
+    width: 100%;
+    margin-top: 65px;
+    height: 200px;
+    position: fixed;
+    z-index: auto;
+    order: 1;
   }
 
-  .review-list-header {
-    width: auto;
+  #crawls-container-flex {
+    width: 100%;
+    overflow: auto;
+    padding: 0 0 0 0;
+    margin-top: 290px;
+    margin-bottom: 20px;
+    z-index: auto;
+    order: 2;
   }
 
-  .review-list-row {
-    width: auto;
+  #map {
+    width: 100%;
+    height: 200px;
+    /*position: fixed;*/
   }
 
-  .review-list-row p {
-    margin: 5px 0 5px 0;
-  }
-
-  .crawl-details-review div h3 {
-    text-align: center;
-  }
 }
 
 
