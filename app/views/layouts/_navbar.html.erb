@@ -22,12 +22,12 @@
       <% if current_user %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to user_path(current_user.id), :class => "navigation-item" do %><i class="fa fa-user fa-lg"></i> my profile<% end %></li>
-          <li><%= link_to destroy_user_session_path, :class => "navigation-item" do %><i class="fa fa-sign-out fa-lg"></i> sign out<% end %></li>
+          <li><%= link_to destroy_user_session_path, :method => :delete, :class => "navigation-item" do %><i class="fa fa-sign-out fa-lg"></i> sign out<% end %></li>
           <li id="contact"><a class="navigation-item">contact</a></li>
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to new_user_registration_path, :class => "navigation-item" do %><i class="fa fa-users fa-lg"></i> sign up! <% end %></li>
+          <li><%= link_to new_user_registration_path, :class => "navigation-item" do %><i class="fa fa-users fa-lg"></i> sign up!<% end %></li>
           <li><%= link_to new_user_session_path, :class => "navigation-item" do %><i class="fa fa-sign-in fa-lg"></i> sign in<% end %></li>
           <li id="contact"><a class="navigation-item">contact</a></li>
         </ul>
