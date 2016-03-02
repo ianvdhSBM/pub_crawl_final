@@ -132,9 +132,9 @@ Crawls List
   margin: 5px;
   padding: 8px 15px 8px 15px;
   border-radius: 20px;
-  background-color: #09E5D5;
-  font-weight: lighter;
-  font-size: 0.8em;
+  background-color: #08cebf;
+  // font-weight: bold;
+  font-size: 1em;
   color: white;
 }
 
@@ -280,8 +280,8 @@ div.review {
 Bar Show 
 */
 
-.bar-name {
-  order: 1
+.bar-details {
+  width: auto;
 }
 
 /*
@@ -317,6 +317,7 @@ div.awesomplete {
 
   .crawlList-flex {
     flex-direction: column;
+    width: auto;
   }
 
   .crawlList-header {

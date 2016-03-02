@@ -39,8 +39,6 @@ class Crawl extends React.Component {
     }
   }
 
-
-
   render () {
     var self = this;
     var crawl = this.props.crawl;

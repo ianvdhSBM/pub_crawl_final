@@ -9,7 +9,7 @@ class Map extends React.Component {
 
   componentDidUpdate(){
 
-    if(this.mapLat == this.props.lat && this.mapLng == this.props.lng){
+    if(this.mapLat == this.props.lat && this.mapLng == this.props.lng && this.props.expanded != null){
       map.removeMarkers();
       map.cleanRoute();
       map.setZoom(14);

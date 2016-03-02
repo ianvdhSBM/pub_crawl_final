@@ -16,12 +16,23 @@ class BarShow extends React.Component {
     }
   }
 
+  setDefaultMarker(bar) {
+    var markers = [];
+      markers.push({
+        lat: bar.lat,
+        lng: bar.lng,
+        title: bar.name,
+        class: null
+      });
+    return markers;
+  }
+
   setExpanded(id) {
     if (id === null) {
-      // var markers = this.setDefaultMarkers(this.state.crawls);
+      var markers = this.setDefaultMarker(this.state.bar);
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     } else {
       var crawl = this.state.crawls.filter(function(c){
@@ -36,8 +47,8 @@ class BarShow extends React.Component {
         });
       }
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     }
   }
@@ -50,7 +61,7 @@ class BarShow extends React.Component {
       <div id="flexbox-container-columns">
         <div id="crawls-container-flex">
           <div className="crawlList-flex">
-            <div className="bar-details">
+            <div className="bar-details text-center">
               <h2>{bar.name}</h2>
               <p><strong>Website: </strong><a target="_blank" href={bar.website}>{bar.website}</a></p>
               <p><strong>Address: </strong>{bar.address}, {bar.city}, {bar.province}</p>
@@ -64,7 +75,7 @@ class BarShow extends React.Component {
           </div>
         </div>
         <div id="map-flex">
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>
         </div>
       </div>
     )

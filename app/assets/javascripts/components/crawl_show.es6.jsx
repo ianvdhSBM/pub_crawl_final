@@ -19,6 +19,7 @@ class CrawlShow extends React.Component {
       }
     }
     this.state = {
+      expanded: props.crawl.id,
       user: props.user,
       markers: markers,
       crawl: props.crawl,
@@ -194,7 +195,7 @@ class CrawlShow extends React.Component {
             <br/>
           </div>
         <div id="map-flex">
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>
         </div>
       </div>
     )
