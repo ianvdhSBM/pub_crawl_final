@@ -1,12 +1,16 @@
 $(document).on("page:load", function() {
-  loadForm();
+  if ($("form.new_crawl").length > 0) {
+    loadForm();
+  }
 });
 $(document).on("ready", function() {
-  loadForm();
+  if ($("form.new_crawl").length > 0) {
+    loadForm();
+  }
 });
 
 var loadForm = function(){
-  if ($("form.new_crawl").length > 0) {
+
     var currentIndex = 1;
     //DONT DELETE SHIT FROM HERE. SET IT TO NULL\/fvbgbg
     bars = [{
@@ -180,5 +184,5 @@ var loadForm = function(){
       });
     });
 
-  }
+
 }
