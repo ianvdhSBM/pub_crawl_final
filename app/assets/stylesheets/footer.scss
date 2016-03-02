@@ -5,10 +5,14 @@
   text-align: center;
   position: static;
   border-top: 10px solid #B5F7F2;
-  position:fixed;
+  position: fixed;
   left:0px;
   bottom:0px;
   z-index: 2;
+}
+
+div.hidden-footer {
+  display: none;
 }
 
 div.social-icons-list-flex {
@@ -45,4 +49,9 @@ i.fa-stack-1x.fa-inverse {
 .credits {
   color: #fff;
   font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.contact-paragraph {
+  line-height: 1.5em;
 }
