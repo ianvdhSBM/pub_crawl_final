@@ -6,6 +6,10 @@
   Crawls Index Page
  */
 
+#crawls-container-flex h1 {
+  text-align: center;
+}
+
 #dropdown {
   padding: 0;
   margin: 0;
@@ -42,8 +46,13 @@ li#dropdown.dropdown:hover {
 .filters-flex {
   display: flex;
   align-items: center;
-  align-content: center;
-  position: static;
+  /*align-content: center;*/
+  /*position: static;*/
+  flex-direction: column;
+}
+
+.filters-flex .filters-search {
+  margin-bottom: 10px;
 }
 
 .nav-pills > li {
@@ -77,6 +86,7 @@ Crawls List
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+  margin: 15px 0 15px 0;
 }
 
 .crawlList-rows {
@@ -89,6 +99,14 @@ Crawls List
 
 .crawlList-header h3 {
   margin: 5px 0 5px 0;
+}
+
+.crawlList-header.first h3 {
+  margin: 10px 0 5px 0;
+}
+
+.crawlList-header.third h3 {
+  margin: 5px 0 10px 0;
 }
 
 .crawlList-rows.tags-flex {
@@ -133,6 +151,7 @@ a.crawl-name:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: -10px 0 15px 0;
 }
 
 .details-description {

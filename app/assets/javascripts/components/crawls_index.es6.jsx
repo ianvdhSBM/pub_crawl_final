@@ -65,7 +65,7 @@ class CrawlsIndex extends React.Component {
     return (
       <div id="flexbox-container-columns">
           <div id="crawls-container-flex">
-            {/* <Description /> */}
+            <Description />
             <h1>hops.</h1>
             <CrawlsList crawls={ this.props.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded} markers={ this.state.markers }/>
           </div>

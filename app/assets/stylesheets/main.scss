@@ -19,7 +19,7 @@ h4,
 h5,
 h6 {
   font-family: 'Lato';
-  font-weight: 700; 
+  font-weight: 700;
 }
 
 mark {
@@ -35,27 +35,13 @@ mark {
   text-align: center;
 }
 
-.crawlList-flex {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.crawlList-header {
-  width: 33.33333%;
-}
-
-.crawlList-rows {
-  width: 33.33333%;
-}
-
 .row.border {
   border-top: solid 1px gray;
 }
 
-.hops-list {
+/*.hops-list {
   width: 40.0%;
-}
+}*/
 
 .outermost {
   margin-top: 70px;

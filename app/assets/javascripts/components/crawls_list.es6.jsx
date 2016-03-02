@@ -106,21 +106,23 @@ class CrawlsList extends React.Component {
     var filters = ['all', 'name', 'price', 'rating'];
     return (
       <div className="row">
-        <div className="filters-search">
-          <form className="input-group" onSubmit={this.handleSubmit}>
-            <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
-            <span className="input-group-btn">
-              <button className="btn btn-default" type="submit">Find</button>
-            </span>
-          </form>
-        </div>
         <div className="filters-flex">
-          <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters} setExpanded={this.setExpanded}/>
+          <div className="filters-search">
+            <form className="input-group" onSubmit={this.handleSubmit}>
+              <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
+              <span className="input-group-btn">
+                <button className="btn btn-default" type="submit">Find</button>
+              </span>
+            </form>
+          </div>
+          <div>
+            <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters} setExpanded={this.setExpanded}/>
+          </div>
         </div>
         <div className="crawlList-flex">
           <div className="crawlList-header first"><h3>Name</h3></div>
           <div className="crawlList-header second"><h3>Start Address</h3></div>
-          <div className="crawlList-header third"><h3 id="justified">Tags</h3></div>
+          <div className="crawlList-header third"><h3>Tags</h3></div>
         </div>
           { this.state.filtercrawls.map(function(crawl) {
             return (

@@ -62,13 +62,14 @@ class ShowUser extends React.Component {
                 </div>
                 <div className="profile-details text-center">
                   <h3>
-                    {user.firstname} {user.lastname} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {user.firstname} {user.lastname}
+                  </h3>
+
                     {
                       user.id === this.props.current_user.id && user.provider === null ?
-                        <small><a href="/users/edit" className="profile-edit">edit my info</a></small> :
+                        <p><a href="/users/edit" className="profile-edit">edit my info</a></p> :
                         null
                     }
-                  </h3>
                   <p>{user.email}</p>
                   <p><strong>Joined:</strong> {user.created_at}</p>
                   <p>{user.uid}</p>
@@ -76,10 +77,10 @@ class ShowUser extends React.Component {
                   <p><strong>Hops reviewed:</strong> {this.props.user.reviews.length}</p>
                 </div>
               </div>
-              <div>
+              <div className="text-center">
                 <h2>{user.firstname}'s Hops</h2>
               </div>
-              { user.crawls.length > 0 ? 
+              { user.crawls.length > 0 ?
                 <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/> :
                 <div>
                   <h3 id="no-hops">
