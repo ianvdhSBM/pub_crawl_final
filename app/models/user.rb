@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :drinks
   has_many :reviews
   has_many :invites, class_name: "Invitee", foreign_key: "user_id", source: :invitee
-  has_many :crawls, through: :invites
 
   # validates :name,
   #   presence: true,

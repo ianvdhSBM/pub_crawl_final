@@ -5,7 +5,6 @@ class Crawl < ActiveRecord::Base
   has_many :bars, through: :hops
   has_many :reviews
   has_many :invitees
-  has_many :users, through: :invitees
   has_and_belongs_to_many :tags
 
   attr_reader :average_rating

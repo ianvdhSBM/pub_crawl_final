@@ -192,13 +192,14 @@ class CrawlShow extends React.Component {
                 </div> : false
               }
             <br/>
+            { this.props.user ?
+              <InviteForm userId={this.props.user.id} crawlId={this.props.crawl.id}/> : false
+            }
           </div>
         <div id="map-flex">
           <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
         </div>
-        { this.props.user ?
-        <InviteForm userId={this.props.user.id} crawlId={this.props.crawl.id}/> : false
-        }
+
       </div>
     )
   }

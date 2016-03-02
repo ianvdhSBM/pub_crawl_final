@@ -3,7 +3,9 @@ class InviteForm extends React.Component {
     super();
     this.state = {
       crawlId : props.crawlId,
-      email: ""
+      email: "",
+      error: false,
+      success: false
     }
   }
 
@@ -11,13 +13,23 @@ class InviteForm extends React.Component {
     e.preventDefault();
     var data = {
       email: this.state.email,
-      crawl_id:  this.state.crawlId
+      crawl_id:  this.state.crawlId,
+
     }
+    var that = this;
+    var success = false;
+    var error = false;
     $.ajax({
       url: "/invites",
       dataType: 'json',
       type: 'POST',
-      data: data
+      data: data,
+      success: function(data){
+        console.log("SUCCESS");
+        this.setState({
+          success: true
+        });
+      }.bind(this)
     })
   }
 
@@ -28,22 +40,26 @@ class InviteForm extends React.Component {
   }
 
   render () {
-    return (
-      <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
-        <div className="form-group">
-          <div className="input-group">
-            <input className="form-control" type="text" id="invite-invitee" name="invitee"
-            placeholder="Invitee Email" onChange={this.onChange.bind(this)}/>
-            <input type="hidden" id="invite-crawl-id" name="crawl-id" value={this.state.crawlId}/>
+    if(!this.state.error && !this.state.success){
+      return (
+        <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
+          <div className="form-group">
+            <div className="input-group">
+              <input className="form-control" type="text" id="invite-invitee" name="invitee"
+              placeholder="Invitee Email" onChange={this.onChange.bind(this)}/>
+              <input type="hidden" id="invite-crawl-id" name="crawl-id" value={this.state.crawlId}/>
+            </div>
           </div>
-        </div>
-        <div className="form-group">
-          <div className="input-group">
-            <button type="submit" className="btn btn-default">Invite</button>
+          <div className="form-group">
+            <div className="input-group">
+              <button type="submit" className="btn btn-default">Invite</button>
+            </div>
           </div>
-        </div>
-      </form>
-    );
+        </form>
+      );
+    } else if(this.state.success){
+      return <p>Success</p>
+    }
   }
 }
 
