@@ -2,6 +2,9 @@ json.crawls(@crawls) do |crawl|
   json.extract! crawl, :id, :name, :description, :tags
   json.start_address crawl.hops[0].bar.address
 
+  json.rating crawl.average_rating
+
+
   json.tags(crawl.tags) do |tag|
     json.extract! tag, :name
   end

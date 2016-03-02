@@ -41,7 +41,13 @@ gem 'font-awesome-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# debugging
 gem 'pry'
+
+gem 'httpclient'
+
+
+gem 'omniauth-facebook'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

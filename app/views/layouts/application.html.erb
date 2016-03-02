@@ -15,14 +15,40 @@
   </head>
   <body>
     <%= react_component 'Navbar', user: current_user%>
-    <!-- render navbar here -->
-    <!-- <div class="container-fluid"> -->
-      <!-- <div class="row"> -->
+   
         <%= yield %>
-     <!--  </div>
-    </div> -->
 
-  <%= react_component 'Footer' %>
+    <%= react_component 'Footer' %>
   </body>
+  
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1768705696686469',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+
+    $(document).on("ready", function() {
+      $("#contact").on('click', function() {
+        console.log('clicked');
+        $("#footer").toggleClass('hidden');
+      })
+    })
+  </script>
+
+
+
+
 </html>
 

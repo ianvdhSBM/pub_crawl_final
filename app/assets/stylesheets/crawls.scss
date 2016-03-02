@@ -6,7 +6,10 @@
   Crawls Index Page
  */
 
-//fix the stupid tags hover issue
+#crawls-container-flex h1 {
+  text-align: center;
+}
+
 #dropdown {
   padding: 0;
   margin: 0;
@@ -43,7 +46,13 @@ li#dropdown.dropdown:hover {
 .filters-flex {
   display: flex;
   align-items: center;
-  align-content: center;
+  /*align-content: center;*/
+  /*position: static;*/
+  flex-direction: column;
+}
+
+.filters-flex .filters-search {
+  margin-bottom: 10px;
 }
 
 .nav-pills > li {
@@ -68,17 +77,42 @@ li#dropdown.dropdown:hover {
   overflow: auto;
 }
 
+/*
+Crawls List
+*/
+
 .crawlList-flex {
   display: flex;
   align-items: center;
-}
-
-.crawlList-header {
-  width: 33.33333%;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 15px 0 15px 0;
 }
 
 .crawlList-rows {
-  width: 33.33333%;
+  width: auto;
+}
+
+.crawlList-header {
+  width: auto;
+}
+
+.crawlList-header h3 {
+  margin: 5px 0 5px 0;
+}
+
+.crawlList-header.first h3 {
+  margin: 10px 0 5px 0;
+}
+
+.crawlList-header.third h3 {
+  margin: 5px 0 10px 0;
+}
+
+.crawlList-rows.tags-flex {
+  width: 350px;
+  justify-content: center;
+  /*align-items: center;*/
 }
 
 .row.border {
@@ -94,10 +128,53 @@ li#dropdown.dropdown:hover {
   margin: 5px;
   padding: 8px 15px 8px 15px;
   border-radius: 20px;
-  background-color: #0987E5;
+  background-color: #09E5D5;
   font-weight: lighter;
   font-size: 0.8em;
   color: white;
+}
+
+a.crawl-name {
+  color: #0987E5;
+}
+
+a.crawl-name:hover {
+  color: #076CB7;
+  text-decoration: none;
+}
+
+/*
+  CrawlDetails component
+*/
+
+.details-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -10px 0 15px 0;
+}
+
+.details-description {
+  order: 1;
+  text-align: center;
+}
+
+.hops-list {
+  width: auto;
+  order: 2;
+  padding: 0;
+  text-align: center;
+}
+
+.hops-list-ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 5px 0;
+}
+
+.hops-list-ul li {
+  padding: 5px 0 5px 0;
+
 }
 
 /*
@@ -106,13 +183,13 @@ li#dropdown.dropdown:hover {
 
 .crawlShow-flex {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-#crawl-details-show {
+/*#crawl-details-show {
   width: 70.0%;
-  float: left;
-}
+}*/
 
 #review-form {
   width: 30.0%;
@@ -129,40 +206,34 @@ div.review {
   margin-left: 500px;
 }
 
-
-/*
-  CrawlDetails component
-*/
-
-.details-flex {
+.details-reviews-flex {
+  flex-direction: column;
+  align-items: center;
   display: flex;
-  /*justify-content: center;*/
 }
 
-.hops-list {
-  /*width: 50.0%;*/
-  width: 60%;
+.review-list-flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.hops-list-ul {
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 5px 0;
+.review-list-header {
+  text-align: center;
 }
 
-.hops-list-ul li {
-  padding: 5px 0;
-
+.review-list-row {
+  text-align: center;
 }
 
-.details-description {
-  padding-left: 20px;
-  padding-right: 20px;
+.review-list-row p {
+  margin: 10px 0 10px 0;
 }
 
-section #fixed {
-  position: fixed;
+.crawl-details-review div h3 {
+  text-align: center;
 }
+
 
 /*
   Crawl animations for CrawlDetails component
@@ -173,18 +244,18 @@ section #fixed {
   /*opacity: 0;*/
   transform: translateX(-200%);
   max-height: 0;
-  padding: 0 !important;
+  /*padding: 0 !important;*/
 }
 
 .details-enter.details-enter-active {
-  opacity: 100;
+  /*opacity: 100;*/
   transform: translateX(0%);
   max-height: 400px;
-  padding: 10px 0 !important;
+  /*padding: 10px 0 !important;*/
 }
 
 .details-leave {
-  transition: all 1s;
+  transition: all 0.1s;
   transform: translateY(0%);
   max-height: 200px;
   padding: 10px 0 !important;
@@ -192,14 +263,15 @@ section #fixed {
 
 .details-leave.details-leave-active {
   transform: translateX(-200%);
-  transition: 0.1s;
-  max-height: 0;
-  padding: 0 !important;
+/*  transition: 0.1s;
+*/  max-height: 0;
+  /*padding: 0 !important;*/
 }
 
 /*
   Crawls Form Page
  */
+
 .visually-hidden {
   display: none;
 }
@@ -217,10 +289,13 @@ div.awesomplete {
   }
 }
 
+/*
+  Media query CSS for mobile screens
+*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
-    /*
+  /*
     CrawlsList component
   */
 
@@ -229,11 +304,11 @@ div.awesomplete {
   }
 
   .crawlList-header {
-    width: auto;
-    margin: 0;
+    width: auto !important;
+    /*margin: auto;*/
   }
 
-  .crawlList-header.first {
+  /*.crawlList-header.first {
     order: 1;
   }
 
@@ -243,45 +318,110 @@ div.awesomplete {
 
   .crawlList-header.third {
     order: 3;
+  }*/
+
+  #justified {
+    margin-left: 50px;
   }
 
   /*
     Crawl component
   */
 
-  .details-flex {
+ /* .details-flex {
     flex-direction: column;
-  }
+  }*/
 
   .crawlList-rows {
     width: auto;
   }
 
-  .crawlList-rows.first {
-    order: 1;
+  .crawlList-header h3 {
+    margin: 5px 0 5px 0;
   }
 
-  .crawlList-rows.second {
-    order: 2;
-  }
-
-  .crawlList-rows.third {
-    order: 3;
+  .crawlList-rows.tags-flex {
+    width: 350px;
+    justify-content: center;
+    /*align-items: center;*/
   }
 
   /*
     CrawlDetails component
   */
 
-  .details-description {
+/*  // .details-flex {
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+
+  // .details-description {
+  //   padding-left: 0;
+  //   order: 1;
+  //   text-align: center;
+  // }
+
+  // .hops-list {
+  //   width: auto;
+  //   order: 2;
+  //   padding: 0;
+  //   text-align: center;
+  // }*/
+
+  /*
+    CrawlShow component
+  */
+
+  .crawlShow-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .crawl-name {
+    /*order: 1;*/
+    padding-right: 0;
+  }
+
+  .crawl-rating {
+    /*order: 2;*/
+  }
+
+  .crawlShow-flex div.tags-flex {
     padding-left: 0;
-    order: 1;
   }
 
-  .hops-list {
+  /*
+    CrawlShow component - Review form flex
+  */
+
+  .details-reviews-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-list-flex {
+    flex-direction: column;
+  }
+
+  .review-list-header {
     width: auto;
-    order: 2;
   }
 
+  .review-list-row {
+    width: auto;
+  }
+
+  .review-list-row p {
+    margin: 5px 0 5px 0;
+  }
+
+  .crawl-details-review div h3 {
+    text-align: center;
+  }
 }
+
+
+
+
+
 

@@ -4,17 +4,17 @@ class Navbar extends React.Component {
     if (user === null) {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a href="/users/sign_up" className="navigation-item"><i className="fa fa-users fa-lg"></i> Sign up!</a></li>
-          <li><a href="/users/sign_in" className="navigation-item"><i className="fa fa-sign-in fa-lg"></i> Sign in</a></li>
-          <li><a href="#" className="navigation-item">contact</a></li>
+          <li><a href="/users/sign_up" className="navigation-item"><i className="fa fa-users fa-lg"></i> sign up!</a></li>
+          <li><a href="/users/sign_in" className="navigation-item"><i className="fa fa-sign-in fa-lg"></i> sign in</a></li>
+          <li><a href="#" className="navigation-item" id="contact">contact</a></li>
         </ul>
       )
     } else {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><a className="navigation-item" href={"/users/" + user.id}><i className="fa fa-user fa-lg"></i> My Profile</a></li>
-          <li><a className="navigation-item" rel="nofollow" data-method="delete" href="/users/sign_out"><i className="fa fa-sign-out fa-lg"></i> Sign out</a></li>
-          <li><a className="navigation-item" href="#">contact</a></li>
+          <li><a className="navigation-item" href={"/users/" + user.id}><i className="fa fa-user fa-lg"></i> my profile</a></li>
+          <li><a className="navigation-item" rel="nofollow" data-method="delete" href="/users/sign_out"><i className="fa fa-sign-out fa-lg"></i> sign out</a></li>
+          <li><a className="navigation-item" href="#" id="contact">contact</a></li>
         </ul>
       )
     }
@@ -39,8 +39,9 @@ class Navbar extends React.Component {
 
               <li><a href="#" className="navigation-item">about <span className="sr-only">(current)</span></a></li>
               <li><a href="/" className="navigation-item">hops</a></li>
+
               {
-                this.props.user ? <li><a className="navigation-item"  href="/crawls/new"><i className="fa fa-beer fa-lg"></i> Create New Hop</a><i class="icon-beer"></i></li> : false
+                this.props.user ? <li><a className="navigation-item"  href="/crawls/new"><i className="fa fa-beer fa-lg"></i> Create New Hop</a></li> : false
               }
 
             </ul>
