@@ -68,7 +68,7 @@ class Crawl extends React.Component {
                   </div>
                 </form>
               </div> :
-              <em>Not reviewed yet</em>
+              <em>No reviews</em>
             }
           </div>
           <div className="crawlList-rows tags-flex">

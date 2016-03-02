@@ -139,6 +139,7 @@ class CrawlsList extends React.Component {
         <div className="crawlList-flex">
           <div className="crawlList-header first"><h3>Name</h3></div>
           <div className="crawlList-header second"><h3>Start Address</h3></div>
+          <div className="crawlList-header second"><h3>Rating</h3></div>
           <div className="crawlList-header third"><h3>Tags</h3></div>
         </div>
           { this.state.filtercrawls.map(function(crawl) {
