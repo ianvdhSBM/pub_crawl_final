@@ -16,12 +16,23 @@ class BarShow extends React.Component {
     }
   }
 
+  setDefaultMarker(bar) {
+    var markers = [];
+      markers.push({
+        lat: bar.lat,
+        lng: bar.lng,
+        title: bar.name,
+        class: null
+      });
+    return markers;
+  }
+
   setExpanded(id) {
     if (id === null) {
-      // var markers = this.setDefaultMarkers(this.state.crawls);
+      var markers = this.setDefaultMarker(this.state.bar);
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     } else {
       var crawl = this.state.crawls.filter(function(c){
@@ -36,35 +47,35 @@ class BarShow extends React.Component {
         });
       }
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     }
   }
-
 
   render() {
     var self =this;
     var bar = this.props.bar;
     var crawls = this.props.bar.crawls;
     return (
-      <div id="outermost">
-        <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} />
-        <div className="container page-wrapper">
-          <div>
-            <div>
+      <div id="flexbox-container-columns">
+        <div id="crawls-container-flex">
+          <div className="crawlList-flex">
+            <div className="bar-details text-center">
               <h2>{bar.name}</h2>
               <p><strong>Website: </strong><a target="_blank" href={bar.website}>{bar.website}</a></p>
               <p><strong>Address: </strong>{bar.address}, {bar.city}, {bar.province}</p>
               <p><strong>Phone: </strong>{ bar.phone_number ? bar.phone_number : <em>Not listed</em>}</p>
               {/* <p><strong>Average Price: </strong>{bar.price}</p> */}
-
+            </div>
+            <div>
+              <h3>{bar.name}'s hop list</h3>
+                <CrawlsList crawls={ crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
             </div>
           </div>
-          <div>
-            <h3>{bar.name}'s hop list</h3>
-              <CrawlsList crawls={ crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
-          </div>
+        </div>
+        <div id="map-flex">
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>
         </div>
       </div>
     )

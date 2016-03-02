@@ -132,9 +132,9 @@ Crawls List
   margin: 5px;
   padding: 8px 15px 8px 15px;
   border-radius: 20px;
-  background-color: #09E5D5;
-  font-weight: lighter;
-  font-size: 0.8em;
+  background-color: #08cebf;
+  // font-weight: bold;
+  font-size: 1em;
   color: white;
 }
 
@@ -238,6 +238,10 @@ div.review {
   text-align: center;
 }
 
+.hops-list-ul > li > a {
+  color: #0987E5;
+}
+
 
 /*
   Crawl animations for CrawlDetails component
@@ -273,6 +277,14 @@ div.review {
 }
 
 /*
+Bar Show 
+*/
+
+.bar-details {
+  width: auto;
+}
+
+/*
   Crawls Form Page
  */
 
@@ -299,7 +311,6 @@ div.awesomplete {
   /*
     CrawlsList component
   */
-
 
   /*
     Crawl component

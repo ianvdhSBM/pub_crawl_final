@@ -9,11 +9,12 @@ class Map extends React.Component {
 
   componentDidUpdate(){
 
-    if(this.mapLat == this.props.lat && this.mapLng == this.props.lng){
+    if(this.mapLat == this.props.lat && this.mapLng == this.props.lng && this.props.expanded != null){
       map.removeMarkers();
       map.cleanRoute();
       map.setZoom(14);
       var markers = this.props.markers;
+      map.setCenter({lat: parseFloat(markers[0].lat), lng: parseFloat(markers[0].lng)})
       var waypoints = [];
       for(var i = 0; i < markers.length; i++){
         var image = 'http://www.googlemapsmarkers.com/v1/' + (i + 1).toString() + '/076CB7/FFFFFF/3C3C3C/';

@@ -64,7 +64,6 @@ class ShowUser extends React.Component {
                   <h3>
                     {user.firstname} {user.lastname}
                   </h3>
-
                     {
                       user.id === this.props.current_user.id && user.provider === null ?
                         <p><a href="/users/edit" className="profile-edit">edit my info</a></p> :
@@ -82,7 +81,7 @@ class ShowUser extends React.Component {
               </div>
               { user.crawls.length > 0 ?
                 <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/> :
-                <div>
+                <div className="text-center">
                   <h3 id="no-hops">
                     this user hasn't created any hops yet!
                   </h3>
@@ -93,7 +92,7 @@ class ShowUser extends React.Component {
         <div id="map-flex">
           {console.log(this.state.mapCoordinates.lat)}
 
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} expanded={this.state.expanded}/>
 
         </div>
       </div>

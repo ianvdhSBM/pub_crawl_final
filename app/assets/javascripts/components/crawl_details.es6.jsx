@@ -15,7 +15,7 @@ class CrawlDetails extends React.Component {
             { hops.map(function(hop, index) {
               var url = "/bars/" + hop.id;
               return (
-                <li key={hop.id}><strong>{index + 1}.</strong> <a href={url}>{hop.name}</a>, {hop.address}, {hop.city}, {hop.province}</li>
+                <li key={hop.id}><strong>{index + 1}.</strong><strong><a href={url}>{hop.name}</a></strong>, {hop.address}, {hop.city}, {hop.province}</li>
                 )
               })
             }
