@@ -238,6 +238,10 @@ div.review {
   text-align: center;
 }
 
+.hops-list-ul > li > a {
+  color: #0987E5;
+}
+
 
 /*
   Crawl animations for CrawlDetails component
@@ -270,6 +274,14 @@ div.review {
 /*  transition: 0.1s;
 */  max-height: 0;
   /*padding: 0 !important;*/
+}
+
+/*
+Bar Show 
+*/
+
+.bar-name {
+  order: 1
 }
 
 /*
