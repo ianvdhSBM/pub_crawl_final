@@ -1,12 +1,16 @@
 $(document).on("page:load", function() {
-  loadForm();
+  if ($("form.new_crawl").length > 0) {
+    loadForm();
+  }
 });
 $(document).on("ready", function() {
-  loadForm();
+  if ($("form.new_crawl").length > 0) {
+    loadForm();
+  }
 });
 
 var loadForm = function(){
-  if ($("form.new_crawl").length > 0) {
+
     var currentIndex = 1;
     //DONT DELETE SHIT FROM HERE. SET IT TO NULL\/fvbgbg
     bars = [{
@@ -104,7 +108,6 @@ var loadForm = function(){
 
     $("form").unbind("click").on("click", ".remove-bar", function() {
       $input = $(this).closest(".form-group").find("input:text[name*='bar_names']");
-      console.log($input);
       var name = $input.attr("name");
       var num = name.match(/\d/g);
       bars[num] = null;
@@ -156,7 +159,6 @@ var loadForm = function(){
         .success(function(data) {
           bars[num].lat = data.bar.lat;
           bars[num].lng = data.bar.lng;
-          console.log(bars);
           rerenderMarkers();
         });
     });
@@ -180,5 +182,5 @@ var loadForm = function(){
       });
     });
 
-  }
+
 }

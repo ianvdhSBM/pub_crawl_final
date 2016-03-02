@@ -14,11 +14,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= react_component 'Navbar', user: current_user%>
+    <%= render :partial => 'layouts/navbar', :locals => {:user => current_user} %>
    
         <%= yield %>
 
-    <%= react_component 'Footer' %>
+    <%= render :partial => 'layouts/footer' %>
   </body>
   
   <script>
@@ -31,24 +31,19 @@
     };
 
     (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 
-
-    $(document).on("ready", function() {
+    $(document).ready(function() {
       $("#contact").on('click', function() {
-        console.log('clicked');
-        $("#footer").toggleClass('hidden');
+        $("#footer").slideToggle("slow");
       })
     })
   </script>
-
-
-
 
 </html>
 
