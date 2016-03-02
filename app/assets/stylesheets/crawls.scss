@@ -46,6 +46,7 @@ li#dropdown.dropdown:hover {
 .filters-flex {
   display: flex;
   align-items: center;
+
   /*align-content: center;*/
   /*position: static;*/
   flex-direction: column;
@@ -116,6 +117,7 @@ Crawls List
 .crawlList-rows.tags-flex {
   width: 350px;
   justify-content: center;
+
   /*align-items: center;*/
 }
 
@@ -178,7 +180,6 @@ a.crawl-name:hover {
 
 .hops-list-ul li {
   padding: 5px 0 5px 0;
-
 }
 
 /*
@@ -238,16 +239,17 @@ div.review {
   text-align: center;
 }
 
-
 /*
   Crawl animations for CrawlDetails component
 */
 
 .details-enter {
   transition: all 0.5s;
+
   /*opacity: 0;*/
   transform: translateX(-200%);
   max-height: 0;
+
   /*padding: 0 !important;*/
 }
 
@@ -255,6 +257,7 @@ div.review {
   /*opacity: 100;*/
   transform: translateX(0%);
   max-height: 400px;
+
   /*padding: 10px 0 !important;*/
 }
 
@@ -267,9 +270,24 @@ div.review {
 
 .details-leave.details-leave-active {
   transform: translateX(-200%);
-/*  transition: 0.1s;
-*/  max-height: 0;
+
+  /*  transition: 0.1s;
+  */
+
+  max-height: 0;
+
   /*padding: 0 !important;*/
+}
+
+.invite-form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -10px 0 15px 0;
+
+  h3 {
+    text-align: center;
+  }
 }
 
 /*
@@ -298,7 +316,6 @@ div.awesomplete {
 */
 
 @media only screen and (max-width: 800px) {
-
   /*
     CrawlsList component
   */
@@ -309,6 +326,7 @@ div.awesomplete {
 
   .crawlList-header {
     width: auto !important;
+
     /*margin: auto;*/
   }
 
@@ -332,9 +350,9 @@ div.awesomplete {
     Crawl component
   */
 
- /* .details-flex {
-    flex-direction: column;
-  }*/
+  /* .details-flex {
+     flex-direction: column;
+   }*/
 
   .crawlList-rows {
     width: auto;
@@ -347,6 +365,7 @@ div.awesomplete {
   .crawlList-rows.tags-flex {
     width: 350px;
     justify-content: center;
+
     /*align-items: center;*/
   }
 
@@ -354,23 +373,23 @@ div.awesomplete {
     CrawlDetails component
   */
 
-/*  // .details-flex {
-  //   flex-direction: column;
-  //   align-items: center;
-  // }
+  /*  // .details-flex {
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
 
-  // .details-description {
-  //   padding-left: 0;
-  //   order: 1;
-  //   text-align: center;
-  // }
+    // .details-description {
+    //   padding-left: 0;
+    //   order: 1;
+    //   text-align: center;
+    // }
 
-  // .hops-list {
-  //   width: auto;
-  //   order: 2;
-  //   padding: 0;
-  //   text-align: center;
-  // }*/
+    // .hops-list {
+    //   width: auto;
+    //   order: 2;
+    //   padding: 0;
+    //   text-align: center;
+    // }*/
 
   /*
     CrawlShow component
@@ -422,10 +441,13 @@ div.awesomplete {
   .crawl-details-review div h3 {
     text-align: center;
   }
+
+  .invite-form-flex {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+    }
+  }
 }
-
-
-
-
-
-

@@ -33,5 +33,12 @@ if @current_user.nil?
 else
   json.current_user do
     json.id   @current_user.id
+
+    if @current_user.invites.any?
+      json.invites @current_user.invites do |invite|
+        json.crawl invite.crawl
+        json.name invite.crawl.user.firstname
+      end
+    end
   end
 end

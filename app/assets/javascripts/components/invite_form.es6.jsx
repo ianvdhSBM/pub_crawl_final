@@ -16,18 +16,22 @@ class InviteForm extends React.Component {
       crawl_id:  this.state.crawlId,
 
     }
-    var that = this;
     var success = false;
     var error = false;
     $.ajax({
       url: "/invites",
-      dataType: 'json',
       type: 'POST',
       data: data,
       success: function(data){
-        console.log("SUCCESS");
         this.setState({
-          success: true
+          success: true,
+          error: false
+        });
+      }.bind(this),
+      error: function(data){
+        this.setState({
+          success: false,
+          error: true
         });
       }.bind(this)
     })
@@ -39,9 +43,18 @@ class InviteForm extends React.Component {
     })
   }
 
+  resetForm(){
+    this.setState({
+      success: false,
+      error: false
+    });
+  }
+
   render () {
     if(!this.state.error && !this.state.success){
       return (
+        <div className="invite-form-flex">
+        <h3>invite your friends!</h3>
         <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
           <div className="form-group">
             <div className="input-group">
@@ -56,9 +69,24 @@ class InviteForm extends React.Component {
             </div>
           </div>
         </form>
+        </div>
       );
     } else if(this.state.success){
-      return <p>Success</p>
+      return (
+        <div className="invite-response">
+        <h3>invite your friends!</h3>
+          <p>User successfully invited</p>
+          <button onClick={this.resetForm.bind(this)}>Invite someone else</button>
+        </div>
+        );
+    } else if (this.state.error){
+      return (
+        <div className="invite-response">
+        <h3>invite your friends!</h3>
+          <p>Something went wrong!</p>
+          <button className="btn btn-default" onClick={this.resetForm.bind(this)}>Try again</button>
+        </div>
+        );
     }
   }
 }

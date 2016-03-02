@@ -4,7 +4,12 @@ class InvitesController < ApplicationController
       user = User.find_by(email: params[:email])
       if user
         invitee = Invitee.new(crawl_id: params[:crawl_id], user_id: user.id)
-        render nothing: true if invitee.save
+        if invitee.save
+          render nothing: true
+        else
+          render nothing: true, status: 500
+        end
+
       end
     end
   end

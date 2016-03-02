@@ -88,6 +88,16 @@ class ShowUser extends React.Component {
                   </h3>
                 </div>
               }
+              {
+                this.props.current_user.invites.map(function(object, i){
+                  return (
+                    <div>
+                    <a className="invite-link" href={"/crawls/" + object.crawl.id}>{object.name} invited you {object.crawl.name}</a>
+                    <br/>
+                    </div>
+                    )
+                })
+              }
             </div>
           </div>
         <div id="map-flex">

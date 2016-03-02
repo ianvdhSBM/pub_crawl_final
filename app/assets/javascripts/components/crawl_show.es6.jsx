@@ -48,11 +48,11 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
 
     // Sets average rating stars
-    document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
-    var elements = document.getElementById("averageRating").elements;
-    for (var i = 0; i < elements.length; ++i) {
-        elements[i].disabled = true;
-    }
+    // document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
+    // var elements = document.getElementById("averageRating").elements;
+    // for (var i = 0; i < elements.length; ++i) {
+    //     elements[i].disabled = true;
+    // }
   }
 
 

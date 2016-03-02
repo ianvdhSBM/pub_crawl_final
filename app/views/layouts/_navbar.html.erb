@@ -11,16 +11,16 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-
         <li><a href="/" class="navigation-item">hops</a></li>
-
         <% if user %>
           <li><%= link_to new_crawl_path, :class => "navigation-item" do %><i class="fa fa-beer fa-lg"></i> create new hop<% end %></li>
         <% end %>
-
       </ul>
       <% if current_user %>
         <ul class="nav navbar-nav navbar-right">
+          <% if current_user.invites.any? %>
+            <li><%= link_to user_path(current_user.id), :class => "navigation-item" do %><i class="fa fa-users fa-lg"></i> invites <% end %></li>
+          <% end %>
           <li><%= link_to user_path(current_user.id), :class => "navigation-item" do %><i class="fa fa-user fa-lg"></i> my profile<% end %></li>
           <li><%= link_to destroy_user_session_path, :method => :delete, :class => "navigation-item" do %><i class="fa fa-sign-out fa-lg"></i> sign out<% end %></li>
           <li id="contact"><a class="navigation-item">contact</a></li>
@@ -35,5 +35,3 @@
     </div>
   </div>
 </nav>
-
-
