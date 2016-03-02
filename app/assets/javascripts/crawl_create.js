@@ -108,7 +108,6 @@ var loadForm = function(){
 
     $("form").unbind("click").on("click", ".remove-bar", function() {
       $input = $(this).closest(".form-group").find("input:text[name*='bar_names']");
-      console.log($input);
       var name = $input.attr("name");
       var num = name.match(/\d/g);
       bars[num] = null;
@@ -160,7 +159,6 @@ var loadForm = function(){
         .success(function(data) {
           bars[num].lat = data.bar.lat;
           bars[num].lng = data.bar.lng;
-          console.log(bars);
           rerenderMarkers();
         });
     });

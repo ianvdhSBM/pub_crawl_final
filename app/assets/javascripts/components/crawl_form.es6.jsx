@@ -144,7 +144,6 @@ class CrawlForm extends React.Component {
       }.bind(this),
       error: function(xhr, status, err) {
         var message = JSON.parse(xhr.responseText);
-        console.log(message.message);
       }.bind(this)
     });
   }
