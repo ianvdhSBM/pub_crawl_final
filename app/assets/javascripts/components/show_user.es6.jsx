@@ -92,7 +92,7 @@ class ShowUser extends React.Component {
         <div id="map-flex">
           {console.log(this.state.mapCoordinates.lat)}
 
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} expanded={this.state.expanded}/>
 
         </div>
       </div>
