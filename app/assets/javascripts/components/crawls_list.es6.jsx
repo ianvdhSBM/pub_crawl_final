@@ -7,7 +7,8 @@ class CrawlsList extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       filtercrawls: props.crawls,
-      clicked: false
+      clicked: false,
+      rating: false
     }
   }
 
@@ -23,6 +24,23 @@ class CrawlsList extends React.Component {
       return crawls.sort(function(a, b) {
         if(a.name < b.name) return -1;
         if(a.name > b.name) return 1;
+        return 0;
+      })
+    }
+  }
+
+  sortRating(crawls) {
+    if (this.state.rating === true) {
+      return crawls.sort(function(a, b){
+        if(a.rating > b.rating) return -1;
+        if(a.rating < b.rating) return 1;
+        return 0;
+      })
+    }
+    else {
+      return crawls.sort(function(a, b) {
+        if(a.rating < b.rating) return -1;
+        if(a.rating > b.rating) return 1;
         return 0;
       })
     }
@@ -59,14 +77,13 @@ class CrawlsList extends React.Component {
           crawls = Array.from(this.props.crawls);
           this.setState({filtercrawls: this.sortName(crawls)})
           break;
-        case 'price':
-          console.log(filter);
-          break;
         case 'rating':
-          console.log(filter);
+          this.setState({rating: !this.state.rating})
+          crawls = Array.from(this.props.crawls);
+          this.setState({filtercrawls: this.sortRating(crawls)})
           break;
         default:
-          console.log('wtf')
+          return
       }
     }
   }
@@ -103,7 +120,7 @@ class CrawlsList extends React.Component {
   render () {
     var self = this;
     var tags = this.setTagsArray(this.props.tags);
-    var filters = ['all', 'name', 'price', 'rating'];
+    var filters = ['all', 'name', 'rating'];
     return (
       <div className="row">
         <div className="filters-flex">

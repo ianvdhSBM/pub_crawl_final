@@ -14,11 +14,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= react_component 'Navbar', user: current_user%>
+    <%= render :partial => 'layouts/navbar', :locals => {:user => current_user} %>
    
         <%= yield %>
 
-    <%= react_component 'Footer' %>
+    <%= render :partial => 'layouts/footer' %>
   </body>
   
   <script>
@@ -39,16 +39,12 @@
      }(document, 'script', 'facebook-jssdk'));
 
 
-    $(document).on("ready", function() {
+    $(document).ready(function() {
       $("#contact").on('click', function() {
-        console.log('clicked');
         $("#footer").toggleClass('hidden');
       })
     })
   </script>
-
-
-
 
 </html>
 
