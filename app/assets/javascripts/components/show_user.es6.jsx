@@ -92,7 +92,7 @@ class ShowUser extends React.Component {
                 </div>
               </div>
               <div className="text-center">
-                <h2>{user.firstname}'s Hops</h2>
+                <h2>{user.firstname}'s hops</h2>
               </div>
               { user.crawls.length > 0 ?
                 <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/> :
