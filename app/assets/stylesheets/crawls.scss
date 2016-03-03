@@ -205,6 +205,10 @@ a.crawl-name:hover {
   width: 100%;
 }
 
+#review-button {
+  margin-top: 15px;
+}
+
 div.review {
   margin-left: 500px;
 }
@@ -239,6 +243,14 @@ div.review {
 
 .hops-list-ul > li > a {
   color: #0987E5;
+}
+
+.small-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 20px;
 }
 
 /*
@@ -299,10 +311,15 @@ div.review {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .crawls-new-form-header h2 mark {
   color: #fff;
+}
+
+.dropdown-menu > li > a {
+  margin-left: 10px;
 }
 
 div.awesomplete {
@@ -341,6 +358,10 @@ div.awesomplete {
     margin-top: 10px;
     margin-bottom: 5px;
     color: #fff;
+  }
+
+  .tags-dropdown {
+    padding-left: 10px;
   }
 
   /*

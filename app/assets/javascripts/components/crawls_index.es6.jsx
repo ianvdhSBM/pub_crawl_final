@@ -33,8 +33,7 @@ class CrawlsIndex extends React.Component {
     if (id === null) {
       var markers = this.setDefaultMarkers(this.props.crawls);
       this.setState({
-        expanded: id,
-        markers: markers
+        expanded: id
       });
     } else {
       var crawl = this.props.crawls.filter(function(c){
@@ -67,7 +66,7 @@ class CrawlsIndex extends React.Component {
           <div id="crawls-container-flex">
             <Description />
             <h1>hops.</h1>
-            <CrawlsList crawls={ this.props.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded} markers={ this.state.markers }/>
+            <CrawlsList crawls={ this.props.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded} markers={ this.state.markers } setDefaultMarkers={ this.setDefaultMarkers }/>
           </div>
         <div id="map-flex">
           <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>

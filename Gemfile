@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
@@ -42,7 +41,6 @@ gem 'font-awesome-sass'
 # gem 'bcrypt', '~> 3.1.7'
 
 # debugging
-gem 'pry'
 
 gem 'httpclient'
 
@@ -50,6 +48,8 @@ gem 'httpclient'
 gem 'omniauth-facebook'
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+gem 'rails_12factor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -67,4 +67,8 @@ group :development do
   gem 'spring'
 
   gem 'quiet_assets'
+
+  gem 'pry'
 end
+
+ruby '2.2.1'
