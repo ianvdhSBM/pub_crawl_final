@@ -276,13 +276,18 @@ div.review {
   "Crawls/new" Form Page
 */
 
-.crawls-new-form {
-  margin-top: 100px;
-  margin-bottom: 200px;
-}
-
 .visually-hidden {
   display: none;
+}
+
+.crawls-new-form-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.crawls-new-form {
+
 }
 
 div.awesomplete {
@@ -335,6 +340,15 @@ div.awesomplete {
     margin-left: 5px;
     margin-right: 5px;
     padding: 10px;
+  }
+
+  /*
+    Crawls/new form page
+  */
+
+  .crawls-new-form-header h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 
   /*
