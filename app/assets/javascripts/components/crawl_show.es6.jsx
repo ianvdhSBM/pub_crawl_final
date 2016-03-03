@@ -49,12 +49,10 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
-
   onRatingChange(e) {
     var newRating = e.target.value;
     this.setState({review: {rating: newRating}})
   }
-
 
   handleSubmit(e) {
     var review = this.state.review;
@@ -112,6 +110,11 @@ class CrawlShow extends React.Component {
                 <div id="crawl-details-show">
                   <CrawlDetails key={ crawl.id } crawl= { crawl } hops={ crawl.hops } tags={ crawl.tags } price={ this.state.price }/>
                 </div>
+
+                { (this.props.user && this.props.user.id == this.state.crawl.user.id) ?
+                  <InviteForm userId={this.props.user.id} crawlId={this.props.crawl.id}/> : false
+                }
+                
                 { this.props.user ?
                   <div className="crawl-details-review">
                     <div>
@@ -140,7 +143,7 @@ class CrawlShow extends React.Component {
                           <textarea name="review[comment]" className="form-control" id="comment" rows="5"></textarea>
                           <br/>
                         </div>
-                        <button type="submit" className="btn btn-default">Submit</button>
+                        <button type="submit" className="btn btn-default" id="review-button">Submit</button>
                       </form>
                       <br/>
                     </div>
@@ -165,8 +168,11 @@ class CrawlShow extends React.Component {
                       return (
                         <div className="row border" key={ review.id } >
                           <div className="review-list-flex" key={review.id}>
+                            <a href={"/users/" + review.user.id}><img src={review.user.image.url} className="small-image" /></a>
                             <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
-                            <div className="review-list-row"><p>{review.rating}</p></div>
+                            <div className="crawl-rating">
+                              <img src={"/assets/" + review.rating + "-stars.png"} />
+                            </div>
                             <div className="review-list-row"><p>{review.comment}</p></div>
                           </div>
                         </div>
@@ -175,9 +181,6 @@ class CrawlShow extends React.Component {
                 </div> : false
               }
             <br/>
-            { (this.props.user && this.props.user.id == this.state.crawl.user.id) ?
-              <InviteForm userId={this.props.user.id} crawlId={this.props.crawl.id}/> : false
-            }
           </div>
         <div id="map-flex">
           <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>

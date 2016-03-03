@@ -201,6 +201,10 @@ a.crawl-name:hover {
   width: 100%;
 }
 
+#review-button {
+  margin-top: 15px;
+}
+
 div.review {
   margin-left: 500px;
 }
@@ -235,6 +239,14 @@ div.review {
 
 .hops-list-ul > li > a {
   color: #0987E5;
+}
+
+.small-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 20px;
 }
 
 /*
