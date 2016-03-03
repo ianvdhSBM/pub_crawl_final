@@ -54,21 +54,21 @@ class InviteForm extends React.Component {
     if(!this.state.error && !this.state.success){
       return (
         <div className="invite-form-flex">
-        <h3>invite your friends!</h3>
-        <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="form-group">
-            <div className="input-group">
-              <input className="form-control" type="text" id="invite-invitee" name="invitee"
-              placeholder="Invitee Email" onChange={this.onChange.bind(this)}/>
-              <input type="hidden" id="invite-crawl-id" name="crawl-id" value={this.state.crawlId}/>
+          <h3>invite your friends!</h3>
+          <form className="input-group" onSubmit={this.handleSubmit.bind(this)}>
+            <div className="form-group">
+              <div className="input-group">
+                <input className="form-control" type="text" id="invite-invitee" name="invitee"
+                placeholder="Invitee Email" onChange={this.onChange.bind(this)}/>
+                <input type="hidden" id="invite-crawl-id" name="crawl-id" value={this.state.crawlId}/>
+              </div>
             </div>
-          </div>
-          <div className="form-group">
-            <div className="input-group">
-              <button type="submit" className="btn btn-default">Invite</button>
+            <div className="form-group">
+              <div className="input-group">
+                <button type="submit" className="btn btn-default">Invite</button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
         </div>
       );
     } else if(this.state.success){

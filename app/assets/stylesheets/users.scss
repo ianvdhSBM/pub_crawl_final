@@ -42,6 +42,7 @@
   border: 2px solid #0987E5;
   color: #0987E5;
   padding: 5px 10px;
+
   /*margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;*/
@@ -54,6 +55,14 @@
   text-decoration: none;
 }
 
+.invites-list {
+  text-align: center;
+}
+
+.invite-link {
+  padding-bottom: 5px;
+}
+
 // .page-container {
 //   padding: 20px 100px 100px 100px;
 // }
@@ -63,10 +72,9 @@
 }
 
 @media only screen and (max-width: 800px) {
-
-/*
-  ShowUser component
-*/
+  /*
+    ShowUser component
+  */
 
   .profile-flex {
     flex-direction: column;
@@ -75,6 +83,7 @@
 
   .profile-pic {
     order: 1;
+
     /*width: auto;
     height: auto;*/
   }
@@ -84,4 +93,9 @@
     order: 2;
   }
 
+  .invites-list {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
