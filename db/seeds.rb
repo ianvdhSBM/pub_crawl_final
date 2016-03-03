@@ -310,7 +310,7 @@ tags14 << tequila
 tags14 << tikibar
 tags14 << happyhour
 
-crawl = Crawl.new(name: "Ron's Coolest Crawl", description: "Give a man a fish, and you feed him for a day. Don't teach a man to fish, and you feed yourself. He's a grown man. Fishing's not that hard.", user_id: 1)
+crawl = Crawl.new(name: "Ron's Coolest Hop", description: "Give a man a fish, and you feed him for a day. Don't teach a man to fish, and you feed yourself. He's a grown man. Fishing's not that hard.", user_id: 1)
 crawl.save
 bars.each_with_index do |bar,index|
   crawl.hops.create(bar: bar, position: index + 1)
@@ -319,7 +319,7 @@ tags.each do |tag|
   crawl.tags << tag
 end
 
-crawl1 = Crawl.new(name: "New Toronto Crawl", description: "I once worked with a man for three years and never got to know his name. Best friend I ever had.", user_id: 1)
+crawl1 = Crawl.new(name: "New Toronto Hop", description: "I once worked with a man for three years and never got to know his name. Best friend I ever had.", user_id: 1)
 crawl1.save
 bars1.each_with_index do |bar,index|
   crawl1.hops.create(bar: bar, position: index + 1)
@@ -328,7 +328,7 @@ tags1.each do |tag|
   crawl1.tags << tag
 end
 
-crawl2 = Crawl.new(name: "OK Crawl", description: "The whole thing is a scam. Birthday's were invented by Hallmark to sell cards.", user_id: 1)
+crawl2 = Crawl.new(name: "OK Hop", description: "The whole thing is a scam. Birthday's were invented by Hallmark to sell cards.", user_id: 1)
 crawl2.save
 bars2.each_with_index do |bar, index|
   crawl2.hops.create(bar: bar, position: index + 1)
@@ -382,7 +382,7 @@ tags7.each do |tag|
   crawl7.tags << tag
 end
 
-crawl8 = Crawl.new(name: "Jackie's Crawl", description: "Do we have a chance? You get me one coffee drinker on that jury, you gonna walk outta there a rich man.", user_id: 5)
+crawl8 = Crawl.new(name: "Jackie's Hop", description: "Do we have a chance? You get me one coffee drinker on that jury, you gonna walk outta there a rich man.", user_id: 5)
 crawl8.save
 bars8.each_with_index do |bar, index|
   crawl8.hops.create(bar: bar, position: index + 1)
