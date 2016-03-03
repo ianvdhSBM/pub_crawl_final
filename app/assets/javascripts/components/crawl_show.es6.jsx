@@ -168,7 +168,7 @@ class CrawlShow extends React.Component {
                       return (
                         <div className="row border" key={ review.id } >
                           <div className="review-list-flex" key={review.id}>
-                            <img src={review.user.image.url} className="small-image" />
+                            <a href={"/users/" + review.user.id}><img src={review.user.image.url} className="small-image" /></a>
                             <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
                             <div className="crawl-rating">
                               <img src={"/assets/" + review.rating + "-stars.png"} />

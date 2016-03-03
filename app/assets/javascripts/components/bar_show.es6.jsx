@@ -69,7 +69,7 @@ class BarShow extends React.Component {
               {/* <p><strong>Average Price: </strong>{bar.price}</p> */}
             </div>
             <div>
-              <h3>{bar.name}'s hop list</h3>
+              <h3 className="text-center">{bar.name}'s hop list</h3>
                 <CrawlsList crawls={ crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/>
             </div>
           </div>
