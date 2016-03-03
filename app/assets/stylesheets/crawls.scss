@@ -53,6 +53,10 @@ li#dropdown.dropdown:hover {
   margin-bottom: 10px;
 }
 
+.filters-ul {
+  padding-bottom: 20px;
+}
+
 .nav-pills > li {
   border: 2px solid #0987E5;
   color: #0987E5;
@@ -315,7 +319,6 @@ div.awesomplete {
 }
 
 @media only screen and (max-width: 800px) {
-
   /*
     Filters component
   */

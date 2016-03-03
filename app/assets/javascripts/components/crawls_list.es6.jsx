@@ -136,12 +136,6 @@ class CrawlsList extends React.Component {
             <Filters filterCrawls={this.filterCrawls} tags={tags} filters={filters} setExpanded={this.setExpanded}/>
           </div>
         </div>
-        <div className="crawlList-flex">
-          <div className="crawlList-header first"><h3>Name</h3></div>
-          <div className="crawlList-header second"><h3>Start Address</h3></div>
-          <div className="crawlList-header second"><h3>Rating</h3></div>
-          <div className="crawlList-header third"><h3>Tags</h3></div>
-        </div>
           { this.state.filtercrawls.map(function(crawl) {
             return (
               <Crawl key={ crawl.id } crawl={ crawl } bars={ crawl.bars } tags={ crawl.tags } setExpanded={self.props.setExpanded} expanded={self.props.expanded === crawl.id }/>
