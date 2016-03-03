@@ -20,13 +20,13 @@ class Crawl extends React.Component {
     // this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
 
     // Sets average rating stars
-    if (this.props.crawl.rating) {
-      document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
-      var elements = document.getElementById("averageRating").elements;
-      for (var i = 0; i < elements.length; i++) {
-          elements[i].disabled = true;
-      }
-    }
+    // if (this.props.crawl.rating) {
+    //   document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
+    //   var elements = document.getElementById("averageRating").elements;
+    //   for (var i = 0; i < elements.length; i++) {
+    //       elements[i].disabled = true;
+    //   }
+    // }
   }
 
   expandCrawl(e) {
@@ -52,21 +52,7 @@ class Crawl extends React.Component {
           <div className="crawlList-rows">
             { crawl.rating ?
               <div className="crawl-rating">
-                <form id="averageRating">
-                  <div className="stars">
-                    <input type="radio" name="star" className="star-10" id="star-10" />
-                    <label className="star-10" htmlFor="star-10">1</label>
-                    <input type="radio" name="star" className="star-20" id="star-20" />
-                    <label className="star-20" htmlFor="star-20">2</label>
-                    <input type="radio" name="star" className="star-30" id="star-30" />
-                    <label className="star-30" htmlFor="star-30">3</label>
-                    <input type="radio" name="star" className="star-40" id="star-40" />
-                    <label className="star-40" htmlFor="star-40">4</label>
-                    <input type="radio" name="star" className="star-50" id="star-50" />
-                    <label className="star-50" htmlFor="star-50">5</label>
-                    <span></span>
-                  </div>
-                </form>
+                <img src={"/assets/" + crawl.rating + "-stars.png"} />
               </div> :
               <em>No reviews</em>
             }
