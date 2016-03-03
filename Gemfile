@@ -42,7 +42,6 @@ gem 'font-awesome-sass'
 # gem 'bcrypt', '~> 3.1.7'
 
 # debugging
-gem 'pry'
 
 gem 'httpclient'
 
@@ -59,6 +58,7 @@ gem 'rails_12factor'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry'
 end
 
 group :development do
@@ -69,4 +69,6 @@ group :development do
   gem 'spring'
 
   gem 'quiet_assets'
+
+  gem 'pry'
 end
