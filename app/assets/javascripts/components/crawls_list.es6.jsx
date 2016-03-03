@@ -32,15 +32,15 @@ class CrawlsList extends React.Component {
   sortRating(crawls) {
     if (this.state.rating === true) {
       return crawls.sort(function(a, b){
-        if(a.rating > b.rating) return -1;
-        if(a.rating < b.rating) return 1;
+        if(a.rating < b.rating) return -1;
+        if(a.rating > b.rating) return 1;
         return 0;
       })
     }
     else {
       return crawls.sort(function(a, b) {
-        if(a.rating < b.rating) return -1;
-        if(a.rating > b.rating) return 1;
+        if(a.rating > b.rating) return -1;
+        if(a.rating < b.rating) return 1;
         return 0;
       })
     }
