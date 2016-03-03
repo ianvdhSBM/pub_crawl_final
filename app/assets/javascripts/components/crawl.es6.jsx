@@ -10,14 +10,14 @@ class Crawl extends React.Component {
   }
 
   componentDidMount() {
-    var bars = this.props.crawl.hops
-    var prices = [];
-    for (var i = 0; i < bars.length; i++) {
-      if (bars[i].price !== null) {
-        prices.push(bars[i].price);
-      }
-    }
-    this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
+    // var bars = this.props.crawl.hops
+    // var prices = [];
+    // for (var i = 0; i < bars.length; i++) {
+    //   if (bars[i].price !== null) {
+    //     prices.push(bars[i].price);
+    //   }
+    // }
+    // this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
 
     // Sets average rating stars
     if (this.props.crawl.rating) {
