@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <div class="input-group">
-              <%= select_tag 'tags[]', options_from_collection_for_select(@tags, "id", "name" ), {multiple: true, class: "tags-select form-control"} %>
+              <%= select_tag 'tags[]', options_from_collection_for_select(@tags, "id", "name" ), {multiple: true, class: "tags-select form-control tags-dropdown"} %>
             </div>
           </div>
           <div class="form-group">

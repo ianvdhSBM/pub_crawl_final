@@ -34,7 +34,7 @@ class CrawlsController < ApplicationController
 
 
     if @crawl.save
-      redirect_to root_path
+      redirect_to crawl_path(@crawl.id)
     else
       render "new"
     end

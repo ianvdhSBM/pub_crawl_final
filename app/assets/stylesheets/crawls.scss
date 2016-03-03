@@ -307,10 +307,15 @@ div.review {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .crawls-new-form-header h2 mark {
   color: #fff;
+}
+
+.dropdown-menu > li > a {
+  margin-left: 10px;
 }
 
 div.awesomplete {
@@ -350,6 +355,10 @@ div.awesomplete {
     margin-top: 10px;
     margin-bottom: 5px;
     color: #fff;
+  }
+
+  .tags-dropdown {
+    padding-left: 10px;
   }
 
   /*
