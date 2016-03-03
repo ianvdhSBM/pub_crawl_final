@@ -49,12 +49,10 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
   }
 
-
   onRatingChange(e) {
     var newRating = e.target.value;
     this.setState({review: {rating: newRating}})
   }
-
 
   handleSubmit(e) {
     var review = this.state.review;
@@ -172,7 +170,9 @@ class CrawlShow extends React.Component {
                           <div className="review-list-flex" key={review.id}>
                             <img src={review.user.image.url} className="small-image" />
                             <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
-                            <div className="review-list-row"><p>{review.rating}</p></div>
+                            <div className="crawl-rating">
+                              <img src={"/assets/" + review.rating + "-stars.png"} />
+                            </div>
                             <div className="review-list-row"><p>{review.comment}</p></div>
                           </div>
                         </div>
