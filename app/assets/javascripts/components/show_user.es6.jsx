@@ -64,6 +64,7 @@ class ShowUser extends React.Component {
 
   render() {
     var user = this.props.user;
+    var currentUser = this.props.current_user;
     var self = this;
     return (
       <div id="flexbox-container-columns">
@@ -101,20 +102,13 @@ class ShowUser extends React.Component {
                   </h3>
                 </div>
               }
-              {
-                this.props.current_user.invites.map(function(object, i){
-                  return (
-                    <div>
-                    <a className="invite-link" href={"/crawls/" + object.crawl.id}>{object.name} invited you {object.crawl.name}</a>
-                    <br/>
-                    </div>
-                    )
-                })
-              }
+
             </div>
+            {user.id == currentUser.id ?
+              <InvitesList invites={currentUser.invites}/> : false
+            }
           </div>
         <div id="map-flex">
-          {console.log(this.state.mapCoordinates.lat)}
 
           <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} expanded={this.state.expanded}/>
 
