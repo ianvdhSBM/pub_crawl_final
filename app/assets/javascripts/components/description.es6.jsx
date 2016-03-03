@@ -21,7 +21,7 @@ class Description extends React.Component {
               <strong>hopper</strong> will help you explore new bars and neighborhoods.
             </p>
             <p className="text-center">
-              Happy Hopping!
+              <strong>Happy Hopping!</strong>
             </p>
           </div>
       </div>

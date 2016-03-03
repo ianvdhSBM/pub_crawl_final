@@ -15,7 +15,7 @@ class Crawl < ActiveRecord::Base
   #   length: { in: 5..40 }
 
   # validates :description,
-  #   length: { maximum: 150 }
+  #   length: { maximum: 300 }
 
   def average_rating
     rating = self.reviews.average(:rating)
