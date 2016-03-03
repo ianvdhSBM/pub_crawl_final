@@ -126,7 +126,7 @@ class CrawlsList extends React.Component {
         <div className="filters-flex">
           <div className="filters-search">
             <form className="input-group" onSubmit={this.handleSubmit}>
-              <input type="text" name="search" className="form-control" placeholder="Search for hops"/>
+              <input type="text" name="search" className="form-control" placeholder="search for hops or bars"/>
               <span className="input-group-btn">
                 <button className="btn btn-default" type="submit">Find</button>
               </span>
@@ -139,6 +139,7 @@ class CrawlsList extends React.Component {
         <div className="crawlList-flex">
           <div className="crawlList-header first"><h3>Name</h3></div>
           <div className="crawlList-header second"><h3>Start Address</h3></div>
+          <div className="crawlList-header second"><h3>Rating</h3></div>
           <div className="crawlList-header third"><h3>Tags</h3></div>
         </div>
           { this.state.filtercrawls.map(function(crawl) {

@@ -73,18 +73,20 @@ class InviteForm extends React.Component {
       );
     } else if(this.state.success){
       return (
-        <div className="invite-response">
+        <div className="invite-form-flex">
         <h3>invite your friends!</h3>
           <p>User successfully invited</p>
-          <button onClick={this.resetForm.bind(this)}>Invite someone else</button>
+          <button className="btn btn-default" onClick={this.resetForm.bind(this)}>Invite someone else</button>
         </div>
         );
     } else if (this.state.error){
       return (
-        <div className="invite-response">
+        <div className="invite-form-flex">
+        <form>
         <h3>invite your friends!</h3>
           <p>Something went wrong!</p>
-          <button className="btn btn-default" onClick={this.resetForm.bind(this)}>Try again</button>
+          <button className="btn btn-default" type="button" onClick={this.resetForm.bind(this)}>Try again</button>
+          </form>
         </div>
         );
     }

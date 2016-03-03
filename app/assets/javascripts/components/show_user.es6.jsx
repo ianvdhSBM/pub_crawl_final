@@ -22,28 +22,42 @@ class ShowUser extends React.Component {
     }
   }
 
+  setDefaultMarkers(crawls) {
+    var markers = [];
+    for(var i = 0; i < crawls.length; i++){
+      markers.push({
+        lat: crawls[i].hops[0].lat,
+        lng: crawls[i].hops[0].lng,
+        title: crawls[i].name,
+        class: null
+      });
+    }
+    return markers;
+  }
+
   setExpanded(id) {
+    var crawls = this.props.user.crawls;
     if (id === null) {
-      // var markers = this.setDefaultMarkers(this.state.crawls);
+      var markers = this.setDefaultMarkers(crawls);
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     } else {
-      // var crawl = this.state.crawls.filter(function(c){
-      //   return c.id === id;
-      // });
-      // var markers = [];
-      // for(var i = 0; i < crawl[0].hops.length; i++){
-      //   markers.push({
-      //     lat: crawl[0].hops[i].lat,
-      //     lng: crawl[0].hops[i].lng,
-      //     title: crawl[0].hops[i].name
-      //   });
-      // }
+      var crawl = crawls.filter(function(c){
+        return c.id === id;
+      });
+      var markers = [];
+      for(var i = 0; i < crawl[0].hops.length; i++){
+        markers.push({
+          lat: crawl[0].hops[i].lat,
+          lng: crawl[0].hops[i].lng,
+          title: crawl[0].hops[i].name
+        });
+      }
       this.setState({
-        expanded: id
-        // markers: markers
+        expanded: id,
+        markers: markers
       });
     }
   }
@@ -64,7 +78,6 @@ class ShowUser extends React.Component {
                   <h3>
                     {user.firstname} {user.lastname}
                   </h3>
-
                     {
                       user.id === this.props.current_user.id && user.provider === null ?
                         <p><a href="/users/edit" className="profile-edit">edit my info</a></p> :
@@ -82,7 +95,7 @@ class ShowUser extends React.Component {
               </div>
               { user.crawls.length > 0 ?
                 <CrawlsList key= { user.id } crawls={ user.crawls } tags={ this.props.tags } setExpanded={ self.setExpanded } expanded={ this.state.expanded }/> :
-                <div>
+                <div className="text-center">
                   <h3 id="no-hops">
                     this user hasn't created any hops yet!
                   </h3>
@@ -103,7 +116,7 @@ class ShowUser extends React.Component {
         <div id="map-flex">
           {console.log(this.state.mapCoordinates.lat)}
 
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers}/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={this.state.markers} expanded={this.state.expanded}/>
 
         </div>
       </div>

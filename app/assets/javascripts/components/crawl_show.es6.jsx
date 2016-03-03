@@ -19,6 +19,7 @@ class CrawlShow extends React.Component {
       }
     }
     this.state = {
+      expanded: props.crawl.id,
       user: props.user,
       markers: markers,
       crawl: props.crawl,
@@ -48,11 +49,17 @@ class CrawlShow extends React.Component {
     this.setState({price: Math.round(((prices.reduce ( (prev, curr) => prev + curr )) / (prices.length)))})
 
     // Sets average rating stars
-    // document.getElementById("star-"+ this.props.crawl.rating + "0").checked = true;
-    // var elements = document.getElementById("averageRating").elements;
-    // for (var i = 0; i < elements.length; ++i) {
-    //     elements[i].disabled = true;
-    // }
+
+    rating = this.props.crawl.rating
+    if (rating) {
+      document.getElementById("star-"+ rating + "0").checked = true;
+      var elements = document.getElementById("averageRating").elements;
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].disabled = true;
+      }
+    } else {
+      return;
+    }
   }
 
 
@@ -91,21 +98,24 @@ class CrawlShow extends React.Component {
                       <h2>{crawl.name}</h2>
                     </div>
                     <div className="crawl-rating">
-                      <form id="averageRating">
-                        <div className="stars">
-                          <input type="radio" name="star" className="star-10" id="star-10" />
-                          <label className="star-10" htmlFor="star-10">1</label>
-                          <input type="radio" name="star" className="star-20" id="star-20" />
-                          <label className="star-20" htmlFor="star-20">2</label>
-                          <input type="radio" name="star" className="star-30" id="star-30" />
-                          <label className="star-30" htmlFor="star-30">3</label>
-                          <input type="radio" name="star" className="star-40" id="star-40" />
-                          <label className="star-40" htmlFor="star-40">4</label>
-                          <input type="radio" name="star" className="star-50" id="star-50" />
-                          <label className="star-50" htmlFor="star-50">5</label>
-                          <span></span>
-                        </div>
-                      </form>
+                      { this.props.crawl.rating ?
+                        <form id="averageRating">
+                          <div className="stars">
+                            <input type="radio" name="star" className="star-10" id="star-10" />
+                            <label className="star-10" htmlFor="star-10">1</label>
+                            <input type="radio" name="star" className="star-20" id="star-20" />
+                            <label className="star-20" htmlFor="star-20">2</label>
+                            <input type="radio" name="star" className="star-30" id="star-30" />
+                            <label className="star-30" htmlFor="star-30">3</label>
+                            <input type="radio" name="star" className="star-40" id="star-40" />
+                            <label className="star-40" htmlFor="star-40">4</label>
+                            <input type="radio" name="star" className="star-50" id="star-50" />
+                            <label className="star-50" htmlFor="star-50">5</label>
+                            <span></span>
+                          </div>
+                        </form> :
+                        <em>Not yet rated</em>
+                      }
                     </div>
                     <div className="crawlShow-tags">
                       <div className="tags-flex">
@@ -173,7 +183,7 @@ class CrawlShow extends React.Component {
               { this.state.filteredreviews.length > 0 ?
                 <div id="show-reviews">
                   <div className="review-list-flex">
-                    <div className="review-list-header"><h4>Username</h4></div>
+                    <div className="review-list-header"><strong><h4>Username</h4></strong></div>
                     <div className="review-list-header"><h4>Rating</h4></div>
                     <div className="review-list-header"><h4>Comments</h4></div>
                   </div>
@@ -182,7 +192,7 @@ class CrawlShow extends React.Component {
                       return (
                         <div className="row border">
                           <div className="review-list-flex" key={review.id}>
-                            <div className="review-list-row"><p><a href={"/users/" + review.user.id}><strong>{review.user.firstname} {review.user.lastname}</strong></a></p></div>
+                            <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
                             <div className="review-list-row"><p>{review.rating}</p></div>
                             <div className="review-list-row"><p>{review.comment}</p></div>
                           </div>
@@ -197,7 +207,7 @@ class CrawlShow extends React.Component {
             }
           </div>
         <div id="map-flex">
-          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers }/>
+          <Map lat={this.state.mapCoordinates.lat} lng={this.state.mapCoordinates.lng} markers={ this.state.markers } expanded={ this.state.expanded }/>
         </div>
 
       </div>
