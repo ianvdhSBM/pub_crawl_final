@@ -163,7 +163,7 @@ class CrawlShow extends React.Component {
 
                     { this.state.filteredreviews.map(function(review) {
                       return (
-                        <div className="row border">
+                        <div className="row border" key={ review.id } >
                           <div className="review-list-flex" key={review.id}>
                             <div className="review-list-row"><h5><a href={"/users/" + review.user.id}>{review.user.firstname} {review.user.lastname}</a></h5></div>
                             <div className="review-list-row"><p>{review.rating}</p></div>
